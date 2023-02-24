@@ -1,0 +1,17 @@
+{
+    "limit_blue" : 40,
+    "limit_green" :  150, 
+    "limit_purple": 150,
+    "limit_red":0,
+    "limit_OJIP": 250,
+
+    "length_SP": 200,
+    "length_ML": 3,
+    
+    "period_ML": 250,
+
+    "trigger_color": "green",
+    
+    "sample_rate": 1e6
+
+}

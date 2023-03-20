@@ -20,5 +20,5 @@ t = 0
 while True:
     pwm_val = sin_wave(t)
     ser.write(bytes(str(pwm_val) + '\n', 'utf-8'))  # Send the PWM value to the Arduino
-    t += 1/act_rate  # Increment time by 1/60 of a second (60 Hz refresh rate)
-    time.sleep(1/act_rate)  # Wait for 1/60 of a second before sending the next PWM value
+    t += 1/act_rate  # Increment time by 1/act_rate of a second (refresh rate)
+    time.sleep(1/act_rate)  # Wait for 1/act_rate of a second before sending the next PWM value

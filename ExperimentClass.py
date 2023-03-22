@@ -21,12 +21,16 @@ class Experiment:
             print("Dont know the path for this place")
 
         self.RawData = pd.read_csv(f"{self.path}/{self.name}{self.DataType}", index_col=False)
+        self.keys = self.RawData.keys()
 
-        if self.diffx_axis:
+        for i, k in enumerate(self.keys):
+            self.keys[i] = k.replace(" ","")
+
+        if self.diff_xaxis:
             self.clean_times = []
             self.clean_data = []
             aux_time = np.array(self.RawData.Time)
-            for i, k in enumerate(self.RawData.keys()):
+            for i, k in enumerate(self.keys):
                 if i == 0:
                     continue
                 else:

@@ -9,7 +9,7 @@ class Experiment:
         self.equipment = equipment
         self.DataType = DataType
         self.local = local
-        self.diffx_axis = diff_xaxis
+        self.diff_xaxis = diff_xaxis
 
         if self.local == "IBPC":
             self.path = f"C:/Users/Orlando/ownCloud - ORLANDO Marcelo@mycore.cnrs.fr/Doutorado/Dados experimentais/{self.equipment}/{self.name}"

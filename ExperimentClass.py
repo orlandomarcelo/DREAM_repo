@@ -19,7 +19,7 @@ class Experiment:
             elif self.local == "ENS":
                 self.path = f"C:/Users/Orlando/ownCloud - ORLANDO Marcelo@mycore.cnrs.fr/Doutorado/Dados experimentais/{self.equipment}/{parent_experiment_name}"
             elif self.local == "home":
-                self.path = f"C:/Users/Orlando/ownCloud - ORLANDO Marcelo@mycore.cnrs.fr/Doutorado/Dados experimentais/{self.equipment}/{parent_experiment_name}"
+                self.path = f"C:/Users/marce/ownCloud_ORLANDO/Doutorado/Dados experimentais/{self.equipment}/{parent_experiment_name}"
             else:
                 print("Dont know the path for this place")
         else:
@@ -28,7 +28,7 @@ class Experiment:
             elif self.local == "ENS":
                 self.path = f"C:/Users/Orlando/ownCloud - ORLANDO Marcelo@mycore.cnrs.fr/Doutorado/Dados experimentais/{self.equipment}/{self.name}"
             elif self.local == "home":
-                self.path = f"C:/Users/Orlando/ownCloud - ORLANDO Marcelo@mycore.cnrs.fr/Doutorado/Dados experimentais/{self.equipment}/{self.name}"
+                self.path = f"C:/Users/marce/ownCloud_ORLANDO/Doutorado/Dados experimentais/{self.equipment}/{self.name}"
             else:
                 print("Dont know the path for this place")
 

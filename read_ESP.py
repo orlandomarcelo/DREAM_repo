@@ -4,49 +4,49 @@ import time   # for Time
 
 # Generate file name using Current Date and Time
 
+filepath = "C:/Users/Biophysique/Desktop/Light_data/ard"
 current_local_time = time.localtime() #Get Current date time
 filename           = time.strftime("%d_%B_%Y_%Hh_%Mm_%Ss",current_local_time)# 24hour clock format
-filename           = 'ard_'+ filename + '_daq_log.csv'
+filename           = filepath + filename + '_daq_log.csv'
 print(f'Created Log File -> {filename}')
 
 
 #Create a csv File header
 
 with open(filename,'w+') as csvFile:
-    csvFile.write('No,Date,Time,AN1\n')
+    csvFile.write('No;Time;Read\n')
     
 log_count = 1
 
 #COM 4 may change with system
-SerialObj = serial.Serial('COM4',9600) # COMxx   format on Windows
+SerialObj = serial.Serial('COM4',115200)
                 
 #Log continously to a file by querying the arduino                 
 while 1:
     ReceivedString = SerialObj.readline()       # Change to receive  mode to get the data from arduino,Arduino sends \n to terminate
     ReceivedString = str(ReceivedString,'utf-8')# Convert bytes to string of encoding utf8
-    tempvalueslist = ReceivedString.split('-')  # Split the string into 4 values at '-'  
+    if ReceivedString == "END":
+        break
+    
+    valueslist = ReceivedString.split(';')  # Split the string into 4 values at '-'  
     #print(f'AN1={tempvalueslist[0]} AN2={tempvalueslist[1]} AN3={tempvalueslist[2]} AN4={tempvalueslist[3]}')
     
-    seperator = ','
+    seperator = ';'
     
-    log_time_date = time.localtime() #Get log date time from PC
-    log_time = time.strftime("%H:%M:%S",log_time_date) #hh:mm:ss
-    log_date = time.strftime("%d %B %Y",log_time_date) #dd MonthName Year
-    #print(log_time)
-    #print(log_date)
-    
+
     # create a string to write into the file
-    log_file_text1 = str(log_count) + seperator + log_date + seperator + log_time + seperator
-    log_file_text2 = tempvalueslist[0] + seperator + tempvalueslist[1] + seperator +tempvalueslist[2]+ seperator+tempvalueslist[3]
-    log_file_text3 =  log_file_text1 +  log_file_text2 + '\n'
-    
-    # write to file .csv
-    with open(filename,'a') as LogFileObj:
-        LogFileObj.write(log_file_text3)
+    if len(valueslist) == 2:
         
-    print(log_file_text3)
-    log_count = log_count + 1 #increment no of logs taken
+        log_file_text1 = str(log_count) + seperator 
+        log_file_text2 = valueslist[0] + seperator + valueslist[1]
+        log_file_text3 =  log_file_text1 +  log_file_text2
+        
+        # write to file .csv
+        with open(filename,'a') as LogFileObj:
+            LogFileObj.write(log_file_text3)
+            
+        #print(log_file_text3)
+        log_count = log_count + 1 #increment no of logs taken
     
-    time.sleep(10) #change this delay to change sensing interval 
 
 SerialObj.close()          # Close the port

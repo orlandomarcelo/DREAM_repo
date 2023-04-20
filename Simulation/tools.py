@@ -103,8 +103,8 @@ def get_bode_diagram(Freq_list, Time_list, Signal_list, threshold = 100):
     Phase = []
     for i in range(len(Freq_list)):
         F, A, P = get_spectrum(Time_list[i], Signal_list[i], threshold)
-        Freq.append(F)
-        Amp.append(A)
-        Phase.append(P)
+        Freq.append(np.asarray(F))
+        Amp.append(np.asarray(A))
+        Phase.append(np.asarray(P))
     
     return Freq, Amp, Phase

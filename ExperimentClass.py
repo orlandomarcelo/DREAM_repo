@@ -85,4 +85,17 @@ class Experiment:
         return ["E" + str(x) for x in record_array.tolist()]
 
 
+    def extract_recording(self, record_name):
+        for i , k in enumerate(self.keys):
+            if k == record_name:
+                sub_experiment_time = self.clean_times[i]
+                sub_experiment_data = self.clean_data[i]
+        
+        aux = ["Time", record_name]
+        
+        df = pd.DataFrame(data = np.transpose([sub_experiment_time,sub_experiment_data]) , columns = aux)
+
+        df.to_csv(f"{self.path}/{record_name}.dat", index = False)
+
+
 

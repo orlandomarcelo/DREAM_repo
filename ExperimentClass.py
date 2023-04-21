@@ -50,6 +50,11 @@ class Experiment:
                 self.clean_times.append(aux_time[indices])
                 self.clean_data.append((a[indices]))
 
+        try:
+            self.annotations = pd.read_csv(f"{self.path}/annotation.csv", index_col=False, sep = ";")
+        except:
+            pass
+
 
 
     def sub_experiments(self, sub_experiment_name, keys):
@@ -78,7 +83,6 @@ class Experiment:
             self.sub_experiments(k, list(keys_list[i]))
     
     def get_annotations(self):
-        self.annotations = pd.read_csv(f"{self.path}/annotation.csv", index_col=False, sep = ";")
         return self.annotations
     
     def get_keys_list(self, record_array):

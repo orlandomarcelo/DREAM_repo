@@ -91,6 +91,7 @@ def FFT(Time, Signal):
 def get_spectrum(Time, Signal, threshold = 100):
     F, A, P = FFT(Time, Signal)
     peaks, _ = find_peaks(A, threshold= max(A)/threshold)
+    P = P * 180 / np.pi
     P = P - P[0]
     P = np.where(P < -180, P + 360, P)
     P = np.where(P > 180, P - 360, P)
@@ -101,10 +102,12 @@ def get_bode_diagram(Freq_list, Time_list, Signal_list, threshold = 100):
     Freq = []
     Amp = []
     Phase = []
+
     for i in range(len(Freq_list)):
         F, A, P = get_spectrum(Time_list[i], Signal_list[i], threshold)
-        Freq.append(F)
-        Amp.append(A)
-        Phase.append(P)
+        Freq.append(np.asarray(F))
+        Amp.append(np.asarray(A))
+        Phase.append(np.asarray(P))
+   
     
     return Freq, Amp, Phase

@@ -73,7 +73,7 @@ def sigmoid_fit(xdata, ydata, start, stop, num):
 
     popt, pcov = curve_fit(sigmoid, xdata, ydata)
     xfit = np.linspace(start, stop, num)
-    yfit = sigmoid(xfit, popt[0], popt[1], popt[2])
+    yfit = sigmoid(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
 
 
@@ -111,3 +111,16 @@ def get_bode_diagram(Freq_list, Time_list, Signal_list, threshold = 100):
    
     
     return Freq, Amp, Phase
+
+def create_record_list(input_str):
+    nums = []
+    for item in input_str.split(','):
+        if '-' in item:
+            start, end = item.split('-')
+            nums.extend(range(int(start), int(end) + 1))
+        else:
+            nums.append(int(item))
+
+    string_numbers = ["E" + str(num) for num in nums]
+
+    return string_numbers

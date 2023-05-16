@@ -1,5 +1,11 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+
+import os
+import re
+
+from striprtf.striprtf import rtf_to_text
 
 
 class Experiment:
@@ -35,20 +41,38 @@ class Experiment:
         AllData = pd.read_csv(f"{self.path}/{self.name}{self.DataType}", index_col=False)
         self.Data = AllData.iloc[:,1:]
         self.Time = AllData.iloc[:,0]
-        self.keys = []
+        self.records = []
 
         for i, k in enumerate(self.Data.keys()):
-            self.keys.append(k.replace(" ",""))
+            self.records.append(k.replace(" ",""))
 
         if self.diff_xaxis:
             self.clean_times = []
             self.clean_data = []
             aux_time = np.array(self.Time)
-            for i, k in enumerate(self.keys):
+            for i, k in enumerate(self.records):
                 a = np.array(self.Data.iloc[:, i])
                 indices = np.invert(np.isnan(a))
                 self.clean_times.append(aux_time[indices])
                 self.clean_data.append((a[indices]))
+        
+        if not os.path.exists(f"{self.path}/pre_annotation.csv"):
+            rtf_file_path = f"{self.path}/{self.name}.rtf"
+            with open(rtf_file_path) as infile:
+                content = infile.read()
+                text = rtf_to_text(content)
+
+            pattern = r"Enregistrement\s(\d{1,3})\s{6}(\S{8}).+\s(\d{1,3})\sµE.+\s(.+)"
+            pre_info = re.findall(pattern, text)
+            record_str = ["E" + str(num) for num in np.asarray(pre_info)[:,0]]
+            df = pd.DataFrame(np.asarray(pre_info), columns=["Record", "Real_time", "Light_intensity", "Comment"])
+            df.insert(1, "Record_str", record_str)
+            df.to_csv(f"{self.path}/pre_annotation.csv", index=False)
+
+        try:
+            self.annotations = pd.read_csv(f"{self.path}/annotation.csv", index_col=False, sep = ";")
+        except:
+            pass
 
 
 
@@ -56,7 +80,7 @@ class Experiment:
         sub_experiment_data = []
         count = 0
         aux = list(keys)
-        for i , k in enumerate(self.keys):
+        for i , k in enumerate(self.records):
             for l, m in enumerate(aux):
                 if k == m:
                     if count == 0:
@@ -78,11 +102,25 @@ class Experiment:
             self.sub_experiments(k, list(keys_list[i]))
     
     def get_annotations(self):
-        self.annotations = pd.read_csv(f"{self.path}/annotation.csv", index_col=False, sep = ";")
         return self.annotations
     
     def get_keys_list(self, record_array):
         return ["E" + str(x) for x in record_array.tolist()]
+
+
+    def extract_recording(self, record_name):
+        for i , k in enumerate(self.keys):
+            if k == record_name:
+                sub_experiment_time = self.clean_times[i]
+                sub_experiment_data = self.clean_data[i]
+        
+        aux = ["Time", record_name]
+        
+        df = pd.DataFrame(data = np.transpose([sub_experiment_time,sub_experiment_data]) , columns = aux)
+
+        df.to_csv(f"{self.path}/{record_name}.dat", index = False)
+
+
 
 
 

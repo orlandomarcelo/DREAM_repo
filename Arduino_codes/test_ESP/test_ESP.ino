@@ -15,10 +15,10 @@ const int resolution = 16;
 int max_amp = pow(2, resolution) - 1;
 
 // setting the actinic light properties
-float frequency = 2; // Hz
-float offset_fact = 0.08; // Offset as a fraction of max intensity
-float amp_fact = 0.07; // Amplitude of modulation a fraction of max intensity
-float max_time = 10000; // Experiment time in seconds
+float frequency = 0.0167; // Hz
+float offset_fact = 0.15; // Offset as a fraction of max intensity
+float amp_fact = 0.05; // Amplitude of modulation a fraction of max intensity
+float max_time = 300; // Experiment time in seconds
 
 //IMPORTANT: 
 // (amp_fact + offset_fact <= 1) and (amp_fact <= offset_fact=)

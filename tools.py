@@ -76,6 +76,15 @@ def sigmoid_fit(xdata, ydata, start, stop, num):
     yfit = sigmoid(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
 
+def sinus_fit(xdata, ydata, start, stop, num, p0 = None):
+    def sinus(x, A, B, C, D):
+        return A * np.sin(2* np.pi*(B * x + C)) + D
+
+    popt, pcov = curve_fit(sinus, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
+    return popt, xfit, yfit
+
 
 def FFT(Time, Signal):
 

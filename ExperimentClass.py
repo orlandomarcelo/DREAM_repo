@@ -58,16 +58,19 @@ class Experiment:
         
         if not os.path.exists(f"{self.path}/pre_annotation.csv"):
             rtf_file_path = f"{self.path}/{self.name}.rtf"
-            with open(rtf_file_path) as infile:
-                content = infile.read()
-                text = rtf_to_text(content)
+            try:
+                with open(rtf_file_path) as infile:
+                    content = infile.read()
+                    text = rtf_to_text(content)
 
-            pattern = r"Enregistrement\s(\d{1,3})\s{6}(\S{8}).+\s(\d{1,3})\sµE.+\s(.+)"
-            pre_info = re.findall(pattern, text)
-            record_str = ["E" + str(num) for num in np.asarray(pre_info)[:,0]]
-            df = pd.DataFrame(np.asarray(pre_info), columns=["Record", "Real_time", "Light_intensity", "Comment"])
-            df.insert(1, "Record_str", record_str)
-            df.to_csv(f"{self.path}/pre_annotation.csv", index=False)
+                pattern = r"Enregistrement\s(\d{1,3})\s{6}(\S{8}).+\s(\d{1,3})\sµE.+\s(.+)"
+                pre_info = re.findall(pattern, text)
+                record_str = ["E" + str(num) for num in np.asarray(pre_info)[:,0]]
+                df = pd.DataFrame(np.asarray(pre_info), columns=["Record", "Real_time", "Light_intensity", "Comment"])
+                df.insert(1, "Record_str", record_str)
+                df.to_csv(f"{self.path}/pre_annotation.csv", index=False)
+            except:
+                pass
 
         try:
             self.annotations = pd.read_csv(f"{self.path}/annotation.csv", index_col=False, sep = ";")

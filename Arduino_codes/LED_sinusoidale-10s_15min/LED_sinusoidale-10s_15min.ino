@@ -1,4 +1,3 @@
-
 /*
   State change detection (edge detection)
 
@@ -50,8 +49,8 @@ void setup(){
 }
 
 void loop(){
-  //buttonState = digitalRead(flashPin);
-  if (buttonState == 0){
+ // buttonState = digitalRead(flashPin);
+  //if (buttonState == 0){
     for(int i=0; i<nb_periode; i++){
         // Augmente la luminosité de la led
         while(i_dutyCycle < Max_duty_cycle)
@@ -63,7 +62,7 @@ void loop(){
       {
         ledcWrite(ledChannel, i_dutyCycle--);
         delayMicroseconds(periode);
-    }
+    //}
    }
   }
 }

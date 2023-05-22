@@ -1,32 +1,38 @@
-# include <math.h>
+#include <math.h>
+
+#define PI 3.1415926535
 
 // the number of the LED pin
-const int ledPin = 18;
+const int ledPin = 2;
 
 // the number of the flash pin
-const int  flashPin = 4;
+const int  flashPin = 5;
 
 // setting PWM properties
-const int freq = 50000; //refresh rate
+const int freq = 1000 ; //refresh rate
 const int ledChannel = 0;
 const int resolution = 16;
-int max_amp = pow(2, resolution) - 1 ;
+int max_amp = pow(2, resolution) - 1;
 
 // setting the actinic light properties
-float frequency = 1; // Hz
-float offset_fact = 0.5; // Offset as a fraction of max intensity
-float amp_fact = 0.5; // Amplitude of modulation a fraction of max intensity
-float max_time = 10; // Experiment time
+float frequency = 0.0167; // Hz
+float offset_fact = 0.15; // Offset as a fraction of max intensity
+float amp_fact = 0.05; // Amplitude of modulation a fraction of max intensity
+float max_time = 300; // Experiment time in seconds
 
 //IMPORTANT: 
 // (amp_fact + offset_fact <= 1) and (amp_fact <= offset_fact=)
 
-float t = 0;
+unsigned long t = 0;
 int PWM_value = 0;
-unsigned long startMillis;
-int buttonState = 0; 
+unsigned long startMillis = 0;
+int trigger = 1;
+
 
 void setup() {
+  Serial.begin(115200);
+  pinMode(flashPin, INPUT);
+  max_time = max_time * 1000;
   // configure LED PWM functionalitites
   ledcSetup(ledChannel, freq, resolution);
   
@@ -35,16 +41,18 @@ void setup() {
 }
 
 void loop() {
-  buttonState = digitalRead(flashPin);
-  if (buttonState == 0){
+  trigger = digitalRead(flashPin);
+  if (trigger == 1){
+    startMillis = millis();
+    t = 0;
     while (t < max_time ){
-      if (t == 0){
-        startMillis = millis();
-      }
-      t = (millis() - startMillis)/1000;
-      PWM_value = round((amp_fact * max_amp * sin(2 * PI * frequency * t) + offset_fact * max_amp));
+      Serial.println(trigger);
+      t = (millis() - startMillis);
+      PWM_value = round((amp_fact * max_amp * sin(2 * PI *(frequency/1000)* t) + offset_fact * max_amp));
       ledcWrite(ledChannel, PWM_value);
-      delay(1000/freq);
+      delay(1/freq);
+      
     }
+    ledcWrite(ledChannel, 0);
   }
 }

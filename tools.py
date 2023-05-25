@@ -43,12 +43,12 @@ def turbidostat_data(turbido_data, data_list):
     return lights, OD_680, OD_720, pump_vol, temperature, times
 
 
-def exp_decay_fit(xdata, ydata, start, stop, num):
-    def exp_decay(x, A, B, C):
-        return A * np.exp(-(x/B)) + C
-    popt, pcov = curve_fit(exp_decay, xdata, ydata)
+def exp_decay_fit(xdata, ydata, start, stop, num, p0 = None):
+    def exp_decay(x, A, B):
+        return A * (1- np.exp(-((x)/B)))
+    popt, pcov = curve_fit(exp_decay, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
-    yfit = exp_decay(xfit, popt[0], popt[1], popt[2])
+    yfit = exp_decay(xfit, popt[0], popt[1])
     return popt, xfit, yfit
     
 def lin_fit(xdata, ydata, start, stop, num):
@@ -65,6 +65,14 @@ def Ek_fit(xdata, ydata, start, stop, num, p0 = None):
     popt, pcov = curve_fit(Ek, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = Ek(xfit, popt[0], popt[1])
+    return popt, xfit, yfit
+
+def sat_overshoot_fit(xdata, ydata, start, stop, num, p0 = None):
+    def sat_overshoot(x, A, B, C, D):
+        return A * (1 - np.exp(-(x/B))) + C * np.exp(-x/D)
+    popt, pcov = curve_fit(sat_overshoot, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = sat_overshoot(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
 
 def sigmoid_fit(xdata, ydata, start, stop, num):
@@ -87,15 +95,22 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None):
 
 
 def FFT(Time, Signal):
-
-    fs = 1 / (Time[1] - Time[0])
-    freq = np.fft.fftfreq(len(Time), 1/fs) 
+    
+    freq = np.fft.fftfreq(len(Time), (Time[1] - Time[0]))
     F = freq[1:int(len(freq)/2)]
     ft = np.fft.fft(Signal)
     A = np.abs(ft[1:int(len(freq)/2)])
     P = np.angle(ft[1:int(len(freq)/2)])
     
     return F, A, P
+
+def median_filter(data, window_size):
+    filtered_data = np.zeros_like(data)
+    for i in range(len(data)):
+        window = data[max(0, i-window_size):min(len(data), i+window_size+1)]
+        filtered_data[i] = np.median(window)
+    return filtered_data
+
 
 def get_spectrum(Time, Signal, threshold = 100):
     F, A, P = FFT(Time, Signal)
@@ -133,3 +148,5 @@ def create_record_list(input_str):
     string_numbers = ["E" + str(num) for num in nums]
 
     return string_numbers
+
+

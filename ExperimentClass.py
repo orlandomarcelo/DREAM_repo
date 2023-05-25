@@ -9,13 +9,12 @@ from striprtf.striprtf import rtf_to_text
 
 
 class Experiment:
-    def __init__(self, name, equipment, local="IBPC", DataType=".dat", diff_xaxis=False, is_sub_experiment=False, parent_experiment_name=None):
+    def __init__(self, name, equipment, local="IBPC", DataType=".dat", is_sub_experiment=False, parent_experiment_name=None):
 
         self.name = name
         self.equipment = equipment
         self.DataType = DataType
         self.local = local
-        self.diff_xaxis = diff_xaxis
         self.is_sub_experiment = is_sub_experiment
         self.parent_experiment_name = parent_experiment_name
 
@@ -45,16 +44,18 @@ class Experiment:
 
         for i, k in enumerate(self.Data.keys()):
             self.records.append(k.replace(" ",""))
+            
+        self.Data.columns = self.records
 
-        if self.diff_xaxis:
-            self.clean_times = []
-            self.clean_data = []
-            aux_time = np.array(self.Time)
-            for i, k in enumerate(self.records):
-                a = np.array(self.Data.iloc[:, i])
-                indices = np.invert(np.isnan(a))
-                self.clean_times.append(aux_time[indices])
-                self.clean_data.append((a[indices]))
+
+        self.clean_times = []
+        self.clean_data = []
+        aux_time = np.array(self.Time)
+        for i, k in enumerate(self.records):
+            a = np.array(self.Data.iloc[:, i])
+            indices = np.invert(np.isnan(a))
+            self.clean_times.append(aux_time[indices])
+            self.clean_data.append((a[indices]))
         
         if not os.path.exists(f"{self.path}/pre_annotation.csv"):
             rtf_file_path = f"{self.path}/{self.name}.rtf"
@@ -112,7 +113,7 @@ class Experiment:
 
 
     def extract_recording(self, record_name):
-        for i , k in enumerate(self.keys):
+        for i , k in enumerate(self.records):
             if k == record_name:
                 sub_experiment_time = self.clean_times[i]
                 sub_experiment_data = self.clean_data[i]
@@ -122,6 +123,15 @@ class Experiment:
         df = pd.DataFrame(data = np.transpose([sub_experiment_time,sub_experiment_data]) , columns = aux)
 
         df.to_csv(f"{self.path}/{record_name}.dat", index = False)
+        
+    def average_recordings(self, record_list):
+        selected_cols = self.Data[record_list]
+        row_means  = selected_cols.mean(axis=1)
+        rows_std = selected_cols.std(axis=1)
+        
+        return np.array(row_means), np.array(rows_std)
+
+
 
 
 

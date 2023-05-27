@@ -31,7 +31,7 @@ const int ledPin = 2;
 const int nbBaseline = 2;
 const int totalPoint = 17;
 
-int delais_LED = 40;
+int delais_LED = 5;
 
 
 
@@ -50,7 +50,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin,LOW);
   // initialize serial communication:
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 
@@ -58,9 +58,10 @@ void loop() {
 
     // read the pushbutton input pin:
   buttonState = digitalRead(flashPin);
+  Serial.println(buttonState);
   if (buttonState == 0){
       digitalWrite(ledPin,HIGH);
-      delay(delais_LED);
+      delay(100);
       digitalWrite(ledPin,LOW);
     }
 }

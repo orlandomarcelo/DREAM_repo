@@ -5,6 +5,7 @@ import statistics as st
 import os
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
+import math_functions as mf
 
 def clean_spaces(vector):
     clean_vector = []
@@ -91,6 +92,24 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None):
     popt, pcov = curve_fit(sinus, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
+    return popt, xfit, yfit
+
+def RLC_transf_fit(xdata, ydata, start, stop, num, p0 = None):
+    popt, pcov = curve_fit(mf.RLC_transfer, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = mf.RLC_transfer(xfit, popt[0], popt[1], popt[2])
+    return popt, xfit, yfit
+
+def RC_transf_fit(xdata, ydata, start, stop, num, p0 = None):
+    popt, pcov = curve_fit(mf.RC_transfer, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = mf.RC_transfer(xfit, popt[0], popt[1])
+    return popt, xfit, yfit
+
+def sec_ord_fit(xdata, ydata, start, stop, num, p0 = None):
+    popt, pcov = curve_fit(mf.second_order, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = mf.RC_transfer(xfit, popt[0], popt[1])
     return popt, xfit, yfit
 
 

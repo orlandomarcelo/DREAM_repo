@@ -26,7 +26,7 @@ def RLC_transfer(w, R, L, C):
     return w * C / np.sqrt(np.square(1 - w * w * L * C) - np.square((w * L)/R))
 
 def second_order(w, K, w_0, csi):
-    return  K / np.sqrt(np.square(1 - np.square(w/w_0)) + np.square((2* csi * (w/w_0))))
+    return  np.abs(K) / np.sqrt((1 - (w / w_0) ** 2) ** 2 + (2 * csi * w / w_0) ** 2)
 
 
 

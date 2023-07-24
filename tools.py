@@ -113,8 +113,10 @@ def sec_ord_fit(xdata, ydata, start, stop, num, p0 = None):
     return popt, xfit, yfit
 
 
-def FFT(Time, Signal):
-    
+def FFT(Time, Signal, pad = False, length = None):
+    if pad == True:
+        Time = zero_padding(Time, length)
+        Signal = zero_padding(Signal, length)
     freq = np.fft.fftfreq(len(Time), (Time[1] - Time[0]))
     F = freq[1:int(len(freq)/2)]
     ft = np.fft.fft(Signal)
@@ -169,3 +171,19 @@ def create_record_list(input_str):
     return string_numbers
 
 
+
+def zero_padding(data, pad_lenght = None):
+   N = len(data)
+   if pad_lenght == None:
+    pad_lenght = int(2**np.ceil(np.log2(N))) #computes the closest power of 2 bigger than N
+   zp_data = np.pad(data, (0, pad_lenght - N), 'constant', constant_values = 0)
+
+   return zp_data
+
+
+def closest_index(vector, y):
+    vector = np.array(vector)
+    diff = np.abs(vector - y)
+    closest_index = np.argmin(diff)
+    
+    return closest_index

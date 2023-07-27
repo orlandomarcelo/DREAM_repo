@@ -42,10 +42,10 @@ class PhotochemicalRate(Experiment):
         self.intensity = np.insert(self.intensity, 0, 0)
         self.vitesse.insert(0,0)
         
-        popt, self.xfit_Ek_rel, self.yfit_Ek_rel = tools.Ek_fit(self.intensity_rel, self.vitesse, 0, 1, 50, p0 = [200, 0.2])
+        popt, pcov, self.xfit_Ek_rel, self.yfit_Ek_rel = tools.Ek_fit(self.intensity_rel, self.vitesse, 0, 1, 50, p0 = [200, 0.2])
         self.Ek_rel = popt[1]
      
-        popt, self.xfit_Ek, self.yfit_Ek = tools.Ek_fit(self.intensity, self.vitesse, 0, 1200, 50, p0 = [200, 100])
+        popt, pcov,  self.xfit_Ek, self.yfit_Ek = tools.Ek_fit(self.intensity, self.vitesse, 0, 1200, 50, p0 = [200, 100])
         self.Ek = popt[1]
 
                 

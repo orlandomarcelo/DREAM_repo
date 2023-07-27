@@ -34,7 +34,7 @@ class BodeClass:
                 self.clean_data.append(np.array(df[key]))
         
         
-        self.bode_records = tools.create_record_list("6-20")
+        self.bode_records = tools.create_record_list(self.rec_string)
         self.bode_times = []
         self.bode_data = []
 

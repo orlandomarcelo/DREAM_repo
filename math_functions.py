@@ -6,6 +6,9 @@ def exp_decay(x, A, B):
     
 def lin(x, A, B):
     return A * x + B
+
+def Ek(x, A, B):
+        return A * (1 - np.exp(-(x/B)))
     
 def exp_saturation(x, A, B, C):
     return A * (1 - np.exp(-(x/B))) + C

@@ -66,7 +66,7 @@ def Ek_fit(xdata, ydata, start, stop, num, p0 = None):
     popt, pcov = curve_fit(Ek, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = Ek(xfit, popt[0], popt[1])
-    return popt, xfit, yfit
+    return popt, pcov, xfit, yfit
 
 def sat_overshoot_fit(xdata, ydata, start, stop, num, p0 = None):
     def sat_overshoot(x, A, B, C, D):
@@ -94,23 +94,29 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None):
     yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
 
-def RLC_transf_fit(xdata, ydata, start, stop, num, p0 = None):
+def RLC_transf_fit(xdata, ydata, start, stop, num, p0 = None, sigma = None):
     popt, pcov = curve_fit(mf.RLC_transfer, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = mf.RLC_transfer(xfit, popt[0], popt[1], popt[2])
-    return popt, xfit, yfit
+    return popt, pcov, xfit, yfit
 
-def RC_transf_fit(xdata, ydata, start, stop, num, p0 = None):
-    popt, pcov = curve_fit(mf.RC_transfer, xdata, ydata, p0 = p0)
+def RC_transf_fit(xdata, ydata, start, stop, num, p0 = None, sigma = None):
+    popt, pcov = curve_fit(mf.RC_transfer, xdata, ydata, p0 = p0, sigma = sigma)
     xfit = np.linspace(start, stop, num)
     yfit = mf.RC_transfer(xfit, popt[0], popt[1])
-    return popt, xfit, yfit
+    return popt, pcov, xfit, yfit
 
 def sec_ord_fit(xdata, ydata, start, stop, num, p0 = None):
     popt, pcov = curve_fit(mf.second_order, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = mf.RC_transfer(xfit, popt[0], popt[1])
     return popt, xfit, yfit
+
+def my_err_vec(x, pcov):
+    gradvec=np.array([x,1])
+    norm=np.matmul(gradvec.T,np.matmul(pcov,gradvec))
+    lambd=np.sqrt(1/norm)
+    return np.matmul(pcov,lambd*gradvec)
 
 
 def FFT(Time, Signal, pad = False, length = None):
@@ -187,3 +193,32 @@ def closest_index(vector, y):
     closest_index = np.argmin(diff)
     
     return closest_index
+
+def bode_plot_axes(ax):
+    labelsize = 15
+    legendfontsize = 10
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+
+    ax.set_xlabel("Frequency (Hz)", fontsize = labelsize)
+    ax.set_ylabel("Magnitude (a.u.)", fontsize = labelsize)
+    ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
+    ax.set_ylim(2e3, 3e5)
+
+    ax.legend(fontsize = legendfontsize)
+
+    ax = plt.gca()
+    ax.tick_params(axis='both', which='both', width=2)
+
+    for label in ax.xaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+        
+    for label in ax.yaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+
+    for spine in ax.spines.values():
+        spine.set_linewidth(1.5)
+        
+    return ax
+
+    

@@ -15,12 +15,12 @@ const int resolution = 16;
 int max_amp = pow(2, resolution) - 1;
 
 // setting the actinic light properties
-//float period = 32; // s
-float frequency = 0.0078125; // Hz
-//float frequency = 1/period;
-float offset_fact = 0.02925; // Offset as a fraction of max intensity
-float amp_fact = 0; // Amplitude of modulation a fraction of max intensity
-float max_time = 2565; // Experiment time in seconds
+float period = 1; // s
+//float frequency = 0.0167; // Hz
+float frequency = 1/period;
+float offset_fact = 0.5; // Offset as a fraction of max intensity
+float amp_fact = 0.1; // Amplitude of modulation a fraction of max intensity
+float max_time = 300; // Experiment time in seconds
 
 //IMPORTANT: 
 // (amp_fact + offset_fact <= 1) and (amp_fact <= offset_fact=)
@@ -44,6 +44,7 @@ void setup() {
 
 void loop() {
   trigger = digitalRead(flashPin);
+  trigger = 1;
   if (trigger == 1){
     startMillis = millis();
     t = 0;

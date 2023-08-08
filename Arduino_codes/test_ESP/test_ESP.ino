@@ -18,9 +18,9 @@ int max_amp = pow(2, resolution) - 1;
 //float period = 32; // s
 float frequency = 1; // Hz
 //float frequency = 1/period;
-float offset_fact = 0.02925; // Offset as a fraction of max intensity
-float amp_fact =  0.02925/2; // Amplitude of modulation a fraction of max intensity
-float max_time = 5; // Experiment time in seconds
+float offset_fact = 0.2; // Offset as a fraction of max intensity
+float amp_fact =  0.1; // Amplitude of modulation a fraction of max intensity
+float max_time = 300; // Experiment time in seconds
 
 //IMPORTANT: 
 // (amp_fact + offset_fact <= 1) and (amp_fact <= offset_fact=)

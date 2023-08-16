@@ -175,7 +175,6 @@ def bode_plot_axes(ax):
     ax.set_xlabel("Frequency (Hz)", fontsize = labelsize)
     ax.set_ylabel("Magnitude (a.u.)", fontsize = labelsize)
     ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
-    ax.set_ylim(2e3, 3e5)
 
     ax.legend(fontsize = legendfontsize)
 
@@ -197,5 +196,37 @@ def moving_average(signal, window_size):
     cumsum = np.cumsum(signal, dtype=float)
     cumsum[window_size:] = cumsum[window_size:] - cumsum[:-window_size]
     return cumsum[window_size - 1:] / window_size
+
+def my_err_vec(x, pcov):
+    gradvec=np.array([x,1])
+    norm=np.matmul(gradvec.T,np.matmul(pcov,gradvec))
+    lambd=np.sqrt(1/norm)
+    return np.matmul(pcov,lambd*gradvec)
+
+def TF_plot_axes(ax):
+    labelsize = 15
+    legendfontsize = 10
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+
+    ax.set_xlabel("Frequency (Hz)", fontsize = labelsize)
+    ax.set_ylabel("Magnitude (a.u.)", fontsize = labelsize)
+    ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
+
+    ax.legend(fontsize = legendfontsize)
+
+    ax = plt.gca()
+    ax.tick_params(axis='both', which='both', width=2)
+
+    for label in ax.xaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+        
+    for label in ax.yaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+
+    for spine in ax.spines.values():
+        spine.set_linewidth(1.5)
+        
+    return ax
 
     

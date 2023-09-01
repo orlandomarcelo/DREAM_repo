@@ -9,7 +9,7 @@ from striprtf.striprtf import rtf_to_text
 
 
 class Experiment:
-    def __init__(self, name, equipment, local="IBPC", DataType=".dat", is_sub_experiment=False, parent_experiment_name=None):
+    def __init__(self, name, equipment, local="IBPC", DataType=".dat", sep = ',', is_sub_experiment=False, parent_experiment_name=None):
 
         self.name = name
         self.equipment = equipment
@@ -36,10 +36,15 @@ class Experiment:
                 self.path = f"C:/Users/marce/ownCloud_ORLANDO/Doutorado/Dados experimentais/{self.equipment}/{self.name}"
             else:
                 print("Dont know the path for this place")
+                
+        self.fig_folder = self.path + "/Figures"
+        if not os.path.isdir(self.fig_folder):
+            os.mkdir(self.fig_folder)
 
-        AllData = pd.read_csv(f"{self.path}/{self.name}{self.DataType}", index_col=False)
-        self.Data = AllData.iloc[:,1:]
-        self.Time = AllData.iloc[:,0]
+
+        self.AllData = pd.read_csv(f"{self.path}/{self.name}{self.DataType}", index_col=False, sep = sep)
+        self.Data = self.AllData.iloc[:,1:]
+        self.Time = self.AllData.iloc[:,0]
         self.records = []
 
         for i, k in enumerate(self.Data.keys()):

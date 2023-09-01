@@ -22,14 +22,15 @@ def sigmoid(x, A, B, C, D):
 def sinusoid(x, A, B, C, D):
     return A * np.sin(2* np.pi*(B * x + C)) + D
 
-def RC_transfer(w, R, C):
-    return R / np.sqrt(1 + np.square(w * R * C))
+def RC_transfer(freq, R, C):
+    return R / np.sqrt(1 + np.square(freq * R * C))
 
-def RLC_transfer(w, R, L, C):
-    return w * C / np.sqrt(np.square(1 - w * w * L * C) - np.square((w * L)/R))
+def RLC_transfer(freq, R, L, C):
+    return freq * (C) / np.sqrt(np.square(1 - freq * freq* L * C) - np.square((freq* L)/R))
 
-def second_order(w, K, w_0, csi):
-    return  np.abs(K) / np.sqrt((1 - (w / w_0) ** 2) ** 2 + (2 * csi * w / w_0) ** 2)
+def sec_ord_transfer(freq, K, wn, zeta):
+    s = 2j * np.pi * freq
+    return np.abs(K / (s**2 + 2 * zeta * wn * s + wn**2))
 
 
 

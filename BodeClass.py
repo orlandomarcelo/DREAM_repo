@@ -6,18 +6,20 @@ import sys
 import importlib
 import glob
 from scipy.signal import find_peaks
+from scipy.signal import windows as wd
 
 import tools
 import math_functions as mf
 
 class BodeClass:
-    def __init__(self, name, rec_string, frequency_list, flash_calib, index_start = 0, median_filtering_windos_size = 1, padding = False, padding_value = None, pic_search_window = 2):
+    def __init__(self, name, rec_string, frequency_list, flash_calib, index_start = 0, median_filtering_windos_size = 1, windowing = None, padding = False, padding_value = None, pic_search_window = 2):
         self.name = name
         self.flash_calib = flash_calib
         self.index_start = index_start
         self.rec_string = rec_string
         self.frequency_list = frequency_list
         self.median_filtering_windos_size = median_filtering_windos_size
+        self.windowing = windowing
         self.padding = padding
         self.padding_value = padding_value
         self.pic_search_window = pic_search_window
@@ -54,9 +56,15 @@ class BodeClass:
         self.index_fund = []
         self.freqs = []
         self.amps = []
+        self.signal = []
 
         for i, k in enumerate(self.bode_records):
-            F, A, _ = tools.FFT(self.bode_times[i]/1000, self.bode_data[i], padding, padding_value)
+            if self.windowing is None:
+                self.signal.append(self.bode_data[i])
+            elif self.windowing == "flat-top":
+                self.signal.append(self.bode_data[i] * wd.flattop(len(self.bode_data[i])))
+                
+            F, A, _ = tools.FFT(self.bode_times[i]/1000, self.signal[i], padding, padding_value)
             self.freqs.append(F)
             self.amps.append(A)
             self.index_fund.append(tools.closest_index(F, frequency_list[i]))

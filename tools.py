@@ -5,6 +5,7 @@ import statistics as st
 import os
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
+from scipy.optimize import approx_fprime
 import math_functions as mf
 
 def clean_spaces(vector):
@@ -67,6 +68,7 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None):
     return popt, xfit, yfit
 
 def RLC_transf_fit(xdata, ydata, start, stop, num, p0 = None, sigma = None):
+    
     popt, pcov = curve_fit(mf.RLC_transfer, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = mf.RLC_transfer(xfit, popt[0], popt[1], popt[2])
@@ -78,17 +80,39 @@ def RC_transf_fit(xdata, ydata, start, stop, num, p0 = None, sigma = None):
     yfit = mf.RC_transfer(xfit, popt[0], popt[1])
     return popt, pcov, xfit, yfit
 
-def sec_ord_fit(xdata, ydata, start, stop, num, p0 = None):
-    popt, pcov = curve_fit(mf.second_order, xdata, ydata, p0 = p0)
+def sec_ord_fit(xdata, ydata, start, stop, num, p0 = None, sigma = None):
+    popt, pcov = curve_fit(mf.sec_ord_transfer, xdata, ydata, p0 = p0, sigma =sigma)
     xfit = np.linspace(start, stop, num)
-    yfit = mf.RC_transfer(xfit, popt[0], popt[1])
-    return popt, xfit, yfit
+    yfit = mf.sec_ord_transfer(xfit, popt[0], popt[1], popt[2])
+    return popt, pcov, xfit, yfit
 
-def my_err_vec(x, pcov):
-    gradvec=np.array([x,1])
+
+def gradient_at_point(f, point, *args, **kwargs):
+    def wrapped_function(params):
+        combined_args = tuple(params) + args
+        return f(*combined_args, **kwargs)
+    
+    gradient = approx_fprime(point, wrapped_function, epsilon=np.sqrt(np.finfo(float).eps))
+    return gradient
+
+
+def my_err_vec_old(x, popt, pcov, funct):
+    point = [x] + list(popt)
+    gradvec=gradient_at_point(funct, point)
+    gradvec = gradvec[1:]
     norm=np.matmul(gradvec.T,np.matmul(pcov,gradvec))
     lambd=np.sqrt(1/norm)
     return np.matmul(pcov,lambd*gradvec)
+
+def my_err(x_vect, popt, pcov, funct):
+    error_vec = []
+    for x in x_vect:
+        point = [x] + list(popt)
+        gradvec=gradient_at_point(funct, point)
+        gradvec = gradvec[1:]
+        variance =np.matmul(gradvec.T,np.matmul(pcov,gradvec))
+        error_vec.append(np.sqrt(variance))
+    return np.asarray(error_vec)
 
 
 def FFT(Time, Signal, pad = False, length = None):
@@ -197,11 +221,6 @@ def moving_average(signal, window_size):
     cumsum[window_size:] = cumsum[window_size:] - cumsum[:-window_size]
     return cumsum[window_size - 1:] / window_size
 
-def my_err_vec(x, pcov):
-    gradvec=np.array([x,1])
-    norm=np.matmul(gradvec.T,np.matmul(pcov,gradvec))
-    lambd=np.sqrt(1/norm)
-    return np.matmul(pcov,lambd*gradvec)
 
 def TF_plot_axes(ax):
     labelsize = 15
@@ -253,3 +272,70 @@ def autoscale_y(ax,margin=0.1):
         if new_top > top: top = new_top
 
     ax.set_ylim(bot,top)
+    
+def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None):
+    orange = [250/255, 116/255, 79/255]
+    green = [7/255, 171/255, 152/255]
+    blue = [24/255, 47/255, 74/255]
+   
+    if model == "RC":
+        if p0 is None:
+            p0 = [10, 0.1]
+        if color is None:
+            color = orange
+        popt, pcov, ffit, afit = RC_transf_fit(freq, amp, 0.007, 130, 1000, p0 =  p0, sigma = sigma)
+        err = my_err(ffit, popt, pcov, mf.RC_transfer)
+
+        
+    if model == "RLC":
+        if p0 is None:
+            p0 = [ 1e+10, -3e-06,  5e+05]
+        if color is None:
+            color = green
+        popt, pcov, ffit, afit = RLC_transf_fit(freq, amp, 0.007, 130, 1000, p0 =  p0, sigma = sigma)
+        try:
+            err = my_err(ffit, popt, pcov, mf.RLC_transfer)
+        except: pass
+        
+    if model == "sec_ord":
+        if p0 is None:
+            p0 = [ 20, 1,  0.1]
+        if color is None:
+            color = green
+            
+        popt, pcov, ffit, afit = sec_ord_fit(freq, amp, 0.007, 130, 1000, p0 =  p0, sigma = sigma)
+        
+        err = my_err(ffit, popt, pcov, mf.sec_ord_transfer)
+    
+    ax.plot(ffit, afit, linewidth=line, color = color, label = f"{model} model")
+    ax.fill_between(np.linspace(0.007, 130, 1000), afit - 1.94*err, afit + 1.94*err, alpha=0.2, color = color)
+
+    return ax
+
+def compare_bode(frequency_list, manips, min = 0.5, max = 1.5, autoscale = True):
+    for i, k in enumerate(frequency_list):
+        fig , ax = plt.subplots(1,2, figsize = (10,5))
+        if k < 1:
+            fig_title = f"P = {1/frequency_list[i]:n} s"
+        elif k == 1:
+            fig_title = f"P = {1/frequency_list[i]:n} s, F = {frequency_list[i]} Hz "
+        elif k > 1:
+            fig_title = f"F = {frequency_list[i]} Hz "
+        
+        fig.suptitle(fig_title, fontsize = 16)
+        
+        for j, manip in enumerate(manips):
+            ax = manip.plot_record_TF(manip.bode_records[i], fig = fig, ax = ax, leg = manip.name, color = f"C{j}")
+                                              
+
+        if autoscale:
+            xlim = ax[1].get_xlim()
+            ax[1].set_xlim([k*min, k*max])
+            autoscale_y(ax[1])
+            ax[1].set_xlim(0, k*max)
+            
+        ax[1].legend()
+                
+        fig.tight_layout()
+         
+        fig.savefig(f"{manips[-1].fig_folder}/{fig_title}_compare.png")

@@ -9,7 +9,7 @@ blue_df = pd.DataFrame(blue)
 green_df = pd.DataFrame(green)
 orange_df = pd.DataFrame(orange)
 
-colors = pd.concat([blue_df, green_df, orange_df], ignore_index=True)
+colors = pd.concat([green_df, orange_df, blue_df], ignore_index=True)
 colors.rgb = colors.rgb.apply(lambda x: np.array(x)/255)
 
 def get_random_colors(n):

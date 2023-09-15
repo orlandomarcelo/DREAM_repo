@@ -312,7 +312,10 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
 
     return ax
 
-def compare_bode(frequency_list, manips, min = 0.5, max = 1.5, autoscale = True):
+def compare_bode(frequency_list, manips, min = 0.5, max = 1.5, autoscale = True, leg = None):
+    if leg is None:
+        leg = [manip.name for manip in manips]
+    
     for i, k in enumerate(frequency_list):
         fig , ax = plt.subplots(1,2, figsize = (10,5))
         if k < 1:
@@ -325,7 +328,7 @@ def compare_bode(frequency_list, manips, min = 0.5, max = 1.5, autoscale = True)
         fig.suptitle(fig_title, fontsize = 16)
         
         for j, manip in enumerate(manips):
-            ax = manip.plot_record_TF(manip.bode_records[i], fig = fig, ax = ax, leg = manip.name, color = f"C{j}")
+            ax = manip.plot_record_TF(manip.bode_records[i], fig = fig, ax = ax, leg = leg[j], color = f"C{j}")
                                               
 
         if autoscale:

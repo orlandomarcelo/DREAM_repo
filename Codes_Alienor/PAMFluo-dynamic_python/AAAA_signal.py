@@ -78,13 +78,13 @@ if True:
     import matplotlib.pyplot as plt
     import glob
     import skimage
-    path = "G:/DREAM/from_github/PAMFluo/Experiments/"
-    exp = "2023-02-09_16_22_cross_validation/"
+    path = "E:/Experimental_data/DREAM_microscope/"
+    exp = "2023-10-10_11_57_Oscillation_Protocol/"
     list_output = glob.glob(path + exp + "*output*")
     list_time = glob.glob(path + exp + "*time*")
     for i in range(len(list_output)):
         
-        fluo = np.load(list_output[i])[0]
+        fluo = np.load(list_output[i], allow_pickle=True)[0]
         time_array = np.load(list_time[i])
         x = mvgavg(time_array, 100)
         fluo = mvgavg(fluo, 100)
@@ -143,3 +143,40 @@ plt.imshow(video[10])
 plt.show()
 time.sleep(2)
 
+##############################################################################
+
+
+if True: 
+    from mvgavg import mvgavg
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import glob
+    import skimage
+    path = "E:/Experimental_data/DREAM_microscope/"
+    exp = "2023-10-10_11_57_Oscillation_Protocol/"
+    list_output = glob.glob(path + exp + "*output*")
+    list_time = glob.glob(path + exp + "*time*")
+    for i in range(len(list_output)):
+        
+        fluo = np.load(list_output[i], allow_pickle=True)[0]
+        time_array = np.load(list_time[i])
+        x = mvgavg(time_array, 100)
+        fluo = mvgavg(fluo, 100)
+
+        plt.plot(x, fluo)
+    plt.legend()
+
+    plt.figure()
+    list_output = glob.glob(path + exp + "*video.tiff*")
+    list_time = glob.glob(path + exp + "*timing*")
+    for i in range(len(list_output)):
+        
+        video = skimage.io.imread(list_output[i])
+        time_array = np.load(list_time[i])
+        fluo = np.mean(video, axis = (1,2))
+        x = time_array-time_array[0]
+
+        plt.plot(x, fluo, "-")
+        plt.plot(x, fluo, ".k")
+    plt.legend()
+    plt.show()

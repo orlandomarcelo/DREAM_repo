@@ -56,9 +56,11 @@ def my_config():
 @ex.automain
 def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blue, limit_red, limit_green, limit_purple, trigger_color, acq_time, sample_rate, actinic_filter, exposure, gain):
     
+    ipdb.set_trace()
     all_links = initialize(logger = logger, name = name, _run = _run, limit_blue = limit_blue, limit_green = limit_green, 
                                 limit_purple = limit_purple, limit_red = limit_red, trigger_color = trigger_color, 
                                 sample_rate = sample_rate, acq_time = acq_time, set_piezo=False)
+    ipdb.set_trace()
 
     ctrlLED = all_links[0]
     ni0 = all_links[1]

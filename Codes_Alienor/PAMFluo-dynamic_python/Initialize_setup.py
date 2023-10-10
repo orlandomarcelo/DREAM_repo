@@ -14,7 +14,7 @@ from ArduinoControl.python_serial import *
 from ArduinoControl.python_comm import *
 from pyueye import ueye
 
-
+import CameraControl
 from CameraControl.ueye_camera import Camera
 from CameraControl.ueye_utils import FrameThread
 
@@ -43,8 +43,8 @@ start_and_stop = Ingredient('start_and_stop')
 @start_and_stop.config
 def cfg():
     port_DC4100 = "COM5"
-    port_arduino = "COM4"
-    port_filter_wheel = "COM3"
+    port_arduino = "COM3"
+    port_filter_wheel = "COM4"
     port_motors = "COM6"
     initial_filter = filters[0]
     x=0
@@ -106,8 +106,8 @@ def initialize(name, logger, _run, limit_blue, limit_green, limit_purple, limit_
         KP.BuildDeviceList()
         KP.Open()
         #KP.GetMaxVoltage()
-        with open("G:/DREAM/from_github/PAMFluo/specs/focus.txt", 'r') as file:
-            voltage = np.float(file.readline())
+        with open("C:/Users/Lab/Desktop/DREAM_repo/Codes_Alienor/PAMFluo-dynamic_python/specs/focus.txt", 'r') as file:
+            voltage = float(file.readline())
         KP.SetOutputVoltage(voltage)
         que.put(KP)
 
@@ -151,10 +151,10 @@ def initialize(name, logger, _run, limit_blue, limit_green, limit_purple, limit_
         t6.start()
         t6.join()
 
+    t4.join()
     t1.join()
     t2.join()
     t3.join()
-    t4.join()
     t5.join()
     
     #ctrlLED, ni, link_arduino, fwl, motors = [q.get() for q in queues]

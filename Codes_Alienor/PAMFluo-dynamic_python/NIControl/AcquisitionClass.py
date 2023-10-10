@@ -542,14 +542,14 @@ class Acquisition:
 
         self.end_tasks()     
         all_channels = self.detector_analog_channels + self.detector_digital_channels   
-        with open("G:/DREAM/from_github/PAMFluo/specs/config_black.json", 'r') as file:
+        with open("C:/Users/Lab/Desktop/DREAM_repo/Codes_Alienor/PAMFluo-dynamic_python/specs/config_black.json", 'r') as file:
             black_level = json.load(file)
             
             for i, channel in enumerate(all_channels):
                 black_level[channel][0] = output[i].mean()
                 black_level[channel][1] = output[i].std()
 
-        with open("G:/DREAM/from_github/PAMFluo/specs/config_black.json", 'w') as file:
+        with open("C:/Users/Lab/Desktop/DREAM_repo/Codes_Alienor/PAMFluo-dynamic_python/specs/config_black.json", 'w') as file:
             json.dump(black_level, file)
 
 
@@ -557,7 +557,7 @@ class Acquisition:
         output, time_array = self.read_detector_no_correct()
         all_channels = self.detector_analog_channels + self.detector_digital_channels   
 
-        with open("G:/DREAM/from_github/PAMFluo/specs/config_black.json", 'r') as file:
+        with open("C:/Users/Lab/Desktop/DREAM_repo/Codes_Alienor/PAMFluo-dynamic_python/specs/config_black.json", 'r') as file:
             black_level = json.load(file)
             
             for i, channel in enumerate(all_channels):
@@ -705,7 +705,7 @@ class Acquisition:
     def experiment_folder(self, experiment_name):
         """creates the folder that will store locally the experiment"""
         self.experiment_name = experiment_name
-        self.save_folder = "G:/DREAM/from_github/PAMFluo/Experiments/" + str(datetime.datetime.now().strftime('%Y-%m-%d_%H_%M_')) + experiment_name
+        self.save_folder = "E:/Experimental_data/DREAM_microscope/" + str(datetime.datetime.now().strftime('%Y-%m-%d_%H_%M_')) + experiment_name
         if not os.path.exists(self.save_folder):
                 os.makedirs(self.save_folder)
     

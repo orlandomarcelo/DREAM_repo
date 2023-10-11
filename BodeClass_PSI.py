@@ -104,15 +104,15 @@ class BodeClass(ExperimentClass.Experiment):
                 fig_title = f"{k}, F = {self.frequency_list[i]} Hz "
                     
             fig.suptitle(fig_title, fontsize = 16)
-            ax[0].plot(self.bode_times[i]/1000, self.bode_data[i], "o-", markersize=1, linewidth=0.5)
+            ax[0].plot(self.bode_times[i], self.bode_data[i], "o-", markersize=1, linewidth=0.5)
             ax[1].plot(self.freqs[i], self.amps[i], "o-", markersize=1, linewidth=0.5)
             ax[1].plot(self.fund_freq[i], self.fund_amp[i], "x", markersize=3)            
             
             ax[0].set_xlabel("Time (s)", fontsize = 14)
-            ax[0].set_ylabel("$ΔA_{ 520 nm} (r. u. e^- PS^{-1})$", fontsize = 12)
+            ax[0].set_ylabel("Fluorescence (r. u.)", fontsize = 12)
             ax[0].set_title("Time-domain signal", fontsize = 14)
             ax[1].set_xlabel("Frequency (Hz)", fontsize = 14)
-            ax[1].set_ylabel("Amplitude (a. u.)", fontsize = 14)
+            ax[1].set_ylabel("Amplitude (r. u.)", fontsize = 14)
             ax[1].set_title("Fourier transform", fontsize = 14)
             
             fig.tight_layout()
@@ -129,15 +129,15 @@ class BodeClass(ExperimentClass.Experiment):
             
         i = np.where(np.array(self.bode_records) == record)[0][0]
 
-        ax[0].plot(self.bode_times[i]/1000, self.bode_data[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+        ax[0].plot(self.bode_times[i], self.bode_data[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
         ax[1].plot(self.freqs[i], self.amps[i], "o-",color = color, markersize=marker, linewidth=line, label = leg)
         ax[1].plot(self.fund_freq[i], self.fund_amp[i], "x", markersize=10)            
         
         ax[0].set_xlabel("Time (s)", fontsize = 14)
-        ax[0].set_ylabel("$ΔA_{ 520 nm} (r. u. e^- PS^{-1})$", fontsize = 12)
+        ax[0].set_ylabel("Fluorescence (r. u.)", fontsize = 12)
         ax[0].set_title("Time-domain signal", fontsize = 14)
         ax[1].set_xlabel("Frequency (Hz)", fontsize = 14)
-        ax[1].set_ylabel("Amplitude (a. u.)", fontsize = 14)
+        ax[1].set_ylabel("Amplitude (r. u.)", fontsize = 14)
         ax[1].set_title("Fourier transform", fontsize = 14)
         
         return ax

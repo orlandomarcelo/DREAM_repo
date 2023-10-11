@@ -124,6 +124,7 @@ def FFT(Time, Signal, pad = False, length = None):
     ft = np.fft.fft(Signal)
     A = np.abs(ft[1:int(len(freq)/2)])
     P = np.angle(ft[1:int(len(freq)/2)])
+    P = P * 180 / np.pi
     
     return F, A, P
 
@@ -216,6 +217,27 @@ def bode_plot_axes(ax):
         
     return ax
 
+def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legendfontsize = 10, legend = True):
+
+    if legend:
+        ax.legend(fontsize = legendfontsize)
+    ax.set_xlabel(xlabel, fontsize = labelsize)
+    ax.set_ylabel(ylabel, fontsize = labelsize)
+    ax.set_title(title, fontsize = titlesize)
+
+    for label in ax.xaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+        
+    for label in ax.yaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+
+    for spine in ax.spines.values():
+        spine.set_linewidth(1.5)
+        
+    return ax
+        
+    
+
 def moving_average(signal, window_size):
     cumsum = np.cumsum(signal, dtype=float)
     cumsum[window_size:] = cumsum[window_size:] - cumsum[:-window_size]
@@ -273,7 +295,7 @@ def autoscale_y(ax,margin=0.1):
 
     ax.set_ylim(bot,top)
     
-def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None):
+def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2):
     orange = [250/255, 116/255, 79/255]
     green = [7/255, 171/255, 152/255]
     blue = [24/255, 47/255, 74/255]
@@ -307,28 +329,35 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
         
         err = my_err(ffit, popt, pcov, mf.sec_ord_transfer)
     
-    ax.plot(ffit, afit, linewidth=line, color = color, label = f"{model} model")
-    ax.fill_between(np.linspace(0.007, 130, 1000), afit - 1.94*err, afit + 1.94*err, alpha=0.2, color = color)
+    if label: 
+        label = f"{model} model"
+    else: label = None
+    
+    ax.plot(ffit, afit, linewidth=line, color = color, label = label)
+    ax.fill_between(np.linspace(0.007, 130, 1000), afit - 1.94*err, afit + 1.94*err, alpha=alpha, color = color)
 
     return ax
 
-def compare_bode(frequency_list, manips, min = 0.5, max = 1.5, autoscale = True, leg = None):
+def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (10,5)):
+    if frequency_to_plot is None:
+        frequency_to_plot = frequency_list
+    
     if leg is None:
         leg = [manip.name for manip in manips]
     
-    for i, k in enumerate(frequency_list):
-        fig , ax = plt.subplots(1,2, figsize = (10,5))
+    for i, k in enumerate(frequency_to_plot):
+        fig , ax = plt.subplots(1,2, figsize = figsize)
         if k < 1:
-            fig_title = f"P = {1/frequency_list[i]:n} s"
+            fig_title = f"P = {1/frequency_to_plot[i]:n} s"
         elif k == 1:
-            fig_title = f"P = {1/frequency_list[i]:n} s, F = {frequency_list[i]} Hz "
+            fig_title = f"P = {1/frequency_to_plot[i]:n} s, F = {frequency_list[i]} Hz "
         elif k > 1:
-            fig_title = f"F = {frequency_list[i]} Hz "
+            fig_title = f"F = {frequency_to_plot[i]} Hz "
         
         fig.suptitle(fig_title, fontsize = 16)
         
         for j, manip in enumerate(manips):
-            ax = manip.plot_record_TF(manip.bode_records[i], fig = fig, ax = ax, leg = leg[j], color = f"C{j}")
+            ax = manip.plot_record_TF(manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}")
                                               
 
         if autoscale:
@@ -339,6 +368,15 @@ def compare_bode(frequency_list, manips, min = 0.5, max = 1.5, autoscale = True,
             
         ax[1].legend()
                 
-        fig.tight_layout()
+        #fig.tight_layout()
          
-        fig.savefig(f"{manips[-1].fig_folder}/{fig_title}_compare.png")
+        #fig.savefig(f"{manips[-1].fig_folder}/{fig_title}_compare.png")
+        
+        return fig, ax
+    
+def merge_dict(dict_1, dict_2):
+    dict_3 = {**dict_1, **dict_2}
+    for key, value in dict_3.items():
+        if key in dict_1 and key in dict_2:
+                dict_3[key] = [value , dict_1[key]]
+    return dict_3

@@ -1,0 +1,227 @@
+[32m2023-10-16 15:47:05.909 DEBUG    [DC4100_LED.py:69] Serial<id=0x23c31a280a0, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2023-10-16 15:47:05.910 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-10-16 15:47:06.17 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:06.17 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2023-10-16 15:47:06.128 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:06.128 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-10-16 15:47:06.236 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:06.236 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2023-10-16 15:47:06.345 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 15:47:06.345 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2023-10-16 15:47:06.345 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2023-10-16 15:47:06.452 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:07.466 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2023-10-16 15:47:07.468 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2023-10-16 15:47:07.468 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2023-10-16 15:47:07.468 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2023-10-16 15:47:07.468 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2023-10-16 15:47:07.574 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 15:47:07.574 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2023-10-16 15:47:07.574 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-10-16 15:47:07.682 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 15:47:07.682 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2023-10-16 15:47:07.682 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2023-10-16 15:47:07.792 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 15:47:07.792 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2023-10-16 15:47:07.792 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-10-16 15:47:07.901 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:07.901 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-10-16 15:47:08.10 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:08.10 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 1000[0m
+[32m2023-10-16 15:47:08.118 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:08.118 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-10-16 15:47:08.227 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:08.227 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-10-16 15:47:08.335 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:08.335 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 3 1000[0m
+[32m2023-10-16 15:47:08.445 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:08.445 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-10-16 15:47:08.554 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 15:47:14.778 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:14.778 DEBUG    [AcquisitionClass.py:125] 1.0[0m
+[32m2023-10-16 15:47:14.778 DEBUG    [AcquisitionClass.py:126] 10000[0m
+[32m2023-10-16 15:47:14.778 DEBUG    [AcquisitionClass.py:127] 10[0m
+[32m2023-10-16 15:47:14.778 DEBUG    [AcquisitionClass.py:128] 10000[0m
+[32m2023-10-16 15:47:14.779 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:14.779 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-10-16 15:47:14.779 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:14.779 DEBUG    [AcquisitionClass.py:125] 10.0[0m
+[32m2023-10-16 15:47:14.780 DEBUG    [AcquisitionClass.py:126] 1000[0m
+[32m2023-10-16 15:47:14.780 DEBUG    [AcquisitionClass.py:127] 1[0m
+[32m2023-10-16 15:47:14.780 DEBUG    [AcquisitionClass.py:128] 1000[0m
+[32m2023-10-16 15:47:14.780 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:14.781 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:14.870 INFO     [AcquisitionClass.py:516] frequency: 1.000 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 10.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[32m2023-10-16 15:47:36.403 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:36.403 DEBUG    [AcquisitionClass.py:125] 0.01[0m
+[32m2023-10-16 15:47:36.404 DEBUG    [AcquisitionClass.py:126] 1000000.0[0m
+[32m2023-10-16 15:47:36.404 DEBUG    [AcquisitionClass.py:127] 1000.0[0m
+[32m2023-10-16 15:47:36.404 DEBUG    [AcquisitionClass.py:128] 1000000.0[0m
+[32m2023-10-16 15:47:36.404 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:36.405 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:36.459 INFO     [AcquisitionClass.py:516] frequency: 1000.000 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.010 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:36.486 CRITICAL [AcquisitionClass.py:168] -1.6301785001458982[0m
+[32m2023-10-16 15:47:38.625 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:38.625 DEBUG    [AcquisitionClass.py:125] 0.024484367468222266[0m
+[32m2023-10-16 15:47:38.625 DEBUG    [AcquisitionClass.py:126] 408423.0[0m
+[32m2023-10-16 15:47:38.626 DEBUG    [AcquisitionClass.py:127] 408.4238652674522[0m
+[32m2023-10-16 15:47:38.626 DEBUG    [AcquisitionClass.py:128] 408423.8652674522[0m
+[32m2023-10-16 15:47:38.626 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:38.626 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:38.692 INFO     [AcquisitionClass.py:516] frequency: 408.424 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.024 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:38.718 CRITICAL [AcquisitionClass.py:168] -1.472886528956186[0m
+[32m2023-10-16 15:47:40.830 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:40.831 DEBUG    [AcquisitionClass.py:125] 0.059948425031894084[0m
+[32m2023-10-16 15:47:40.831 DEBUG    [AcquisitionClass.py:126] 166810.0[0m
+[32m2023-10-16 15:47:40.831 DEBUG    [AcquisitionClass.py:127] 166.81005372000593[0m
+[32m2023-10-16 15:47:40.831 DEBUG    [AcquisitionClass.py:128] 166810.05372000593[0m
+[32m2023-10-16 15:47:40.831 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:40.832 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:40.897 INFO     [AcquisitionClass.py:516] frequency: 166.810 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.060 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:40.970 CRITICAL [AcquisitionClass.py:168] -1.5523340905635994[0m
+[32m2023-10-16 15:47:43.84 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:43.84 DEBUG    [AcquisitionClass.py:125] 0.1467799267622069[0m
+[32m2023-10-16 15:47:43.84 DEBUG    [AcquisitionClass.py:126] 68129.0[0m
+[32m2023-10-16 15:47:43.85 DEBUG    [AcquisitionClass.py:127] 68.12920690579615[0m
+[32m2023-10-16 15:47:43.85 DEBUG    [AcquisitionClass.py:128] 68129.20690579615[0m
+[32m2023-10-16 15:47:43.85 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:43.85 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:43.151 INFO     [AcquisitionClass.py:516] frequency: 68.129 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.147 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:43.317 CRITICAL [AcquisitionClass.py:168] -1.5502458093623994[0m
+[32m2023-10-16 15:47:45.431 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:45.431 DEBUG    [AcquisitionClass.py:125] 0.35938136638046275[0m
+[32m2023-10-16 15:47:45.431 DEBUG    [AcquisitionClass.py:126] 27825.0[0m
+[32m2023-10-16 15:47:45.431 DEBUG    [AcquisitionClass.py:127] 27.825594022071243[0m
+[32m2023-10-16 15:47:45.431 DEBUG    [AcquisitionClass.py:128] 27825.594022071244[0m
+[32m2023-10-16 15:47:45.431 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:45.432 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:45.498 INFO     [AcquisitionClass.py:516] frequency: 27.826 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.359 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:45.882 CRITICAL [AcquisitionClass.py:168] -1.547924128538726[0m
+[32m2023-10-16 15:47:47.994 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:47.994 DEBUG    [AcquisitionClass.py:125] 0.879922543569107[0m
+[32m2023-10-16 15:47:47.994 DEBUG    [AcquisitionClass.py:126] 11364.0[0m
+[32m2023-10-16 15:47:47.994 DEBUG    [AcquisitionClass.py:127] 11.364636663857247[0m
+[32m2023-10-16 15:47:47.994 DEBUG    [AcquisitionClass.py:128] 11364.636663857247[0m
+[32m2023-10-16 15:47:47.995 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:47.995 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:48.62 INFO     [AcquisitionClass.py:516] frequency: 11.365 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.880 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:48.991 CRITICAL [AcquisitionClass.py:168] -1.5460807025816525[0m
+[32m2023-10-16 15:47:51.100 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:51.100 DEBUG    [AcquisitionClass.py:125] 2.1544346900318834[0m
+[32m2023-10-16 15:47:51.100 DEBUG    [AcquisitionClass.py:126] 4641.0[0m
+[32m2023-10-16 15:47:51.101 DEBUG    [AcquisitionClass.py:127] 4.641588833612779[0m
+[32m2023-10-16 15:47:51.101 DEBUG    [AcquisitionClass.py:128] 4641.588833612779[0m
+[32m2023-10-16 15:47:51.101 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:51.101 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:51.166 INFO     [AcquisitionClass.py:516] frequency: 4.642 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 2.154 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:47:53.431 CRITICAL [AcquisitionClass.py:168] -1.5701061581299254[0m
+[32m2023-10-16 15:47:55.553 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:47:55.553 DEBUG    [AcquisitionClass.py:125] 5.274997063702618[0m
+[32m2023-10-16 15:47:55.553 DEBUG    [AcquisitionClass.py:126] 1895.0[0m
+[32m2023-10-16 15:47:55.553 DEBUG    [AcquisitionClass.py:127] 1.8957356524063758[0m
+[32m2023-10-16 15:47:55.554 DEBUG    [AcquisitionClass.py:128] 1895.7356524063757[0m
+[32m2023-10-16 15:47:55.554 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:47:55.554 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:47:55.618 INFO     [AcquisitionClass.py:516] frequency: 1.896 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 5.275 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:48:01.166 CRITICAL [AcquisitionClass.py:168] -1.5889256257947248[0m
+[32m2023-10-16 15:48:03.280 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:48:03.280 DEBUG    [AcquisitionClass.py:125] 12.915496650148837[0m
+[32m2023-10-16 15:48:03.280 DEBUG    [AcquisitionClass.py:126] 774.0[0m
+[32m2023-10-16 15:48:03.281 DEBUG    [AcquisitionClass.py:127] 0.7742636826811271[0m
+[32m2023-10-16 15:48:03.281 DEBUG    [AcquisitionClass.py:128] 774.2636826811271[0m
+[32m2023-10-16 15:48:03.281 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:48:03.281 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:48:03.346 INFO     [AcquisitionClass.py:516] frequency: 0.774 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 12.915 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:48:16.920 CRITICAL [AcquisitionClass.py:168] -1.5951572338143853[0m
+[32m2023-10-16 15:48:19.40 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:48:19.40 DEBUG    [AcquisitionClass.py:125] 31.622776601683793[0m
+[32m2023-10-16 15:48:19.40 DEBUG    [AcquisitionClass.py:126] 316.0[0m
+[32m2023-10-16 15:48:19.40 DEBUG    [AcquisitionClass.py:127] 0.31622776601683794[0m
+[32m2023-10-16 15:48:19.40 DEBUG    [AcquisitionClass.py:128] 316.22776601683796[0m
+[32m2023-10-16 15:48:19.41 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:48:19.41 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 15:48:19.105 INFO     [AcquisitionClass.py:516] frequency: 0.316 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 31.623 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-10-16 15:48:52.311 CRITICAL [AcquisitionClass.py:168] -1.5370181351007124[0m
+[32m2023-10-16 15:48:57.313 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 15:48:57.313 DEBUG    [AcquisitionClass.py:125] 1.0[0m
+[32m2023-10-16 15:48:57.313 DEBUG    [AcquisitionClass.py:126] 10000[0m
+[32m2023-10-16 15:48:57.313 DEBUG    [AcquisitionClass.py:127] 10[0m
+[32m2023-10-16 15:48:57.314 DEBUG    [AcquisitionClass.py:128] 10000[0m
+[32m2023-10-16 15:48:57.314 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 15:48:57.314 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-10-16 15:48:57.314 DEBUG    [AcquisitionClass.py:124] 10000[0m
+[32m2023-10-16 15:48:57.315 DEBUG    [AcquisitionClass.py:125] 999.9999999999998[0m
+[32m2023-10-16 15:48:57.315 DEBUG    [AcquisitionClass.py:126] 50.0[0m
+[32m2023-10-16 15:48:57.315 DEBUG    [AcquisitionClass.py:127] 0.005000000000000001[0m
+[32m2023-10-16 15:48:57.315 DEBUG    [AcquisitionClass.py:128] 50.00000000000001[0m
+[32m2023-10-16 15:48:57.315 DEBUG    [AcquisitionClass.py:129] 50000[0m
+[32m2023-10-16 15:48:57.316 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-10-16 15:48:57.318 DEBUG    [AcquisitionClass.py:124] 10000[0m
+[32m2023-10-16 15:48:57.318 DEBUG    [AcquisitionClass.py:125] 999.9999999999998[0m
+[32m2023-10-16 15:48:57.319 DEBUG    [AcquisitionClass.py:126] 50.0[0m
+[32m2023-10-16 15:48:57.319 DEBUG    [AcquisitionClass.py:127] 0.005000000000000001[0m
+[32m2023-10-16 15:48:57.319 DEBUG    [AcquisitionClass.py:128] 50.00000000000001[0m
+[32m2023-10-16 15:48:57.319 DEBUG    [AcquisitionClass.py:129] 50000[0m
+[32m2023-10-16 15:48:57.319 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[36m2023-10-16 15:48:57.380 INFO     [AcquisitionClass.py:370] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-10-16 15:48:57.383 INFO     [AcquisitionClass.py:516] frequency: 0.005 
+ amplitude 0.050 
+ offset 0.050  
+ acquisiton time 1000.000 
+ points per period 10000.000 
+ number of periods 5.000[0m

@@ -57,7 +57,7 @@ def bode_diagram(_run, _log, name, gen_ana, sleep_time, N, min_freq, max_freq, a
 
     ctrlLED.disconnect()
 
-    fwl = FW102C(port="COM3")
+    fwl = FW102C(port="COM4")
     fwl.move_to_filter(initial_filter)
     fwl.filter = initial_filter
  
@@ -140,7 +140,7 @@ def bode_diagram(_run, _log, name, gen_ana, sleep_time, N, min_freq, max_freq, a
     test.num_period = 5
     test.points_per_period = 10000
     N_points = 10
-    voltage = np.linspace(0.05, 4.5/2, N_points)
+    voltage = np.linspace(0.02, 4.5/2, N_points)
     filter_LED = 1#10**initial_filter
 
     tau_480_tot, tau_480_405_tot, val_480, val_405 = test.intensity_range(voltage, N_points, filter_LED)

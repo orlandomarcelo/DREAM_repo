@@ -124,7 +124,7 @@ class BodeDiagram(NIControl.AcquisitionClass.Acquisition):
         np.save(self.save_folder + "/bode_3D_output.npy", all_outputs_3D)
         np.save(self.save_folder + "/bode_3D_times.npy", all_times)
         np.savetxt(self.save_folder + "/bode_full_response.csv", all_outputs_2D.T, delimiter = ',')
-        np.savetxt("/bode_full_response.csv", all_outputs_2D.T, delimiter = ',')
-        self.copy_py_file("Notebooks/bode_full_trace.ipynb")
+        #np.savetxt("/bode_full_response.csv", all_outputs_2D.T, delimiter = ',')
+        #self.copy_py_file("Notebooks/bode_full_trace.ipynb")
         self.set_level_LED(0*signal.mean(axis = 1), None, sleep_time)       
         return radius, phase, all_outputs_2D, sin_lo, cos_lo, all_outputs_3D

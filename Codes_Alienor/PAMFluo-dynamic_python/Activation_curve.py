@@ -41,10 +41,9 @@ def my_config():
     limit_green = 0
     limit_red = 0
     limit_purple = 0
-    sleep_time = 1
+    sleep_time = 60 #s
     trigger_color = "blue"
     sample_rate = 1/4 #Hz
-    acquisition_time = 30 #s
     actinic_filter = 1
     exposure = 60
     gain = 100
@@ -74,12 +73,9 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
 
     logger.name = name
 
-    
     ni.generator_analog_channels = [generator_analog[color] for color in gen_ana] #LED control channel
     ni.generator_digital_channels = []
     ni.trig_chan_detector_edge = 'FALLING' #trigger RISING or FALLING
-
-
 
     ni.writing_rate =  1000 #Hz
     ni.acq_time = 20 #s
@@ -88,7 +84,6 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
     ni.sample_rate = 1000
     ni.reading_samples = ni.sample_rate*ni.acq_time
         
-        
     #LED
     sat = 3.4 #V
     duration_sat = 0.2 #ms 
@@ -96,8 +91,7 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
     stop = 15
 
     def fitness_sequence(ni, offset, sat, start, stop, duration_sat):
-       
-
+    
         sample = np.linspace(0, ni.acq_time, num = ni.writing_samples , endpoint=False)
         actinic = np.zeros(sample.shape)
         actinic[start*ni.writing_rate:stop*ni.writing_rate] = offset
@@ -137,8 +131,7 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
         all_outputs.append(output[1])
         all_times.append(time_array)
         ni.end_tasks()    
-        ni.shut_down_LED(1)        
-        
+        ni.shut_down_LED(1)         
 
         names = ['Intensity', 'Fluo', 'Blue','Purple','Green', 'Trigger', 'jspq']
         
@@ -152,9 +145,9 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
         pd.DataFrame(data_dict).to_csv(file_name, sep = ',', index=False)
   
         cam.return_video(ni.p.save_folder, extend_name = f"_{offsets[i]:.2f}V")
-        make_maps(_run, ni.save_folder, np.array(cam.video[0:210]), np.array(cam.timing[0:210]), smoothing = 5, limits = (0,0), filter = "none")
+        #make_maps(_run, f"{ni.save_folder}_{offsets[i]:.2f}V", np.array(cam.video[0:210]), np.array(cam.timing[0:210]), smoothing = 5, limits = (0,0), filter = "none")
         
-        time.sleep(60)
+        time.sleep(sleep_time)
 
 
     close_all_links(*all_links)

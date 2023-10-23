@@ -26,7 +26,7 @@ from tqdm import tqdm
 
 '''MORPHOLOGICAL OPERATIONS BASED ON SKIMAGE'''
 
-def local_maxima(im, min_distance, h, ref_distance = False, mask = None, show = False):
+def local_maxima(im, min_distance, ref_distance = False, mask = None):
     '''Compute the im local maxima. 
     - im: grey-level image
     - min_distance: minimum number of pixels separating peaks in a 
@@ -35,33 +35,18 @@ def local_maxima(im, min_distance, h, ref_distance = False, mask = None, show = 
     # image_max is the dilation of im with a 20*20 structuring element
     # It is used within peak_local_max function
     # Comparison between image_max and im to find the coordinates of local maxima
-    local_maxi = skimage.feature.peak_local_max(im, indices = False, min_distance=min_distance)
+    local_maxi = skimage.feature.peak_local_max(im, min_distance=min_distance)
     
     distance = normalize(ndi.distance_transform_edt(mask))
-    dist_local_maxi = skimage.feature.peak_local_max(distance, indices = False, min_distance=min_distance)
-
-    if show == True:
-        peaks = np.array([im, im, im])
-        maxi = np.asarray([skimage.morphology.binary_dilation(local_maxi), local_maxi*0, local_maxi*0])
-        peaks = normalize(peaks + maxi, 0, 1)
-        peaks = np.swapaxes(peaks, 0, 1)
-        peaks_im = np.swapaxes(peaks, 1, 2)
-        peaks = np.array([im, im, im])
-        maxi = np.asarray([skimage.morphology.binary_dilation(dist_local_maxi), local_maxi*0, local_maxi*0])
-        peaks = normalize(peaks + maxi, 0, 1)
-        peaks = np.swapaxes(peaks, 0, 1)
-        peaks_dist = np.swapaxes(peaks, 1, 2)
-        h.title_list = ['maximum position (im)', 'maximum position (dist)']
-        h.save_name = 'local_maxima'
-        fig = h.multi([peaks_im, peaks_dist])
-        h.saving(fig)
+    dist_local_maxi = skimage.feature.peak_local_max(distance, min_distance=min_distance)
+    
     if ref_distance:
         return dist_local_maxi
     else :
         return local_maxi
 
 
-def watershed(im, mask, local_maxi, h, ref_distance = False, show = False):
+def watershed(im, mask, local_maxi, ref_distance = False):
     ''' Segmenting different objects in an image
     - im: image to segment
     - mask: binary mask for the (merged) objects of interest
@@ -69,24 +54,20 @@ def watershed(im, mask, local_maxi, h, ref_distance = False, show = False):
     - ref_distance: if False, uses im for the watershed filling, else uses the distance map of im'''
 
     # Generate the markers as local maxima of the distance to the background
-    markers = ndi.label(local_maxi)[0]
+    #markers = ndi.label(local_maxi)[0]
+
+    markers =  np.zeros_like(im)
+    for i in range(len(local_maxi)):
+        markers[local_maxi[i][0], local_maxi[i][1]] = i+1
     
     # Distance map of im
     distance = ndi.distance_transform_edt(mask)
-    watershed_dist_nomask = skimage.segmentation.watershed(-distance, markers)
-    watershed_dist_mask = skimage.segmentation.watershed(-distance, markers, mask=mask)
+    #watershed_dist_nomask = skimage.segmentation.watershed(-distance, markers)
+    watershed_dist_mask = skimage.segmentation.watershed(-distance, markers = markers, mask=mask)
    
-    watershed_im_nomask = skimage.segmentation.watershed(-im, markers)
-    watershed_im_mask = skimage.segmentation.watershed(-im, markers, mask=mask)
+    #watershed_im_nomask = skimage.segmentation.watershed(-im, markers)
+    watershed_im_mask = skimage.segmentation.watershed(-im, markers = markers, mask=mask)
     
-    if show == True:
-        h.col_num = 3
-        h.title_list = ['Overlapping objects',  'watershed_im','Separated objects',
-                        'Distances','watershed_dist', 'Separated_objects' ]
-        h.save_name = 'watershed'
-        fig = h.multi([im, watershed_im_nomask, watershed_im_mask,
-                 -distance, watershed_dist_nomask, watershed_dist_mask])
-        h.saving(fig)
     if ref_distance == True: 
         return watershed_dist_mask
     else: 

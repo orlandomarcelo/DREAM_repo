@@ -1,0 +1,34 @@
+[32m2023-10-16 17:48:47.599 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 17:48:47.600 DEBUG    [AcquisitionClass.py:125] 1.0[0m
+[32m2023-10-16 17:48:47.600 DEBUG    [AcquisitionClass.py:126] 10000[0m
+[32m2023-10-16 17:48:47.601 DEBUG    [AcquisitionClass.py:127] 10[0m
+[32m2023-10-16 17:48:47.601 DEBUG    [AcquisitionClass.py:128] 10000[0m
+[32m2023-10-16 17:48:47.601 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 17:48:47.601 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-10-16 17:48:47.601 DEBUG    [AcquisitionClass.py:112] generator_analog_channels: ['ao0', 'ao1']
+generator_digital_channels: ['port0/line2']
+detector_analog_channels: ['ai0', 'ai1', 'ai2', 'ai3']
+detector_digital_channels: ['port0/line5', 'port0/line4', 'port0/line0']
+trig_chan_generator: /Dev1/PFI12
+trig_chan_generator_edge: RISING
+trig_chan_detector: /Dev1/PFI12
+trig_chan_detector_edge: RISING
+trig_chan: Dev1/Ctr0
+excitation_frequency: 10
+amplitude: 0.2
+offset: 1
+phase_shift: 0
+num_period: 10
+points_per_period: 1000
+window: 5
+number_of_cycles: 100000
+writing_samples: 10000
+p: <alienlab.plot.PlotFigure object at 0x0000021ABFB107F0>
+cop: <alienlab.plot.PlotFigure object at 0x0000021ABFB107C0>
+g: <alienlab.plot.ShowFigure object at 0x0000021ABFADEC40>
+reading_samples: 10000
+acq_time: 1.0
+writing_rate: 10000
+sample_rate: 10000
+trigger_frequency: 10[0m
+[36m2023-10-16 17:48:47.602 INFO     [AcquisitionClass.py:629] Shutting down all LEDs for 3 seconds[0m

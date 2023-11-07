@@ -1,0 +1,54 @@
+[32m2023-10-16 16:49:36.614 DEBUG    [DC4100_LED.py:69] Serial<id=0x17d2fc21f70, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2023-10-16 16:49:36.614 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-10-16 16:49:36.718 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:36.718 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2023-10-16 16:49:36.826 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:36.826 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-10-16 16:49:36.936 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:36.936 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2023-10-16 16:49:37.45 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 16:49:37.45 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2023-10-16 16:49:37.46 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2023-10-16 16:49:37.154 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:38.165 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2023-10-16 16:49:38.167 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2023-10-16 16:49:38.167 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2023-10-16 16:49:38.167 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2023-10-16 16:49:38.169 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2023-10-16 16:49:38.273 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 16:49:38.273 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2023-10-16 16:49:38.274 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-10-16 16:49:38.381 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 16:49:38.381 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2023-10-16 16:49:38.381 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2023-10-16 16:49:38.491 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-10-16 16:49:38.491 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2023-10-16 16:49:38.492 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-10-16 16:49:38.600 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:38.600 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-10-16 16:49:38.709 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:38.709 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 400[0m
+[32m2023-10-16 16:49:38.816 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:38.816 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2023-10-16 16:49:38.925 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:38.925 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 2 150[0m
+[32m2023-10-16 16:49:39.34 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:39.34 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-10-16 16:49:39.142 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:39.142 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 3 250[0m
+[32m2023-10-16 16:49:39.252 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:39.252 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-10-16 16:49:39.362 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-10-16 16:49:40.653 DEBUG    [AcquisitionClass.py:124] 1000[0m
+[32m2023-10-16 16:49:40.653 DEBUG    [AcquisitionClass.py:125] 1.0[0m
+[32m2023-10-16 16:49:40.654 DEBUG    [AcquisitionClass.py:126] 10000[0m
+[32m2023-10-16 16:49:40.654 DEBUG    [AcquisitionClass.py:127] 10[0m
+[32m2023-10-16 16:49:40.657 DEBUG    [AcquisitionClass.py:128] 10000[0m
+[32m2023-10-16 16:49:40.657 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-10-16 16:49:40.658 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[36m2023-10-16 16:49:57.204 INFO     [AcquisitionClass.py:516] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 96.000 
+ points per period 30.000 
+ number of periods 10.000[0m

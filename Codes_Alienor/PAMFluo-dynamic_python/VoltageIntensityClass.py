@@ -21,7 +21,7 @@ class VoltageIntensity():
 
 
         if  folder == "None":
-            list_of_dir = glob.glob("G:/DREAM/from_github/PAMFluo/Experiments/*bode_diagram") # * means all if need specific format then *.csv
+            list_of_dir = glob.glob("E:/Experimental_data/DREAM_microscope/*bode_diagram") # * means all if need specific format then *.csv
             self.experiment_folder = max(list_of_dir, key=os.path.getctime)
         else:
             self.experiment_folder = folder        
@@ -37,7 +37,7 @@ class VoltageIntensity():
         self.intensity = {}
         self.intensity['blue'] = I480[2]
         self.intensity['purple'] = I405[2]
-        self.DO_spectrum = pd.read_csv("G:/DREAM/from_github/PAMFluo/specs/DO_wheel.csv", sep = ';', decimal = ",")
+        self.DO_spectrum = pd.read_csv("C:/Users/Lab/Desktop/DREAM_repo/Codes_Alienor/PAMFluo-dynamic_python/specs/DO_wheel.csv", sep = ';', decimal = ",")
         self.detector_response = {}
         self.detector_response["blue"] = pandas_to_arrays(glob.glob(self.experiment_folder + "/*Detector_response_curve_blue.csv")[0])[1]
         self.detector_response["purple"] = pandas_to_arrays(glob.glob(self.experiment_folder + "/*Detector_response_curve_purple.csv")[0])[1]
@@ -53,7 +53,7 @@ class VoltageIntensity():
             density = func(wlgh)
         else:
             density = 0
-        return np.float(10**(-density))
+        return float(10**(-density))
 
 
     def get_MPPC_voltage(self, LED_color, DO, voltage_input):

@@ -53,7 +53,7 @@ measurement_loop(4) # total 2H, 15 min HL-15min dark en boucle
 #activation
 for i in range(5, 90): # 3x de suite 2H de haute lumière et entre chaque exposition regarder l'état des algues
     focus()
-    activation_and_rest(activation_time_HL=1.3*60)#level_HL = 250, activation_time_HL=60*3) #2H45 - 2H HL 45min LL
+    activation_and_rest(activation_time_HL=4*60)#level_HL = 250, activation_time_HL=60*3) #2H45 - 2H HL 45min LL
     focus()
     dark_adaptation() #15min
     assess_SP()

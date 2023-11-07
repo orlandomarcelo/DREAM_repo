@@ -47,7 +47,7 @@ def my_config():
     acquisition_time = 30 #s
     actinic_filter = 1
     
-    exposure = 60
+    exposure = 100 #ms sets the exposure time of the camera and also actual framerate
     gain = 100
     
     N = 10
@@ -56,12 +56,10 @@ def my_config():
 @ex.automain
 def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blue, limit_red, limit_green, limit_purple, trigger_color, acq_time, sample_rate, actinic_filter, exposure, gain):
     
-    ipdb.set_trace()
     all_links = initialize(logger = logger, name = name, _run = _run, limit_blue = limit_blue, limit_green = limit_green, 
                                 limit_purple = limit_purple, limit_red = limit_red, trigger_color = trigger_color, 
                                 sample_rate = sample_rate, acq_time = acq_time, set_piezo=False)
-    ipdb.set_trace()
-
+    
     ctrlLED = all_links[0]
     ni0 = all_links[1]
     link_arduino = all_links[2]
@@ -69,19 +67,15 @@ def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
     
     fwl.move_to_filter(filters[actinic_filter])
     
-
-
     ni = NIControl.BodeDiagram.BodeDiagram() #NI card control tool
     ni.experiment_folder(name) #folder name
     ni.p.save_folder = ni.save_folder #where to save images
 
     logger.name = name
 
-    
     ni.generator_analog_channels = [generator_analog[color] for color in gen_ana] #LED control channel
     ni.generator_digital_channels = []
     ni.trig_chan_detector_edge = 'FALLING' #trigger RISING or FALLING
-
 
     # ni diagram fequency
 
@@ -89,8 +83,6 @@ def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
     ni.generator_digital_channels = []
     ni.excitation_frequency = 1
     ni.trig_chan_detector_edge = 'FALLING'
-    
-    N = 3
 
     frequencies = [1]
 
@@ -122,7 +114,7 @@ def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
         ni.update_rates() 
         ni.generator_analog_init(signal)
         ni.detector_init()
-        #self.trigger_frequency = freq
+        #self.trigger_frequency = freq 
         ni.trigger_init()
 
         ni.task_generator_analog.start()
@@ -130,8 +122,6 @@ def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
         ni.task_trigger.start()
         
         output, time_array = ni.read_detector()
-        
-        #ipdb.set_trace()
 
         all_outputs.append(output)
         all_times.append(time_array)
@@ -151,10 +141,6 @@ def spectral_content(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
             
         pd.DataFrame(dico).to_csv(file_name, sep = ',', index=False)
         _run.add_artifact(file_name)
-        
-  
-        #np.save(ni.p.save_folder + "/outputs_%03d_%03d.npy"%(frequencies[i], i), output[1:3])
-        #np.save(ni.p.save_folder + "/time_%03d_%03d.npy"%(frequencies[i], i), time_array)
 
         cam.return_video(ni.p.save_folder, extend_name = "%03d_%03d_"%(frequencies[i], i))
         

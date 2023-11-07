@@ -36,7 +36,7 @@ class PhotochemicalRate(Experiment):
             self.param.append(popt)
             self.vitesse.append(-1000*self.param[i][0]/self.calib)
             
-            
+             
         self.intensity_rel = np.insert(self.PWM_list, 0, 0)
         self.intensity = 1326 * np.asarray(self.PWM_list) + 11.9
         self.intensity = np.insert(self.intensity, 0, 0)

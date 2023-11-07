@@ -53,6 +53,7 @@ class Acquisition:
         self.points_per_period = 1000
         self.window = 5
         self.number_of_cycles = 100000
+        self.pre_illumination = 30 # time at offset value before oscillations in seconds
 
         self.writing_samples = 10000
 

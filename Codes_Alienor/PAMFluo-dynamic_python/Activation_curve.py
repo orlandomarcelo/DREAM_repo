@@ -45,7 +45,7 @@ def my_config():
     trigger_color = "blue"
     sample_rate = 1/4 #Hz
     actinic_filter = 1
-    exposure = 60
+    exposure = 180 #ms sets the exposure time of the camera and also actual framerate
     gain = 100
     N = 10
 
@@ -86,7 +86,7 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
         
     #LED
     sat = 3.4 #V
-    duration_sat = 0.2 #ms 
+    duration_sat = 0.5 #s 
     start = 5
     stop = 15
 
@@ -107,10 +107,10 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
     
     all_outputs = []
     all_times = [] 
-    offsets = np.linspace(0, 0.8*sat, 15)
+    offsets = np.linspace(0, 0.45*sat, 15)
     
     for i in range(len(offsets)):
-        thread, cam = init_camera(exposure = exposure, num_frames = 15*ni.acq_time, gain =  gain, trigger=False, trigger_frequency=15)
+        thread, cam = init_camera(exposure = exposure, num_frames = 15*ni.acq_time, gain =  gain, trigger=False, trigger_frequency=1000/exposure)
         thread.start()
         
         sample, signal = fitness_sequence(ni, offsets[i], sat, start, stop, duration_sat)

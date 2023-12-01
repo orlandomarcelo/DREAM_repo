@@ -1,0 +1,1021 @@
+[32m2023-12-01 09:05:38.372 DEBUG    [DC4100_LED.py:69] Serial<id=0x1f8a856b580, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2023-12-01 09:05:38.372 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-12-01 09:05:38.482 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:38.482 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2023-12-01 09:05:38.589 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:38.589 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-12-01 09:05:38.699 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:38.699 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2023-12-01 09:05:38.806 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-12-01 09:05:38.806 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2023-12-01 09:05:38.806 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2023-12-01 09:05:38.917 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:39.930 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2023-12-01 09:05:39.932 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2023-12-01 09:05:39.932 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2023-12-01 09:05:39.932 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2023-12-01 09:05:39.934 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2023-12-01 09:05:40.38 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-12-01 09:05:40.38 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2023-12-01 09:05:40.38 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-12-01 09:05:40.146 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-12-01 09:05:40.146 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2023-12-01 09:05:40.146 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2023-12-01 09:05:40.254 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-12-01 09:05:40.254 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2023-12-01 09:05:40.254 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-12-01 09:05:40.364 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:40.364 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-12-01 09:05:40.474 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:40.474 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 1000[0m
+[32m2023-12-01 09:05:40.585 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:40.585 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-12-01 09:05:40.693 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:40.693 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-12-01 09:05:40.802 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:40.802 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 3 1000[0m
+[32m2023-12-01 09:05:40.910 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:40.910 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-12-01 09:05:41.19 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-12-01 09:05:47.220 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:05:47.220 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-12-01 09:05:47.222 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2023-12-01 09:05:47.222 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-12-01 09:05:47.222 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-12-01 09:05:47.222 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:05:47.223 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2023-12-01 09:05:47.223 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:05:47.223 DEBUG    [AcquisitionClass.py:126] 10.0[0m
+[32m2023-12-01 09:05:47.224 DEBUG    [AcquisitionClass.py:127] 1000[0m
+[32m2023-12-01 09:05:47.224 DEBUG    [AcquisitionClass.py:128] 1[0m
+[32m2023-12-01 09:05:47.224 DEBUG    [AcquisitionClass.py:129] 1000[0m
+[32m2023-12-01 09:05:47.225 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:05:47.225 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:05:47.343 INFO     [AcquisitionClass.py:517] frequency: 1.000 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 10.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[32m2023-12-01 09:06:08.869 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:08.869 DEBUG    [AcquisitionClass.py:126] 0.01[0m
+[32m2023-12-01 09:06:08.871 DEBUG    [AcquisitionClass.py:127] 1000000.0[0m
+[32m2023-12-01 09:06:08.872 DEBUG    [AcquisitionClass.py:128] 1000.0[0m
+[32m2023-12-01 09:06:08.872 DEBUG    [AcquisitionClass.py:129] 1000000.0[0m
+[32m2023-12-01 09:06:08.872 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:08.872 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:08.935 INFO     [AcquisitionClass.py:517] frequency: 1000.000 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.010 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:08.961 CRITICAL [AcquisitionClass.py:169] -1.6371271017361917[0m
+[32m2023-12-01 09:06:11.89 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:11.89 DEBUG    [AcquisitionClass.py:126] 0.01291549665014884[0m
+[32m2023-12-01 09:06:11.89 DEBUG    [AcquisitionClass.py:127] 774263.0[0m
+[32m2023-12-01 09:06:11.90 DEBUG    [AcquisitionClass.py:128] 774.263682681127[0m
+[32m2023-12-01 09:06:11.91 DEBUG    [AcquisitionClass.py:129] 774263.682681127[0m
+[32m2023-12-01 09:06:11.91 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:11.91 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:11.155 INFO     [AcquisitionClass.py:517] frequency: 774.264 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.013 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:11.182 CRITICAL [AcquisitionClass.py:169] -1.6672232346469282[0m
+[32m2023-12-01 09:06:13.297 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:13.297 DEBUG    [AcquisitionClass.py:126] 0.016681005372000592[0m
+[32m2023-12-01 09:06:13.298 DEBUG    [AcquisitionClass.py:127] 599484.0[0m
+[32m2023-12-01 09:06:13.298 DEBUG    [AcquisitionClass.py:128] 599.4842503189409[0m
+[32m2023-12-01 09:06:13.298 DEBUG    [AcquisitionClass.py:129] 599484.2503189408[0m
+[32m2023-12-01 09:06:13.299 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:13.299 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:13.364 INFO     [AcquisitionClass.py:517] frequency: 599.484 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.017 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:13.390 CRITICAL [AcquisitionClass.py:169] -1.5147137289256178[0m
+[32m2023-12-01 09:06:15.505 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:15.505 DEBUG    [AcquisitionClass.py:126] 0.021544346900318846[0m
+[32m2023-12-01 09:06:15.506 DEBUG    [AcquisitionClass.py:127] 464158.0[0m
+[32m2023-12-01 09:06:15.506 DEBUG    [AcquisitionClass.py:128] 464.15888336127773[0m
+[32m2023-12-01 09:06:15.507 DEBUG    [AcquisitionClass.py:129] 464158.88336127775[0m
+[32m2023-12-01 09:06:15.507 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:15.507 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:15.570 INFO     [AcquisitionClass.py:517] frequency: 464.159 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.022 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:15.597 CRITICAL [AcquisitionClass.py:169] -1.7271435857858757[0m
+[32m2023-12-01 09:06:17.718 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:17.718 DEBUG    [AcquisitionClass.py:126] 0.02782559402207126[0m
+[32m2023-12-01 09:06:17.719 DEBUG    [AcquisitionClass.py:127] 359381.0[0m
+[32m2023-12-01 09:06:17.719 DEBUG    [AcquisitionClass.py:128] 359.38136638046257[0m
+[32m2023-12-01 09:06:17.719 DEBUG    [AcquisitionClass.py:129] 359381.36638046254[0m
+[32m2023-12-01 09:06:17.720 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:17.720 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:17.786 INFO     [AcquisitionClass.py:517] frequency: 359.381 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.028 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:17.827 CRITICAL [AcquisitionClass.py:169] -1.73839805510703[0m
+[32m2023-12-01 09:06:19.939 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:19.939 DEBUG    [AcquisitionClass.py:126] 0.03593813663804626[0m
+[32m2023-12-01 09:06:19.939 DEBUG    [AcquisitionClass.py:127] 278255.0[0m
+[32m2023-12-01 09:06:19.940 DEBUG    [AcquisitionClass.py:128] 278.2559402207126[0m
+[32m2023-12-01 09:06:19.940 DEBUG    [AcquisitionClass.py:129] 278255.9402207126[0m
+[32m2023-12-01 09:06:19.940 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:19.941 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:20.6 INFO     [AcquisitionClass.py:517] frequency: 278.256 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.036 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:20.47 CRITICAL [AcquisitionClass.py:169] -1.6763656042475676[0m
+[32m2023-12-01 09:06:22.165 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:22.165 DEBUG    [AcquisitionClass.py:126] 0.046415888336127774[0m
+[32m2023-12-01 09:06:22.166 DEBUG    [AcquisitionClass.py:127] 215443.0[0m
+[32m2023-12-01 09:06:22.166 DEBUG    [AcquisitionClass.py:128] 215.44346900318845[0m
+[32m2023-12-01 09:06:22.167 DEBUG    [AcquisitionClass.py:129] 215443.46900318845[0m
+[32m2023-12-01 09:06:22.167 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:22.167 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:22.231 INFO     [AcquisitionClass.py:517] frequency: 215.443 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.046 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:22.287 CRITICAL [AcquisitionClass.py:169] -1.5349319157372003[0m
+[32m2023-12-01 09:06:24.406 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:24.407 DEBUG    [AcquisitionClass.py:126] 0.059948425031894084[0m
+[32m2023-12-01 09:06:24.407 DEBUG    [AcquisitionClass.py:127] 166810.0[0m
+[32m2023-12-01 09:06:24.408 DEBUG    [AcquisitionClass.py:128] 166.81005372000593[0m
+[32m2023-12-01 09:06:24.408 DEBUG    [AcquisitionClass.py:129] 166810.05372000593[0m
+[32m2023-12-01 09:06:24.409 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:24.409 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:24.472 INFO     [AcquisitionClass.py:517] frequency: 166.810 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.060 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:24.546 CRITICAL [AcquisitionClass.py:169] -1.4638118374046736[0m
+[32m2023-12-01 09:06:26.666 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:26.666 DEBUG    [AcquisitionClass.py:126] 0.07742636826811271[0m
+[32m2023-12-01 09:06:26.667 DEBUG    [AcquisitionClass.py:127] 129154.0[0m
+[32m2023-12-01 09:06:26.667 DEBUG    [AcquisitionClass.py:128] 129.1549665014884[0m
+[32m2023-12-01 09:06:26.668 DEBUG    [AcquisitionClass.py:129] 129154.9665014884[0m
+[32m2023-12-01 09:06:26.668 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:26.668 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:26.733 INFO     [AcquisitionClass.py:517] frequency: 129.155 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.077 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:26.822 CRITICAL [AcquisitionClass.py:169] -1.4452400861643042[0m
+[32m2023-12-01 09:06:28.938 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:28.938 DEBUG    [AcquisitionClass.py:126] 0.1[0m
+[32m2023-12-01 09:06:28.938 DEBUG    [AcquisitionClass.py:127] 100000.0[0m
+[32m2023-12-01 09:06:28.938 DEBUG    [AcquisitionClass.py:128] 100.0[0m
+[32m2023-12-01 09:06:28.939 DEBUG    [AcquisitionClass.py:129] 100000.0[0m
+[32m2023-12-01 09:06:28.939 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:28.939 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2023-12-01 09:06:29.5 INFO     [AcquisitionClass.py:517] frequency: 100.000 
+ amplitude 2.000 
+ offset 4.000  
+ acquisiton time 0.100 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[1;35m2023-12-01 09:06:29.125 CRITICAL [AcquisitionClass.py:169] -1.4679033132127473[0m
+[32m2023-12-01 09:06:34.237 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:06:34.238 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-12-01 09:06:34.238 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2023-12-01 09:06:34.238 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-12-01 09:06:34.238 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-12-01 09:06:34.239 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:06:34.239 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2023-12-01 09:06:34.239 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:06:34.240 DEBUG    [AcquisitionClass.py:126] 499.9999999999999[0m
+[32m2023-12-01 09:06:34.240 DEBUG    [AcquisitionClass.py:127] 100.0[0m
+[32m2023-12-01 09:06:34.240 DEBUG    [AcquisitionClass.py:128] 0.010000000000000002[0m
+[32m2023-12-01 09:06:34.240 DEBUG    [AcquisitionClass.py:129] 100.00000000000001[0m
+[32m2023-12-01 09:06:34.241 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:06:34.241 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:06:34.244 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:06:34.244 DEBUG    [AcquisitionClass.py:126] 499.9999999999999[0m
+[32m2023-12-01 09:06:34.244 DEBUG    [AcquisitionClass.py:127] 100.0[0m
+[32m2023-12-01 09:06:34.244 DEBUG    [AcquisitionClass.py:128] 0.010000000000000002[0m
+[32m2023-12-01 09:06:34.245 DEBUG    [AcquisitionClass.py:129] 100.00000000000001[0m
+[32m2023-12-01 09:06:34.245 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:06:34.245 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:06:34.313 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:06:34.316 INFO     [AcquisitionClass.py:517] frequency: 0.010 
+ amplitude 0.100 
+ offset 0.100  
+ acquisiton time 500.000 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:24:04.713 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:24:04.782 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:24:07.428 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:24:07.429 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:24:07.429 DEBUG    [AcquisitionClass.py:126] 147.54098360655738[0m
+[32m2023-12-01 09:24:07.432 DEBUG    [AcquisitionClass.py:127] 338.0[0m
+[32m2023-12-01 09:24:07.432 DEBUG    [AcquisitionClass.py:128] 0.03388888888888889[0m
+[32m2023-12-01 09:24:07.432 DEBUG    [AcquisitionClass.py:129] 338.8888888888889[0m
+[32m2023-12-01 09:24:07.433 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:24:07.433 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:24:07.435 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:24:07.435 DEBUG    [AcquisitionClass.py:126] 147.54098360655738[0m
+[32m2023-12-01 09:24:07.436 DEBUG    [AcquisitionClass.py:127] 338.0[0m
+[32m2023-12-01 09:24:07.436 DEBUG    [AcquisitionClass.py:128] 0.03388888888888889[0m
+[32m2023-12-01 09:24:07.436 DEBUG    [AcquisitionClass.py:129] 338.8888888888889[0m
+[32m2023-12-01 09:24:07.436 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:24:07.437 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:24:07.498 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:24:07.501 INFO     [AcquisitionClass.py:517] frequency: 0.034 
+ amplitude 0.339 
+ offset 0.339  
+ acquisiton time 147.541 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:29:47.296 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:29:47.366 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:29:50.62 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:29:50.62 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:29:50.63 DEBUG    [AcquisitionClass.py:126] 86.53846153846155[0m
+[32m2023-12-01 09:29:50.63 DEBUG    [AcquisitionClass.py:127] 577.0[0m
+[32m2023-12-01 09:29:50.65 DEBUG    [AcquisitionClass.py:128] 0.057777777777777775[0m
+[32m2023-12-01 09:29:50.65 DEBUG    [AcquisitionClass.py:129] 577.7777777777777[0m
+[32m2023-12-01 09:29:50.66 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:29:50.66 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:29:50.68 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:29:50.68 DEBUG    [AcquisitionClass.py:126] 86.53846153846155[0m
+[32m2023-12-01 09:29:50.69 DEBUG    [AcquisitionClass.py:127] 577.0[0m
+[32m2023-12-01 09:29:50.69 DEBUG    [AcquisitionClass.py:128] 0.057777777777777775[0m
+[32m2023-12-01 09:29:50.69 DEBUG    [AcquisitionClass.py:129] 577.7777777777777[0m
+[32m2023-12-01 09:29:50.70 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:29:50.70 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:29:50.132 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:29:50.135 INFO     [AcquisitionClass.py:517] frequency: 0.058 
+ amplitude 0.578 
+ offset 0.578  
+ acquisiton time 86.538 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:33:09.536 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:33:09.606 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:33:12.427 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:33:12.429 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:33:12.429 DEBUG    [AcquisitionClass.py:126] 61.224489795918366[0m
+[32m2023-12-01 09:33:12.430 DEBUG    [AcquisitionClass.py:127] 816.0[0m
+[32m2023-12-01 09:33:12.431 DEBUG    [AcquisitionClass.py:128] 0.08166666666666667[0m
+[32m2023-12-01 09:33:12.431 DEBUG    [AcquisitionClass.py:129] 816.6666666666666[0m
+[32m2023-12-01 09:33:12.431 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:33:12.432 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:33:12.434 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:33:12.434 DEBUG    [AcquisitionClass.py:126] 61.224489795918366[0m
+[32m2023-12-01 09:33:12.435 DEBUG    [AcquisitionClass.py:127] 816.0[0m
+[32m2023-12-01 09:33:12.435 DEBUG    [AcquisitionClass.py:128] 0.08166666666666667[0m
+[32m2023-12-01 09:33:12.435 DEBUG    [AcquisitionClass.py:129] 816.6666666666666[0m
+[32m2023-12-01 09:33:12.436 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:33:12.436 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:33:12.500 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:33:12.503 INFO     [AcquisitionClass.py:517] frequency: 0.082 
+ amplitude 0.817 
+ offset 0.817  
+ acquisiton time 61.224 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:35:33.631 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:35:33.707 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:35:36.582 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:35:36.583 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:35:36.583 DEBUG    [AcquisitionClass.py:126] 47.368421052631575[0m
+[32m2023-12-01 09:35:36.586 DEBUG    [AcquisitionClass.py:127] 1055.0[0m
+[32m2023-12-01 09:35:36.586 DEBUG    [AcquisitionClass.py:128] 0.10555555555555557[0m
+[32m2023-12-01 09:35:36.586 DEBUG    [AcquisitionClass.py:129] 1055.5555555555557[0m
+[32m2023-12-01 09:35:36.586 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:35:36.587 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:35:36.589 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:35:36.589 DEBUG    [AcquisitionClass.py:126] 47.368421052631575[0m
+[32m2023-12-01 09:35:36.590 DEBUG    [AcquisitionClass.py:127] 1055.0[0m
+[32m2023-12-01 09:35:36.590 DEBUG    [AcquisitionClass.py:128] 0.10555555555555557[0m
+[32m2023-12-01 09:35:36.590 DEBUG    [AcquisitionClass.py:129] 1055.5555555555557[0m
+[32m2023-12-01 09:35:36.590 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:35:36.591 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:35:36.647 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:35:36.650 INFO     [AcquisitionClass.py:517] frequency: 0.106 
+ amplitude 1.056 
+ offset 1.056  
+ acquisiton time 47.368 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:37:25.912 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:37:25.986 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:37:28.882 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:37:28.882 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:37:28.882 DEBUG    [AcquisitionClass.py:126] 38.62660944206009[0m
+[32m2023-12-01 09:37:28.883 DEBUG    [AcquisitionClass.py:127] 1294.0[0m
+[32m2023-12-01 09:37:28.885 DEBUG    [AcquisitionClass.py:128] 0.12944444444444445[0m
+[32m2023-12-01 09:37:28.885 DEBUG    [AcquisitionClass.py:129] 1294.4444444444443[0m
+[32m2023-12-01 09:37:28.885 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:37:28.885 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:37:28.888 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:37:28.888 DEBUG    [AcquisitionClass.py:126] 38.62660944206009[0m
+[32m2023-12-01 09:37:28.888 DEBUG    [AcquisitionClass.py:127] 1294.0[0m
+[32m2023-12-01 09:37:28.889 DEBUG    [AcquisitionClass.py:128] 0.12944444444444445[0m
+[32m2023-12-01 09:37:28.889 DEBUG    [AcquisitionClass.py:129] 1294.4444444444443[0m
+[32m2023-12-01 09:37:28.889 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:37:28.889 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:37:28.953 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:37:28.956 INFO     [AcquisitionClass.py:517] frequency: 0.129 
+ amplitude 1.294 
+ offset 1.294  
+ acquisiton time 38.627 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:38:58.114 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:38:58.187 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:39:01.101 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:39:01.101 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:39:01.102 DEBUG    [AcquisitionClass.py:126] 32.608695652173914[0m
+[32m2023-12-01 09:39:01.102 DEBUG    [AcquisitionClass.py:127] 1533.0[0m
+[32m2023-12-01 09:39:01.104 DEBUG    [AcquisitionClass.py:128] 0.15333333333333332[0m
+[32m2023-12-01 09:39:01.104 DEBUG    [AcquisitionClass.py:129] 1533.3333333333333[0m
+[32m2023-12-01 09:39:01.104 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:39:01.105 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:39:01.107 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:39:01.107 DEBUG    [AcquisitionClass.py:126] 32.608695652173914[0m
+[32m2023-12-01 09:39:01.108 DEBUG    [AcquisitionClass.py:127] 1533.0[0m
+[32m2023-12-01 09:39:01.108 DEBUG    [AcquisitionClass.py:128] 0.15333333333333332[0m
+[32m2023-12-01 09:39:01.108 DEBUG    [AcquisitionClass.py:129] 1533.3333333333333[0m
+[32m2023-12-01 09:39:01.109 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:39:01.109 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:39:01.164 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:39:01.166 INFO     [AcquisitionClass.py:517] frequency: 0.153 
+ amplitude 1.533 
+ offset 1.533  
+ acquisiton time 32.609 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[36m2023-12-01 09:40:16.484 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:40:16.556 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:40:19.472 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:40:19.472 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:40:19.473 DEBUG    [AcquisitionClass.py:126] 28.213166144200628[0m
+[32m2023-12-01 09:40:19.473 DEBUG    [AcquisitionClass.py:127] 1772.0[0m
+[32m2023-12-01 09:40:19.475 DEBUG    [AcquisitionClass.py:128] 0.17722222222222223[0m
+[32m2023-12-01 09:40:19.475 DEBUG    [AcquisitionClass.py:129] 1772.2222222222222[0m
+[32m2023-12-01 09:40:19.476 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:40:19.476 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:40:19.478 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:40:19.478 DEBUG    [AcquisitionClass.py:126] 28.213166144200628[0m
+[32m2023-12-01 09:40:19.479 DEBUG    [AcquisitionClass.py:127] 1772.0[0m
+[32m2023-12-01 09:40:19.479 DEBUG    [AcquisitionClass.py:128] 0.17722222222222223[0m
+[32m2023-12-01 09:40:19.479 DEBUG    [AcquisitionClass.py:129] 1772.2222222222222[0m
+[32m2023-12-01 09:40:19.480 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:40:19.480 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:40:19.537 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:40:19.541 INFO     [AcquisitionClass.py:517] frequency: 0.177 
+ amplitude 1.772 
+ offset 1.772  
+ acquisiton time 28.213 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[1;31m2023-12-01 09:41:24.446 ERROR    [AcquisitionClass.py:526] Voltage saturation of the MPPC intensity reader[0m
+[36m2023-12-01 09:41:24.752 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:41:24.820 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:41:27.660 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:41:27.661 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:41:27.661 DEBUG    [AcquisitionClass.py:126] 24.86187845303867[0m
+[32m2023-12-01 09:41:27.662 DEBUG    [AcquisitionClass.py:127] 2011.0[0m
+[32m2023-12-01 09:41:27.664 DEBUG    [AcquisitionClass.py:128] 0.20111111111111113[0m
+[32m2023-12-01 09:41:27.664 DEBUG    [AcquisitionClass.py:129] 2011.1111111111113[0m
+[32m2023-12-01 09:41:27.664 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:41:27.665 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:41:27.667 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:41:27.667 DEBUG    [AcquisitionClass.py:126] 24.86187845303867[0m
+[32m2023-12-01 09:41:27.667 DEBUG    [AcquisitionClass.py:127] 2011.0[0m
+[32m2023-12-01 09:41:27.668 DEBUG    [AcquisitionClass.py:128] 0.20111111111111113[0m
+[32m2023-12-01 09:41:27.668 DEBUG    [AcquisitionClass.py:129] 2011.1111111111113[0m
+[32m2023-12-01 09:41:27.668 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:41:27.669 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:41:27.731 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:41:27.734 INFO     [AcquisitionClass.py:517] frequency: 0.201 
+ amplitude 2.011 
+ offset 2.011  
+ acquisiton time 24.862 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[1;31m2023-12-01 09:42:24.926 ERROR    [AcquisitionClass.py:526] Voltage saturation of the MPPC intensity reader[0m
+[1;31m2023-12-01 09:42:24.926 ERROR    [AcquisitionClass.py:530] Voltage saturation of the MPPC fluorescence reader[0m
+[36m2023-12-01 09:42:25.229 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:42:25.305 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:42:28.257 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:42:28.257 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:42:28.257 DEBUG    [AcquisitionClass.py:126] 22.22222222222222[0m
+[32m2023-12-01 09:42:28.257 DEBUG    [AcquisitionClass.py:127] 2250.0[0m
+[32m2023-12-01 09:42:28.260 DEBUG    [AcquisitionClass.py:128] 0.225[0m
+[32m2023-12-01 09:42:28.260 DEBUG    [AcquisitionClass.py:129] 2250.0[0m
+[32m2023-12-01 09:42:28.260 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:42:28.260 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[32m2023-12-01 09:42:28.263 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:42:28.263 DEBUG    [AcquisitionClass.py:126] 22.22222222222222[0m
+[32m2023-12-01 09:42:28.263 DEBUG    [AcquisitionClass.py:127] 2250.0[0m
+[32m2023-12-01 09:42:28.264 DEBUG    [AcquisitionClass.py:128] 0.225[0m
+[32m2023-12-01 09:42:28.264 DEBUG    [AcquisitionClass.py:129] 2250.0[0m
+[32m2023-12-01 09:42:28.264 DEBUG    [AcquisitionClass.py:130] 50000[0m
+[32m2023-12-01 09:42:28.264 DEBUG    [AcquisitionClass.py:131] 50000[0m
+[36m2023-12-01 09:42:28.322 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:42:28.325 INFO     [AcquisitionClass.py:517] frequency: 0.225 
+ amplitude 2.250 
+ offset 2.250  
+ acquisiton time 22.222 
+ points per period 10000.000 
+ number of periods 5.000[0m
+[1;31m2023-12-01 09:43:19.450 ERROR    [AcquisitionClass.py:526] Voltage saturation of the MPPC intensity reader[0m
+[1;31m2023-12-01 09:43:19.450 ERROR    [AcquisitionClass.py:530] Voltage saturation of the MPPC fluorescence reader[0m
+[36m2023-12-01 09:43:19.750 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:19.825 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:22.779 CRITICAL [DronpaClass.py:183] [][0m
+[32m2023-12-01 09:43:22.780 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-12-01 09:43:22.780 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-12-01 09:43:22.780 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2023-12-01 09:43:22.783 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-12-01 09:43:22.783 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-12-01 09:43:22.783 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-12-01 09:43:22.784 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2023-12-01 09:43:22.784 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:43:22.784 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-12-01 09:43:22.784 DEBUG    [AcquisitionClass.py:127] 100000[0m
+[32m2023-12-01 09:43:22.785 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-12-01 09:43:22.785 DEBUG    [AcquisitionClass.py:129] 100000[0m
+[32m2023-12-01 09:43:22.785 DEBUG    [AcquisitionClass.py:130] 100000[0m
+[32m2023-12-01 09:43:22.785 DEBUG    [AcquisitionClass.py:131] 100000[0m
+[1;35m2023-12-01 09:43:22.786 CRITICAL [DronpaClass.py:197] channels[0m
+[1;35m2023-12-01 09:43:22.786 CRITICAL [DronpaClass.py:198] 1[0m
+[36m2023-12-01 09:43:22.786 INFO     [RoutinesClass.py:28] Running the detector response routine[0m
+[1;35m2023-12-01 09:43:22.786 CRITICAL [RoutinesClass.py:38] 0.2[0m
+[36m2023-12-01 09:43:23.866 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.200  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:24.995 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:25.72 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:26.93 CRITICAL [RoutinesClass.py:38] 0.6777777777777778[0m
+[36m2023-12-01 09:43:27.177 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.678  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:28.302 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:28.380 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:29.405 CRITICAL [RoutinesClass.py:38] 1.1555555555555554[0m
+[36m2023-12-01 09:43:30.489 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 1.156  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:31.606 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:31.684 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:32.715 CRITICAL [RoutinesClass.py:38] 1.633333333333333[0m
+[36m2023-12-01 09:43:33.790 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 1.633  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:34.918 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:34.996 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:36.23 CRITICAL [RoutinesClass.py:38] 2.111111111111111[0m
+[36m2023-12-01 09:43:37.101 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 2.111  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:38.230 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:38.306 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:39.334 CRITICAL [RoutinesClass.py:38] 2.588888888888889[0m
+[36m2023-12-01 09:43:40.412 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 2.589  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:41.541 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:41.618 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:42.649 CRITICAL [RoutinesClass.py:38] 3.0666666666666664[0m
+[36m2023-12-01 09:43:43.724 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 3.067  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:44.838 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:44.915 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:45.944 CRITICAL [RoutinesClass.py:38] 3.5444444444444443[0m
+[36m2023-12-01 09:43:47.19 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 3.544  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:48.145 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:48.223 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:49.253 CRITICAL [RoutinesClass.py:38] 4.022222222222222[0m
+[36m2023-12-01 09:43:50.332 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 4.022  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[1;31m2023-12-01 09:43:51.443 ERROR    [AcquisitionClass.py:530] Voltage saturation of the MPPC fluorescence reader[0m
+[36m2023-12-01 09:43:51.456 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:51.517 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:43:52.545 CRITICAL [RoutinesClass.py:38] 4.5[0m
+[36m2023-12-01 09:43:53.623 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 4.500  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[1;31m2023-12-01 09:43:54.737 ERROR    [AcquisitionClass.py:526] Voltage saturation of the MPPC intensity reader[0m
+[1;31m2023-12-01 09:43:54.738 ERROR    [AcquisitionClass.py:530] Voltage saturation of the MPPC fluorescence reader[0m
+[36m2023-12-01 09:43:54.750 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:54.829 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:43:57.22 INFO     [RoutinesClass.py:28] Running the detector response routine[0m
+[1;35m2023-12-01 09:43:57.23 CRITICAL [RoutinesClass.py:38] 0.0[0m
+[36m2023-12-01 09:43:58.103 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.000  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:43:59.216 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:43:59.295 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:00.322 CRITICAL [RoutinesClass.py:38] 0.010526315789473684[0m
+[36m2023-12-01 09:44:01.402 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.011  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:02.517 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:02.596 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:03.625 CRITICAL [RoutinesClass.py:38] 0.021052631578947368[0m
+[36m2023-12-01 09:44:04.704 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.021  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:05.832 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:05.909 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:06.934 CRITICAL [RoutinesClass.py:38] 0.031578947368421054[0m
+[36m2023-12-01 09:44:08.19 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.032  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:09.138 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:09.216 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:10.246 CRITICAL [RoutinesClass.py:38] 0.042105263157894736[0m
+[36m2023-12-01 09:44:11.326 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.042  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:12.441 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:12.520 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:13.542 CRITICAL [RoutinesClass.py:38] 0.05263157894736842[0m
+[36m2023-12-01 09:44:14.622 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.053  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:15.746 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:15.823 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:16.849 CRITICAL [RoutinesClass.py:38] 0.06315789473684211[0m
+[36m2023-12-01 09:44:17.923 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.063  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:19.38 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:19.115 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:20.144 CRITICAL [RoutinesClass.py:38] 0.07368421052631578[0m
+[36m2023-12-01 09:44:21.227 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.074  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:22.340 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:22.419 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:23.444 CRITICAL [RoutinesClass.py:38] 0.08421052631578947[0m
+[36m2023-12-01 09:44:24.528 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.084  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:25.652 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:25.728 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:26.758 CRITICAL [RoutinesClass.py:38] 0.09473684210526316[0m
+[36m2023-12-01 09:44:27.837 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.095  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:28.965 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:29.42 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:30.73 CRITICAL [RoutinesClass.py:38] 0.10526315789473684[0m
+[36m2023-12-01 09:44:31.152 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.105  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:32.278 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:32.355 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:33.379 CRITICAL [RoutinesClass.py:38] 0.11578947368421053[0m
+[36m2023-12-01 09:44:34.453 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.116  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:35.567 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:35.644 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:36.670 CRITICAL [RoutinesClass.py:38] 0.12631578947368421[0m
+[36m2023-12-01 09:44:37.751 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.126  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:38.865 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:38.941 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:39.966 CRITICAL [RoutinesClass.py:38] 0.1368421052631579[0m
+[36m2023-12-01 09:44:41.43 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.137  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:42.160 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:42.239 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:43.266 CRITICAL [RoutinesClass.py:38] 0.14736842105263157[0m
+[36m2023-12-01 09:44:44.340 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.147  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:45.468 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:45.547 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:46.575 CRITICAL [RoutinesClass.py:38] 0.15789473684210525[0m
+[36m2023-12-01 09:44:47.654 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.158  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:48.774 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:48.851 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:49.878 CRITICAL [RoutinesClass.py:38] 0.16842105263157894[0m
+[36m2023-12-01 09:44:50.954 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.168  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:52.69 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:52.146 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:53.169 CRITICAL [RoutinesClass.py:38] 0.17894736842105263[0m
+[36m2023-12-01 09:44:54.239 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.179  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:55.368 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:55.446 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:56.474 CRITICAL [RoutinesClass.py:38] 0.18947368421052632[0m
+[36m2023-12-01 09:44:57.554 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.189  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:44:58.670 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:44:58.748 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:44:59.779 CRITICAL [RoutinesClass.py:38] 0.2[0m
+[36m2023-12-01 09:45:00.855 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.200  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:01.971 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:02.49 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[32m2023-12-01 09:45:04.246 DEBUG    [AcquisitionClass.py:125] 10000[0m
+[32m2023-12-01 09:45:04.247 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-12-01 09:45:04.247 DEBUG    [AcquisitionClass.py:127] 100000[0m
+[32m2023-12-01 09:45:04.247 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-12-01 09:45:04.247 DEBUG    [AcquisitionClass.py:129] 100000[0m
+[32m2023-12-01 09:45:04.247 DEBUG    [AcquisitionClass.py:130] 100000[0m
+[32m2023-12-01 09:45:04.248 DEBUG    [AcquisitionClass.py:131] 100000[0m
+[36m2023-12-01 09:45:04.248 INFO     [RoutinesClass.py:28] Running the detector response routine[0m
+[1;35m2023-12-01 09:45:04.248 CRITICAL [RoutinesClass.py:38] 0.2[0m
+[36m2023-12-01 09:45:05.320 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.200  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:06.447 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:06.525 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:07.552 CRITICAL [RoutinesClass.py:38] 0.6777777777777778[0m
+[36m2023-12-01 09:45:08.632 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.678  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:09.746 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:09.826 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:10.855 CRITICAL [RoutinesClass.py:38] 1.1555555555555554[0m
+[36m2023-12-01 09:45:11.935 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 1.156  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:13.63 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:13.142 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:14.172 CRITICAL [RoutinesClass.py:38] 1.633333333333333[0m
+[36m2023-12-01 09:45:15.251 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 1.633  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:16.365 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:16.443 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:17.471 CRITICAL [RoutinesClass.py:38] 2.111111111111111[0m
+[36m2023-12-01 09:45:18.549 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 2.111  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:19.677 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:19.755 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:20.784 CRITICAL [RoutinesClass.py:38] 2.588888888888889[0m
+[36m2023-12-01 09:45:21.862 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 2.589  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:22.983 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:23.62 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:24.91 CRITICAL [RoutinesClass.py:38] 3.0666666666666664[0m
+[36m2023-12-01 09:45:25.174 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 3.067  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:26.291 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:26.370 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:27.399 CRITICAL [RoutinesClass.py:38] 3.5444444444444443[0m
+[36m2023-12-01 09:45:28.476 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 3.544  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:29.590 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:29.668 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:30.695 CRITICAL [RoutinesClass.py:38] 4.022222222222222[0m
+[36m2023-12-01 09:45:31.775 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 4.022  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:32.895 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:32.972 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:33.994 CRITICAL [RoutinesClass.py:38] 4.5[0m
+[36m2023-12-01 09:45:35.71 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 4.500  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:36.188 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:36.267 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2023-12-01 09:45:38.464 INFO     [RoutinesClass.py:28] Running the detector response routine[0m
+[1;35m2023-12-01 09:45:38.465 CRITICAL [RoutinesClass.py:38] 0.0[0m
+[36m2023-12-01 09:45:39.542 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.000  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:40.672 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:40.748 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:41.774 CRITICAL [RoutinesClass.py:38] 0.010526315789473684[0m
+[36m2023-12-01 09:45:42.850 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.011  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:43.967 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:44.46 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:45.76 CRITICAL [RoutinesClass.py:38] 0.021052631578947368[0m
+[36m2023-12-01 09:45:46.156 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.021  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:47.283 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:47.360 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:48.381 CRITICAL [RoutinesClass.py:38] 0.031578947368421054[0m
+[36m2023-12-01 09:45:49.459 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.032  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:50.573 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:50.652 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:51.680 CRITICAL [RoutinesClass.py:38] 0.042105263157894736[0m
+[36m2023-12-01 09:45:52.758 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.042  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:53.873 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:53.950 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:54.975 CRITICAL [RoutinesClass.py:38] 0.05263157894736842[0m
+[36m2023-12-01 09:45:56.52 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.053  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:45:57.171 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:45:57.250 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:45:58.278 CRITICAL [RoutinesClass.py:38] 0.06315789473684211[0m
+[36m2023-12-01 09:45:59.357 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.063  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:00.475 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:00.552 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:01.580 CRITICAL [RoutinesClass.py:38] 0.07368421052631578[0m
+[36m2023-12-01 09:46:02.658 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.074  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:03.775 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:03.853 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:04.881 CRITICAL [RoutinesClass.py:38] 0.08421052631578947[0m
+[36m2023-12-01 09:46:05.960 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.084  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:07.73 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:07.151 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:08.179 CRITICAL [RoutinesClass.py:38] 0.09473684210526316[0m
+[36m2023-12-01 09:46:09.258 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.095  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:10.376 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:10.454 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:11.479 CRITICAL [RoutinesClass.py:38] 0.10526315789473684[0m
+[36m2023-12-01 09:46:12.562 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.105  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:13.680 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:13.759 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:14.787 CRITICAL [RoutinesClass.py:38] 0.11578947368421053[0m
+[36m2023-12-01 09:46:15.867 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.116  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:16.983 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:17.60 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:18.85 CRITICAL [RoutinesClass.py:38] 0.12631578947368421[0m
+[36m2023-12-01 09:46:19.166 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.126  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:20.295 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:20.373 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:21.401 CRITICAL [RoutinesClass.py:38] 0.1368421052631579[0m
+[36m2023-12-01 09:46:22.479 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.137  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:23.607 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:23.685 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:24.706 CRITICAL [RoutinesClass.py:38] 0.14736842105263157[0m
+[36m2023-12-01 09:46:25.790 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.147  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:26.916 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:26.993 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:28.19 CRITICAL [RoutinesClass.py:38] 0.15789473684210525[0m
+[36m2023-12-01 09:46:29.100 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.158  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:30.225 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:30.305 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:31.333 CRITICAL [RoutinesClass.py:38] 0.16842105263157894[0m
+[36m2023-12-01 09:46:32.414 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.168  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:33.529 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:33.605 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:34.629 CRITICAL [RoutinesClass.py:38] 0.17894736842105263[0m
+[36m2023-12-01 09:46:35.708 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.179  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:36.823 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:36.902 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:37.929 CRITICAL [RoutinesClass.py:38] 0.18947368421052632[0m
+[36m2023-12-01 09:46:39.11 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.189  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:40.140 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:40.218 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[1;35m2023-12-01 09:46:41.246 CRITICAL [RoutinesClass.py:38] 0.2[0m
+[36m2023-12-01 09:46:42.317 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.000 
+ offset 0.200  
+ acquisiton time 1.000 
+ points per period 10000.000 
+ number of periods 10.000[0m
+[36m2023-12-01 09:46:43.432 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2023-12-01 09:46:43.510 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m

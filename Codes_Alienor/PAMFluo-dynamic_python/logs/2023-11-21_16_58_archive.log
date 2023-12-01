@@ -1,0 +1,58 @@
+[32m2023-11-21 16:58:29.159 DEBUG    [DC4100_LED.py:69] Serial<id=0x160499849d0, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2023-11-21 16:58:29.159 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-11-21 16:58:29.259 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:29.259 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2023-11-21 16:58:29.359 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:29.359 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-11-21 16:58:29.459 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:29.459 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2023-11-21 16:58:29.559 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-11-21 16:58:29.559 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2023-11-21 16:58:29.559 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2023-11-21 16:58:29.659 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:30.669 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2023-11-21 16:58:30.669 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2023-11-21 16:58:30.669 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2023-11-21 16:58:30.669 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2023-11-21 16:58:30.669 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2023-11-21 16:58:30.777 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-11-21 16:58:30.777 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2023-11-21 16:58:30.777 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-11-21 16:58:30.877 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-11-21 16:58:30.877 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2023-11-21 16:58:30.877 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2023-11-21 16:58:30.987 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2023-11-21 16:58:30.987 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2023-11-21 16:58:30.987 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2023-11-21 16:58:31.88 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:31.88 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2023-11-21 16:58:31.188 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:31.188 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 1000[0m
+[32m2023-11-21 16:58:31.292 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:31.292 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2023-11-21 16:58:31.402 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:31.402 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2023-11-21 16:58:31.513 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:31.513 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2023-11-21 16:58:31.613 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-11-21 16:58:33.195 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:125] 2000[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:126] 20.0[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:127] 1000.0[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:128] 0.5[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:129] 1000.0[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:130] 20000.0[0m
+[32m2023-11-21 16:58:58.333 DEBUG    [AcquisitionClass.py:131] 20000.0[0m

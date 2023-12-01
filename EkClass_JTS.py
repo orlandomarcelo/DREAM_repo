@@ -4,17 +4,19 @@ import pandas as pd
 import ExperimentClass
 import tools
 import math_functions as mf
+import importlib
+importlib.reload(tools)
 
 
-class EkClass_JTS(ExperimentClass.Experiment):
+class JTS_EkClass(ExperimentClass.Experiment):
     def __init__(self, name, Ek_records_str = "16-21", PWM_list = [0.01, 0.04, 0.1, 0.25, 0.5, 0.8], Flash_record_str= "7", 
-                 start = -5, stop = 25, num = 50, index_stop_fit = 26):
+                 start = -5, stop = 70, num = 50, index_stop_fit = 28):
         super().__init__(name, equipment = "JTS", local="IBPC", DataType=".dat", is_sub_experiment=False, parent_experiment_name=None)
         self.Ek_records = tools.create_record_list(Ek_records_str)
         self.PWM_list = PWM_list
         self.Flash_records = tools.create_record_list(Flash_record_str)
         self.start = start
-        self.stop = stop 
+        self.stop = stop  
         self.num = num
         self.index_stop_fit = index_stop_fit
         
@@ -27,18 +29,23 @@ class EkClass_JTS(ExperimentClass.Experiment):
         self.yfit_lin = []
         self.param = []
         self.vitesse = []
+        self.Ek_kinetic_data = []
 
 
         self.Ek_time = self.clean_times[self.records.index(self.Ek_records[0])][21:self.index_stop_fit]
-
+        
 
         for i, k in enumerate(self.Ek_records):
             ydata = self.clean_data[self.records.index(k)][21:index_stop_fit]
-            popt, x, y =  tools.lin_fit(self.Ek_time, ydata, start, stop, num)
+            self.Ek_kinetic_data.append(ydata)
+            if i == 0:
+                popt, x, y =  tools.exp_decay_fit(self.Ek_time, ydata, start, stop, num, p0 = [-100, 10, 10])
+            else:
+                popt, x, y =  tools.exp_decay_fit(self.Ek_time, ydata, start, stop, num, p0 = popt)
             self.xfit_lin.append(x)
             self.yfit_lin.append(y)
             self.param.append(popt)
-            self.vitesse.append(-1000*self.param[i][0]/self.calib)
+            self.vitesse.append(-1000*(self.param[i][0]/self.param[i][1])/self.calib)
             
             
         self.intensity_rel = np.insert(self.PWM_list, 0, 0)
@@ -54,5 +61,4 @@ class EkClass_JTS(ExperimentClass.Experiment):
         self.Ek = popt[1]
         self.Ek_err = np.sqrt(np.diag(pcov))[1]
 
-                
                 

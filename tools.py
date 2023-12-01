@@ -18,11 +18,11 @@ def clean_spaces(vector):
     return clean_vector
 
 def exp_decay_fit(xdata, ydata, start, stop, num, p0 = None):
-    def exp_decay(x, A, B):
-        return A * (1- np.exp(-((x)/B)))
+    def exp_decay(x, A, B, C):
+        return A * (1- np.exp(-((x)/B))) + C
     popt, pcov = curve_fit(exp_decay, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
-    yfit = exp_decay(xfit, popt[0], popt[1])
+    yfit = exp_decay(xfit, popt[0], popt[1], popt[2])
     return popt, xfit, yfit
     
 def lin_fit(xdata, ydata, start, stop, num):
@@ -58,11 +58,15 @@ def sigmoid_fit(xdata, ydata, start, stop, num):
     yfit = sigmoid(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
 
-def sinus_fit(xdata, ydata, start, stop, num, p0 = None):
+def sinus_fit(xdata, ydata, start, stop, num, p0 = None, freq = None):
     def sinus(x, A, B, C, D):
         return A * np.sin(2* np.pi*(B * x + C)) + D
+    if freq is None:
+        bounds = ([0, -np.inf, -np.pi, -np.inf], [np.inf, np.inf, np.pi, np.inf])
+    else:
+        bounds = ([0, freq*0.95, -np.pi, -np.inf], [np.inf, freq*1.05, np.pi, np.inf])
 
-    popt, pcov = curve_fit(sinus, xdata, ydata, p0 = p0)
+    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds)
     xfit = np.linspace(start, stop, num)
     yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
@@ -119,12 +123,10 @@ def FFT(Time, Signal, pad = False, length = None):
     if pad == True:
         Time = zero_padding(Time, length)
         Signal = zero_padding(Signal, length)
-    freq = np.fft.fftfreq(len(Time), (Time[1] - Time[0]))
-    F = freq[1:int(len(freq)/2)]
-    ft = np.fft.fft(Signal)
-    A = np.abs(ft[1:int(len(freq)/2)])
-    P = np.angle(ft[1:int(len(freq)/2)])
-    P = P * 180 / np.pi
+    F = np.fft.rfftfreq(len(Time), (Time[1] - Time[0]))
+    ft = np.fft.rfft(Signal)
+    A = np.abs(ft)
+    P = np.angle(ft, deg=True)
     
     return F, A, P
 
@@ -217,6 +219,31 @@ def bode_plot_axes(ax):
         
     return ax
 
+def bode_plot_axes_phase(ax):
+    labelsize = 15
+    legendfontsize = 10
+    ax.set_xscale('log')
+
+    ax.set_xlabel("Frequency (Hz)", fontsize = labelsize)
+    ax.set_ylabel("Phase (π rad)", fontsize = labelsize)
+    ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
+
+    ax.legend(fontsize = legendfontsize)
+
+    ax = plt.gca()
+    ax.tick_params(axis='both', which='both', width=2)
+
+    for label in ax.xaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+        
+    for label in ax.yaxis.get_ticklabels():
+        label.set_fontsize(labelsize)
+
+    for spine in ax.spines.values():
+        spine.set_linewidth(1.5)
+        
+    return ax
+
 def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legendfontsize = 10, legend = True):
 
     if legend:
@@ -239,7 +266,7 @@ def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legen
     
 
 def moving_average(signal, window_size):
-    cumsum = np.cumsum(signal, dtype=float)
+    cumsum = np.cumsum(signal)
     cumsum[window_size:] = cumsum[window_size:] - cumsum[:-window_size]
     return cumsum[window_size - 1:] / window_size
 
@@ -368,11 +395,11 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
             
         ax[1].legend()
                 
-        #fig.tight_layout()
+        fig.tight_layout()
          
-        #fig.savefig(f"{manips[-1].fig_folder}/{fig_title}_compare.png")
+        fig.savefig(f"{manips[-1].fig_folder}/{fig_title}_compare.png")
         
-        return fig, ax
+        #return fig, ax
     
 def merge_dict(dict_1, dict_2):
     dict_3 = {**dict_1, **dict_2}
@@ -380,3 +407,42 @@ def merge_dict(dict_1, dict_2):
         if key in dict_1 and key in dict_2:
                 dict_3[key] = [value , dict_1[key]]
     return dict_3
+
+########## Filtering functions ##########
+    
+from scipy.signal import lfilter, butter
+
+def high_pass_filter(signal, cutoff_frequency, sample_rate, order=5):    
+    # Design a Butterworth high-pass filter
+    nyquist = 0.5 * sample_rate
+    normal_cutoff = cutoff_frequency / nyquist
+    b, a = butter(order, normal_cutoff, btype='high', analog=False)
+
+    # Apply the filter to the signal
+    filtered_signal = lfilter(b, a, signal)
+
+    return filtered_signal
+
+
+def band_pass_filter(signal, lowcut, highcut, sample_rate, order=5):
+    # Design a Butterworth band-pass filter
+    nyquist = 0.5 * sample_rate
+    low = lowcut / nyquist
+    high = min(highcut / nyquist , 0.99)
+    b, a = butter(order, [low, high], btype='band', analog=False)
+
+    # Apply the filter to the signal
+    filtered_signal = lfilter(b, a, signal)
+
+    return filtered_signal
+
+def low_pass_filter(signal, cutoff_frequency, sample_rate, order=5):
+    # Design a Butterworth low-pass filter
+    nyquist = 0.5 * sample_rate
+    normal_cutoff = min(cutoff_frequency / nyquist, 0.99)
+    b, a = butter(order, normal_cutoff, btype='low', analog=False)
+
+    # Apply the filter to the signal
+    filtered_signal = lfilter(b, a, signal)
+
+    return filtered_signal

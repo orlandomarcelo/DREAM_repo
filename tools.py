@@ -64,9 +64,9 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None, freq = None):
     if freq is None:
         bounds = ([0, -np.inf, -np.pi, -np.inf], [np.inf, np.inf, np.pi, np.inf])
     else:
-        bounds = ([0, freq*0.95, -np.pi, -np.inf], [np.inf, freq*1.05, np.pi, np.inf])
+        bounds = ([0, freq*0.99, -np.pi, -np.inf], [np.inf, freq*1.01, np.pi, np.inf])
 
-    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds)
+    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds, maxfev=10000000)
     xfit = np.linspace(start, stop, num)
     yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
@@ -322,7 +322,7 @@ def autoscale_y(ax,margin=0.1):
 
     ax.set_ylim(bot,top)
     
-def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2):
+def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2, Return_params = False):
     orange = [250/255, 116/255, 79/255]
     green = [7/255, 171/255, 152/255]
     blue = [24/255, 47/255, 74/255]
@@ -362,8 +362,11 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
     
     ax.plot(ffit, afit, linewidth=line, color = color, label = label)
     ax.fill_between(np.linspace(0.007, 130, 1000), afit - 1.94*err, afit + 1.94*err, alpha=alpha, color = color)
-
-    return ax
+    
+    if Return_params:
+        return ax, popt
+    else:
+        return ax
 
 def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (10,5)):
     if frequency_to_plot is None:

@@ -369,6 +369,22 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
         return ax
 
 def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (10,5)):
+    """
+    Compare the Bode plots of multiple manipulations at different frequencies.
+    
+    Parameters:
+    - frequency_list (list): List of frequencies.
+    - manips (list): List of manipulations.
+    - frequency_to_plot (list, optional): List of frequencies to plot. If None, all frequencies in frequency_list will be plotted.
+    - min (float, optional): Minimum value for x-axis scaling. Default is 0.5.
+    - max (float, optional): Maximum value for x-axis scaling. Default is 1.5.
+    - autoscale (bool, optional): Whether to automatically scale the y-axis. Default is True.
+    - leg (list, optional): List of legend labels for each manipulation. If None, the manipulation names will be used as labels.
+    - figsize (tuple, optional): Figure size. Default is (10, 5).
+    
+    Returns:
+    - None
+    """
     if frequency_to_plot is None:
         frequency_to_plot = frequency_list
     

@@ -143,8 +143,8 @@ class BodeClass:
             
         i = np.where(np.array(self.bode_records) == record)[0][0]
 
-        ax[0].plot(self.bode_times[i]/1000, self.bode_data[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
-        ax[1].plot(self.freqs[i], self.amps[i], "o-",color = color, markersize=marker, linewidth=line)
+        ax[0].plot(self.bode_times[i]/1000, self.bode_data[i], "o-", color = color, markersize=marker, linewidth=line)
+        ax[1].plot(self.freqs[i], self.amps[i], "o-",color = color, markersize=marker, linewidth=line,label = leg)
         ax[1].plot(self.fund_freq[i], self.fund_amp[i], "x", markersize=10)            
         
         ax[0].set_xlabel("Time (s)", fontsize = 14)

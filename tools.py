@@ -368,7 +368,7 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
     else:
         return ax
 
-def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (10,5)):
+def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (13,4)):
     """
     Compare the Bode plots of multiple manipulations at different frequencies.
     
@@ -392,7 +392,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
         leg = [manip.name for manip in manips]
     
     for i, k in enumerate(frequency_to_plot):
-        fig , ax = plt.subplots(1,2, figsize = figsize)
+        fig , ax = plt.subplots(1,3, figsize = figsize)
         if k < 1:
             fig_title = f"P = {1/frequency_to_plot[i]:n} s"
         elif k == 1:
@@ -411,6 +411,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
             ax[1].set_xlim([k*min, k*max])
             autoscale_y(ax[1])
             ax[1].set_xlim(0, k*max)
+            ax[2].set_xlim(0, k*max)
             
         ax[1].legend()
                 

@@ -70,9 +70,9 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None, freq = None):
     if freq is None:
         bounds = ([0, -np.inf, -np.pi, -np.inf], [np.inf, np.inf, np.pi, np.inf])
     else:
-        bounds = ([0, freq*0.95, -np.pi, -np.inf], [np.inf, freq*1.05, np.pi, np.inf])
+        bounds = ([0, freq*0.99, -np.pi, -np.inf], [np.inf, freq*1.01, np.pi, np.inf])
 
-    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds)
+    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds, maxfev=10000000)
     xfit = np.linspace(start, stop, num)
     yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
@@ -328,7 +328,7 @@ def autoscale_y(ax,margin=0.1):
 
     ax.set_ylim(bot,top)
     
-def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2):
+def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2, Return_params = False):
     orange = [250/255, 116/255, 79/255]
     green = [7/255, 171/255, 152/255]
     blue = [24/255, 47/255, 74/255]
@@ -368,10 +368,29 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
     
     ax.plot(ffit, afit, linewidth=line, color = color, label = label)
     ax.fill_between(np.linspace(0.007, 130, 1000), afit - 1.94*err, afit + 1.94*err, alpha=alpha, color = color)
+    
+    if Return_params:
+        return ax, popt
+    else:
+        return ax
 
-    return ax
-
-def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (10,5)):
+def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (13,4)):
+    """
+    Compare the Bode plots of multiple manipulations at different frequencies.
+    
+    Parameters:
+    - frequency_list (list): List of frequencies.
+    - manips (list): List of manipulations.
+    - frequency_to_plot (list, optional): List of frequencies to plot. If None, all frequencies in frequency_list will be plotted.
+    - min (float, optional): Minimum value for x-axis scaling. Default is 0.5.
+    - max (float, optional): Maximum value for x-axis scaling. Default is 1.5.
+    - autoscale (bool, optional): Whether to automatically scale the y-axis. Default is True.
+    - leg (list, optional): List of legend labels for each manipulation. If None, the manipulation names will be used as labels.
+    - figsize (tuple, optional): Figure size. Default is (10, 5).
+    
+    Returns:
+    - None
+    """
     if frequency_to_plot is None:
         frequency_to_plot = frequency_list
     
@@ -379,7 +398,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
         leg = [manip.name for manip in manips]
     
     for i, k in enumerate(frequency_to_plot):
-        fig , ax = plt.subplots(1,2, figsize = figsize)
+        fig , ax = plt.subplots(1,3, figsize = figsize)
         if k < 1:
             fig_title = f"P = {1/frequency_to_plot[i]:n} s"
         elif k == 1:
@@ -398,6 +417,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
             ax[1].set_xlim([k*min, k*max])
             autoscale_y(ax[1])
             ax[1].set_xlim(0, k*max)
+            ax[2].set_xlim(0, k*max)
             
         ax[1].legend()
                 

@@ -124,7 +124,7 @@ def FFT(Time, Signal, pad = False, length = None):
         Time = zero_padding(Time, length)
         Signal = zero_padding(Signal, length)
     F = np.fft.rfftfreq(len(Time), (Time[1] - Time[0]))
-    ft = np.fft.rfft(Signal)
+    ft = 2*np.fft.rfft(Signal)/len(Time)
     A = np.abs(ft)
     P = np.angle(ft, deg=True)
     

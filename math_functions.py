@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 def exp_decay(x, A, B):
-    return A * (1- np.exp(-((x)/B)))
+    return A * np.exp(-((x)/B))
     
 def lin(x, A, B):
     return A * x + B

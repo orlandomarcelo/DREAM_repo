@@ -1,0 +1,55 @@
+[32m2024-01-26 16:41:44.800 DEBUG    [DC4100_LED.py:69] Serial<id=0x1ec7b712790, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2024-01-26 16:41:44.800 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2024-01-26 16:41:44.904 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:44.904 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2024-01-26 16:41:45.14 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:45.14 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2024-01-26 16:41:45.124 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:45.124 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2024-01-26 16:41:45.232 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-26 16:41:45.232 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2024-01-26 16:41:45.232 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2024-01-26 16:41:45.340 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:46.344 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2024-01-26 16:41:46.346 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2024-01-26 16:41:46.346 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2024-01-26 16:41:46.346 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2024-01-26 16:41:46.346 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2024-01-26 16:41:46.454 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-26 16:41:46.454 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2024-01-26 16:41:46.454 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2024-01-26 16:41:46.564 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-26 16:41:46.564 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2024-01-26 16:41:46.564 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2024-01-26 16:41:46.672 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-26 16:41:46.672 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2024-01-26 16:41:46.672 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2024-01-26 16:41:46.783 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:46.783 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2024-01-26 16:41:46.891 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:46.891 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 400[0m
+[32m2024-01-26 16:41:47.1 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:47.1 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2024-01-26 16:41:47.110 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:47.110 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 2 150[0m
+[32m2024-01-26 16:41:47.219 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:47.219 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2024-01-26 16:41:47.328 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:47.328 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 3 250[0m
+[32m2024-01-26 16:41:47.438 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:47.438 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2024-01-26 16:41:47.547 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-26 16:41:48.841 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2024-01-26 16:41:48.842 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2024-01-26 16:41:48.842 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2024-01-26 16:41:48.843 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2024-01-26 16:41:48.843 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2024-01-26 16:41:48.843 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2024-01-26 16:41:48.843 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2024-01-26 16:42:06.385 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 96.000 
+ points per period 30.000 
+ number of periods 10.000[0m
+[1;31m2024-01-26 16:43:42.885 ERROR    [AcquisitionClass.py:530] Voltage saturation of the MPPC fluorescence reader[0m

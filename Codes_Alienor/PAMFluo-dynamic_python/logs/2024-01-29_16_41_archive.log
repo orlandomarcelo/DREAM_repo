@@ -1,0 +1,59 @@
+[32m2024-01-29 16:41:49.424 DEBUG    [DC4100_LED.py:69] Serial<id=0x24bac19edc0, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2024-01-29 16:41:49.425 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2024-01-29 16:41:49.535 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:49.535 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2024-01-29 16:41:49.645 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:49.645 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2024-01-29 16:41:49.754 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:49.754 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2024-01-29 16:41:49.866 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-29 16:41:49.866 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2024-01-29 16:41:49.866 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2024-01-29 16:41:49.974 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:50.976 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2024-01-29 16:41:50.978 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2024-01-29 16:41:50.978 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2024-01-29 16:41:50.978 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2024-01-29 16:41:50.978 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2024-01-29 16:41:51.85 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-29 16:41:51.85 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2024-01-29 16:41:51.85 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2024-01-29 16:41:51.193 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-29 16:41:51.193 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2024-01-29 16:41:51.193 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2024-01-29 16:41:51.304 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-29 16:41:51.304 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2024-01-29 16:41:51.304 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2024-01-29 16:41:51.414 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:51.414 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2024-01-29 16:41:51.524 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:51.524 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 1000[0m
+[32m2024-01-29 16:41:51.634 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:51.634 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2024-01-29 16:41:51.742 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:51.742 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2024-01-29 16:41:51.852 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:51.852 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2024-01-29 16:41:51.960 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-29 16:41:53.476 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2024-01-29 16:41:53.476 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2024-01-29 16:41:53.476 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2024-01-29 16:41:53.477 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2024-01-29 16:41:53.477 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2024-01-29 16:41:53.477 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2024-01-29 16:41:53.477 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2024-01-29 16:42:18.657 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2024-01-29 16:42:18.657 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2024-01-29 16:42:18.657 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2024-01-29 16:42:18.658 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2024-01-29 16:42:18.658 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2024-01-29 16:42:18.658 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2024-01-29 16:42:18.658 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2024-01-29 16:42:20.135 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 300.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-29 16:47:20.414 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-29 16:47:20.490 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m

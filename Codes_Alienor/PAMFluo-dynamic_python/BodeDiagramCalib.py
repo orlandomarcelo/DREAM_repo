@@ -34,7 +34,7 @@ def my_config():
     gen_ana = [NI_blue, NI_purple]
     sleep_time = 1
     N = 10
-    min_freq = 2
+    min_freq = 0
     max_freq = 3
 
     amplitude = 2
@@ -96,7 +96,7 @@ def bode_diagram(_run, _log, name, gen_ana, sleep_time, N, min_freq, max_freq, a
     #black_calibration
     bode.read_black()
 
-
+    ipdb.set_trace()
     radius, phase, all_outputs, sin_lo, cos_lo, all_outputs_3D = bode.bode_diagram(frequencies, signal_12, 2)
     x0 = [0.1, 0.1, 0]
 
@@ -143,7 +143,7 @@ def bode_diagram(_run, _log, name, gen_ana, sleep_time, N, min_freq, max_freq, a
     voltage = np.linspace(0.1, 4.5/2, N_points)
     filter_LED = 1#10**initial_filter
 
-    tau_480_tot, tau_480_405_tot, val_480, val_405, probe_low_480, val_low_480,probe_low_405, val_low_405, offset_range_480, offset_range_405 = test.intensity_range(voltage, N_points, filter_LED)
+    tau_480_tot, tau_480_405_tot, val_480, val_405, probe_low_480, val_low_480,probe_low_405, val_low_405, offset_range_480, offset_range_405, fluo_low_480, fluo_low_405 = test.intensity_range(voltage, N_points, filter_LED)
 
 
     low_480, low_405 = test.analyse_results(voltage, tau_480_tot, tau_480_405_tot, val_480, val_405)
@@ -158,6 +158,8 @@ def bode_diagram(_run, _log, name, gen_ana, sleep_time, N, min_freq, max_freq, a
     np.save("val_low_480.npy", val_low_480)
     np.save("probe_low_405.npy", probe_low_405)
     np.save("val_low_405.npy", val_low_405)
+    np.save("fluo_low_480.npy", fluo_low_480)
+    np.save("fluo_low_405.npy", fluo_low_405)
 
 
     #int_480 = utils.light_intensity.set_intensity(4, low_480['I_480'], 2*voltage)

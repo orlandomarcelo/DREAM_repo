@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import statistics as st
+import math
 import os
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
@@ -31,7 +32,12 @@ def lin_fit(xdata, ydata, start, stop, num):
     popt, pcov = curve_fit(lin, xdata, ydata)
     xfit = np.linspace(start, stop, num)
     yfit = lin(xfit, popt[0], popt[1])
-    return popt, xfit, yfit
+    y_pred = lin(np.array(xdata), popt[0], popt[1])
+    residuals = ydata - y_pred
+    ss_res = np.sum(residuals**2)
+    ss_tot = np.sum((ydata - np.mean(ydata))**2)
+    r_squared = 1 - (ss_res / ss_tot)
+    return popt, xfit, yfit, r_squared
 
 def Ek_fit(xdata, ydata, start, stop, num, p0 = None):
     def Ek(x, A, B):
@@ -446,3 +452,25 @@ def low_pass_filter(signal, cutoff_frequency, sample_rate, order=5):
     filtered_signal = lfilter(b, a, signal)
 
     return filtered_signal
+
+
+def subplot_grid(num_subplots):
+    # Calculate the number of rows and columns for the subplot grid
+    rows = int(math.sqrt(num_subplots))
+    cols = int(math.ceil(num_subplots / rows))
+
+    # Adjust the number of rows and columns to minimize empty subplots
+    while rows * cols < num_subplots:
+        rows += 1
+
+    # Create the subplot grid
+    fig, axes = plt.subplots(rows, cols, figsize=(10, 8))
+
+    # Flatten the 2D array of subplots to a 1D array
+    axes = axes.flatten()
+
+    # Remove empty subplots
+    for i in range(num_subplots, len(axes)):
+        fig.delaxes(axes[i])
+
+    return fig, axes

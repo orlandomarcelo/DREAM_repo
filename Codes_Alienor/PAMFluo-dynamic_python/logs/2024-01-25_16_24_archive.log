@@ -1,0 +1,171 @@
+[32m2024-01-25 16:24:58.480 DEBUG    [DC4100_LED.py:69] Serial<id=0x15d31565eb0, open=True>(port='COM5', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=0.1, xonxoff=0, rtscts=0, dsrdtr=False)[0m
+[32m2024-01-25 16:24:58.480 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2024-01-25 16:24:58.584 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:24:58.584 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 0[0m
+[32m2024-01-25 16:24:58.692 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:24:58.692 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2024-01-25 16:24:58.802 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:24:58.802 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2024-01-25 16:24:58.910 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-25 16:24:58.910 CRITICAL [DC4100_LED.py:164] setting mode[0m
+[32m2024-01-25 16:24:58.910 DEBUG    [DC4100_LED.py:89] DC4100: Sending m 2[0m
+[32m2024-01-25 16:24:59.18 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:00.33 DEBUG    [DC4100_LED.py:89] DC4100: Sending m?[0m
+[32m2024-01-25 16:25:00.35 DEBUG    [DC4100_LED.py:92] DC4100: Received b'2\r\n'[0m
+[36m2024-01-25 16:25:00.35 INFO     [DC4100_LED.py:215] External Control Mode[0m
+[1;35m2024-01-25 16:25:00.35 CRITICAL [DC4100_LED.py:219] 1[0m
+[32m2024-01-25 16:25:00.35 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 1[0m
+[32m2024-01-25 16:25:00.144 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-25 16:25:00.144 CRITICAL [DC4100_LED.py:219] 2[0m
+[32m2024-01-25 16:25:00.145 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2024-01-25 16:25:00.252 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-25 16:25:00.252 CRITICAL [DC4100_LED.py:219] 3[0m
+[32m2024-01-25 16:25:00.252 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 1[0m
+[32m2024-01-25 16:25:00.360 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[1;35m2024-01-25 16:25:00.360 CRITICAL [DC4100_LED.py:219] 4[0m
+[32m2024-01-25 16:25:00.360 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 1[0m
+[32m2024-01-25 16:25:00.469 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:00.469 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 1 1[0m
+[32m2024-01-25 16:25:00.580 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:00.580 DEBUG    [DC4100_LED.py:89] DC4100: Sending l 1 1000[0m
+[32m2024-01-25 16:25:00.691 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:00.691 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 2 0[0m
+[32m2024-01-25 16:25:00.799 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:00.799 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 3 0[0m
+[32m2024-01-25 16:25:00.910 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:00.910 DEBUG    [DC4100_LED.py:89] DC4100: Sending o 0 0[0m
+[32m2024-01-25 16:25:01.20 DEBUG    [DC4100_LED.py:92] DC4100: Received b''[0m
+[32m2024-01-25 16:25:02.526 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2024-01-25 16:25:02.527 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2024-01-25 16:25:02.527 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2024-01-25 16:25:02.528 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2024-01-25 16:25:02.528 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2024-01-25 16:25:02.528 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2024-01-25 16:25:02.528 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[32m2024-01-25 16:25:27.645 DEBUG    [AcquisitionClass.py:125] 1000[0m
+[32m2024-01-25 16:25:27.645 DEBUG    [AcquisitionClass.py:126] 1.0[0m
+[32m2024-01-25 16:25:27.645 DEBUG    [AcquisitionClass.py:127] 10000[0m
+[32m2024-01-25 16:25:27.646 DEBUG    [AcquisitionClass.py:128] 10[0m
+[32m2024-01-25 16:25:27.646 DEBUG    [AcquisitionClass.py:129] 10000[0m
+[32m2024-01-25 16:25:27.646 DEBUG    [AcquisitionClass.py:130] 10000[0m
+[32m2024-01-25 16:25:27.646 DEBUG    [AcquisitionClass.py:131] 10000[0m
+[36m2024-01-25 16:25:29.156 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:25:49.352 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:25:49.430 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:25:57.256 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:26:17.441 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:26:17.520 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:26:25.388 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:26:45.572 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:26:45.651 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:26:53.475 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:27:13.650 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:27:13.728 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:27:21.577 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:27:41.764 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:27:41.843 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:27:49.662 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:28:09.840 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:28:09.918 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:28:17.764 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:28:37.941 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:28:38.19 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:28:45.891 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:29:06.37 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:29:06.117 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:29:13.947 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:29:34.128 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:29:34.206 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:29:42.33 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:30:02.216 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:30:02.293 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:30:10.208 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:30:30.369 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:30:30.446 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:30:38.286 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:30:58.468 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:30:58.547 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:31:06.371 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:31:26.561 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:31:26.638 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:31:34.483 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:31:54.672 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:31:54.751 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m
+[36m2024-01-25 16:32:02.556 INFO     [AcquisitionClass.py:517] frequency: 10.000 
+ amplitude 0.200 
+ offset 1.000  
+ acquisiton time 20.000 
+ points per period 1000.000 
+ number of periods 10.000[0m
+[36m2024-01-25 16:32:22.742 INFO     [AcquisitionClass.py:630] Shutting down all LEDs for 1 seconds[0m
+[36m2024-01-25 16:32:22.822 INFO     [AcquisitionClass.py:371] Did not start digital generator, check generator_analog_channels[0m

@@ -32,7 +32,7 @@ ex.add_config("config.json")
 
 @ex.config
 def my_config():
-    name = "Activation_curve"
+    name = "Activation_DCM_pad_cam_inverse"
 
     acq_time = 60
     gen_ana = [NI_blue]
@@ -41,7 +41,7 @@ def my_config():
     limit_green = 0
     limit_red = 0
     limit_purple = 0
-    sleep_time = 60 #s
+    sleep_time = 1  #s
     trigger_color = "blue"
     sample_rate = 1/4 #Hz
     actinic_filter = 1
@@ -108,6 +108,7 @@ def activation_curve(_run, name, gen_ana, sleep_time, N, detect_input, limit_blu
     all_outputs = []
     all_times = [] 
     offsets = np.linspace(0, 0.45*sat, 15)
+    offsets = offsets[::-1]
     
     for i in range(len(offsets)):
         thread, cam = init_camera(exposure = exposure, num_frames = 15*ni.acq_time, gain =  gain, trigger=False, trigger_frequency=1000/exposure)

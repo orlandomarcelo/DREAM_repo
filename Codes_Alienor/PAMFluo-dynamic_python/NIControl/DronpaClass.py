@@ -217,7 +217,7 @@ class DronpaIntensity(NIControl.AcquisitionClass.Acquisition):
         probe_low_405, val_low_405, fluo_low_405, full_output = routines.detector_response_routine(0, 
                                                                                         offset_min, amplitude, 20, color = 'purple')
 
-        return tau_480_tot, tau_480_405_tot, val_480, val_405, probe_low_480, val_low_480,probe_low_405, val_low_405, offset_range_480, offset_range_405
+        return tau_480_tot, tau_480_405_tot, val_480, val_405, probe_low_480, val_low_480,probe_low_405, val_low_405, offset_range_480, offset_range_405, fluo_low_480, fluo_low_405
 
 
     def analyse_results(self, voltage, tau_480_tot, tau_480_405_tot, val_480, val_405):

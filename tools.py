@@ -130,8 +130,8 @@ def FFT(Time, Signal, pad = False, length = None):
         Time = zero_padding(Time, length)
         Signal = zero_padding(Signal, length)
     F = np.fft.rfftfreq(len(Time), (Time[1] - Time[0]))
-    ft = 2*np.fft.rfft(Signal)/len(Time)
-    A = np.abs(ft)
+    ft = np.fft.rfft(Signal)
+    A = 2*np.abs(ft)/len(Time)
     P = np.angle(ft, deg=True)
     
     return F, A, P
@@ -374,58 +374,6 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
     else:
         return ax
 
-def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (13,4)):
-    """
-    Compare the Bode plots of multiple manipulations at different frequencies.
-    
-    Parameters:
-    - frequency_list (list): List of frequencies.
-    - manips (list): List of manipulations.
-    - frequency_to_plot (list, optional): List of frequencies to plot. If None, all frequencies in frequency_list will be plotted.
-    - min (float, optional): Minimum value for x-axis scaling. Default is 0.5.
-    - max (float, optional): Maximum value for x-axis scaling. Default is 1.5.
-    - autoscale (bool, optional): Whether to automatically scale the y-axis. Default is True.
-    - leg (list, optional): List of legend labels for each manipulation. If None, the manipulation names will be used as labels.
-    - figsize (tuple, optional): Figure size. Default is (10, 5).
-    
-    Returns:
-    - None
-    """
-    if frequency_to_plot is None:
-        frequency_to_plot = frequency_list
-    
-    if leg is None:
-        leg = [manip.name for manip in manips]
-    
-    for i, k in enumerate(frequency_to_plot):
-        fig , ax = plt.subplots(1,3, figsize = figsize)
-        if k < 1:
-            fig_title = f"P = {1/frequency_to_plot[i]:n} s"
-        elif k == 1:
-            fig_title = f"P = {1/frequency_to_plot[i]:n} s, F = {frequency_list[i]} Hz "
-        elif k > 1:
-            fig_title = f"F = {frequency_to_plot[i]} Hz "
-        
-        fig.suptitle(fig_title, fontsize = 16)
-        
-        for j, manip in enumerate(manips):
-            ax = manip.plot_record_TF(manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}")
-                                              
-
-        if autoscale:
-            xlim = ax[1].get_xlim()
-            ax[1].set_xlim([k*min, k*max])
-            autoscale_y(ax[1])
-            ax[1].set_xlim(0, k*max)
-            ax[2].set_xlim(0, k*max)
-            
-        ax[1].legend()
-                
-        fig.tight_layout()
-         
-        fig.savefig(f"{manips[-1].fig_folder}/{fig_title}_compare.png")
-        
-        #return fig, ax
     
 def merge_dict(dict_1, dict_2):
     dict_3 = {**dict_1, **dict_2}

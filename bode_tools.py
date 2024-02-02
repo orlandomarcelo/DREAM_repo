@@ -7,20 +7,36 @@ import importlib
 import glob
 from scipy.signal import find_peaks
 from scipy.signal import windows as wd
+from scipy.interpolate import LSQUnivariateSpline
 import matplotlib.pyplot as plt
 import tools
 
-def band_pass_filter(bode_object, low_factor = 0.5, high_factor = 5):
+def band_pass_filter(bode_object, low_factor = 0.5, high_factor = 10):
     filtered_data = []
         
     for i, freq in enumerate(bode_object.frequency_list):
         sample_rate = 1/(bode_object.bode_times[i][1] - bode_object.bode_times[i][0])
         cut_off_low = freq * low_factor
         cut_off_high = freq * high_factor
-        filtered_data.append(tools.band_pass_filter(bode_object.bode_data[i], cut_off_low, cut_off_high, sample_rate))
+        filtered_data.append(tools.band_pass_filter(bode_object.bode_data[i] - np.mean(bode_object.bode_data[i]), cut_off_low, cut_off_high, sample_rate))
         
     return filtered_data
     
+
+def spline_detrending(ydata, order = 2, dspline = 30):
+    data = ydata.copy()
+    # Convert data if it's not a floating point type.
+    if not np.issubdtype(data.dtype, np.floating):
+        data = np.require(data, dtype=np.float64)
+
+    x = np.arange(len(data))
+    splknots = np.arange(dspline / 2.0, len(data) - dspline / 2.0 + 2, dspline)
+
+    spl = LSQUnivariateSpline(x=x, y=data, t=splknots, k=order)
+    fit = spl(x)
+
+    data -= fit
+    return data, fit
 
 def get_bode_diagram(bode_object):
         
@@ -66,7 +82,8 @@ def get_harmonics(bode_object, input_freq, F, A, P):
     return pd.DataFrame(harmonics, index=[0])
 
 
-def plot_record_TF(bode_object, record, color = None, leg = None, fig = None, ax = None, fmt = '0-', line = 0.5, marker = 1):
+
+def plot_record_TF(bode_object, record, color = None, leg = None, fig = None, ax = None, fmt = '0-', line = 0.5, marker = 1, log = False):
     if ax is None:
         fig, ax = plt.subplots(1,3, figsize = (13,4))
     if leg is None:
@@ -83,6 +100,9 @@ def plot_record_TF(bode_object, record, color = None, leg = None, fig = None, ax
     for j in range(bode_object.number_of_harmonics):
         ax[1].plot(np.array(bode_object.harmonics[f'f_{j}'])[i], np.array(bode_object.harmonics[f'A_{j}'])[i], "x", markersize=8, markeredgewidth=3, color = color)
         ax[2].plot(np.array(bode_object.harmonics[f'f_{j}'])[i], np.array(bode_object.harmonics[f'P_{j}'])[i], "x", markersize=8, markeredgewidth=3, color = color)
+        
+    if log:
+        ax[1].set_yscale('log')
 
     ax[0].set_xlabel("Time (s)", fontsize = 14)
     ax[0].set_ylabel("Fluorescence (r. u.)", fontsize = 12)
@@ -96,7 +116,7 @@ def plot_record_TF(bode_object, record, color = None, leg = None, fig = None, ax
     
     return ax
 
-def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (13,4)):
+def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (13,4), log = False):
     
     if frequency_to_plot is None:
         frequency_to_plot = frequency_list
@@ -116,7 +136,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
         fig.suptitle(fig_title, fontsize = 16)
         
         for j, manip in enumerate(manips):
-            ax = plot_record_TF(manip, manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}")
+            ax = plot_record_TF(manip, manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}", log = log)
                                               
 
         if autoscale:

@@ -209,7 +209,7 @@ def bode_plot_axes(ax):
     ax.set_ylabel("Magnitude (a.u.)", fontsize = labelsize)
     ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
 
-    ax.legend(fontsize = legendfontsize)
+    #ax.legend(fontsize = legendfontsize)
 
     ax = plt.gca()
     ax.tick_params(axis='both', which='both', width=2)

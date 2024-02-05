@@ -40,17 +40,24 @@ def spline_detrending(ydata, order = 2, dspline = 30):
 
 def get_bode_diagram(bode_object):
         
-    signal = []    
+    signal = []
+    detrend = []    
     fft_freq = []
     fft_amp = []
     fft_phase = []
     harmonics = pd.DataFrame()
 
     for i, k in enumerate(bode_object.bode_records):
-        if bode_object.windowing is None:
+        if bode_object.detrend:
+            ydata, fit = spline_detrending(bode_object.bode_data[i])
+            signal.append(ydata)
+            detrend.append(fit)
+            
+        else:
             signal.append(bode_object.bode_data[i])
-        elif bode_object.windowing == "flat-top":
-            signal.append(bode_object.bode_data[i] * wd.flattop(len(bode_object.bode_data[i])))
+            
+        if bode_object.windowing == "flat-top":
+            signal[i] = signal[i] * wd.flattop(len(signal[i]))
             
         F, A, P = tools.FFT(bode_object.bode_times[i], signal[i], bode_object.padding, bode_object.padding_value)
         
@@ -65,7 +72,7 @@ def get_bode_diagram(bode_object):
         #fft_amp[i] = [amplitude if frequency >= bode_object.frequency_list[i]/2 else 0.0 for frequency, amplitude in zip(fft_freq[i], fft_amp[i])]
         fft_phase[i] = [phase if amplitude >= max(fft_amp[i])/ bode_object.phase_threshold else 0.0 for amplitude, phase in zip(fft_amp[i], fft_phase[i])]
     
-    return signal, fft_freq, fft_amp, fft_phase, harmonics
+    return signal, detrend, fft_freq, fft_amp, fft_phase, harmonics
         
             
 def get_harmonics(bode_object, input_freq, F, A, P):
@@ -116,7 +123,46 @@ def plot_record_TF(bode_object, record, color = None, leg = None, fig = None, ax
     
     return ax
 
-def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (13,4), log = False):
+def plot_record_steps(bode_object, record, color = None, leg = None, fig = None, ax = None, fmt = '0-', line = 0.5, marker = 1, log = False):
+    if ax is None:
+        fig, ax = plt.subplots(2,2, figsize = (10,10))
+    if leg is None:
+        leg = record
+    if color is None:
+        color = "C0"
+        
+    i = bode_object.bode_records.index(record)
+
+    ax[0, 0].plot(bode_object.bode_times[i], bode_object.bode_data[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+    ax[0, 0].plot(bode_object.bode_times[i], bode_object.detrend_fit[i], "-", color = "k", linewidth= 0.75)
+    ax[0, 1].plot(bode_object.bode_times[i], bode_object.signal[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+    ax[1, 0].plot(bode_object.fft_freq[i], bode_object.fft_amp[i], "o-",color = color, markersize=marker, linewidth=line, label = leg)
+    ax[1, 1].plot(bode_object.fft_freq[i], np.deg2rad(bode_object.fft_phase[i]), "o",color = color, markersize=marker, linewidth=line, label = leg)
+    ax[1, 1].set_ylim(-1.1*np.pi, 1.1*np.pi)
+    
+    for j in range(bode_object.number_of_harmonics):
+        ax[1, 0].plot(np.array(bode_object.harmonics[f'f_{j}'])[i], np.array(bode_object.harmonics[f'A_{j}'])[i], "x", markersize=8, markeredgewidth=3, color = color)
+        ax[1, 1].plot(np.array(bode_object.harmonics[f'f_{j}'])[i], np.deg2rad(np.array(bode_object.harmonics[f'P_{j}'])[i]), "x", markersize=8, markeredgewidth=3, color = color)
+        
+    if log:
+        ax[1, 0].set_yscale('log')
+
+    ax[0, 0].set_xlabel("Time (s)", fontsize = 14)
+    ax[0, 0].set_xlabel("Time (s)", fontsize = 14)
+    ax[0, 1].set_ylabel("Fluorescence (r. u.)", fontsize = 12)
+    ax[0, 1].set_ylabel("Fluorescence (r. u.)", fontsize = 12)
+    ax[0, 0 ].set_title("Raw signal", fontsize = 14)
+    ax[0, 1].set_title("Detrended signal", fontsize = 14)
+    ax[1, 0].set_xlabel("Frequency (Hz)", fontsize = 14)
+    ax[1, 0].set_ylabel("Amplitude (r. u.)", fontsize = 14)
+    ax[1, 0].set_title("FT - Magnitude", fontsize = 14)
+    ax[1, 1].set_xlabel("Frequency (Hz)", fontsize = 14)
+    ax[1, 1].set_ylabel("Phase (rad)", fontsize = 14)
+    ax[1, 1].set_title("FT - Phase", fontsize = 14)
+    
+    return ax
+
+def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (8,6), log = False):
     
     if frequency_to_plot is None:
         frequency_to_plot = frequency_list
@@ -125,7 +171,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
         leg = [manip.name for manip in manips]
     
     for i, k in enumerate(frequency_to_plot):
-        fig , ax = plt.subplots(1,3, figsize = figsize)
+        fig , ax = plt.subplots(2,2, figsize = figsize)
         if k < 1:
             fig_title = f"P = {1/frequency_to_plot[i]:n} s"
         elif k == 1:
@@ -136,17 +182,18 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
         fig.suptitle(fig_title, fontsize = 16)
         
         for j, manip in enumerate(manips):
-            ax = plot_record_TF(manip, manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}", log = log)
+            ax = plot_record_steps(manip, manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}", log = log)
+
                                               
 
         if autoscale:
-            xlim = ax[1].get_xlim()
-            ax[1].set_xlim([k*min, k*max])
-            tools.autoscale_y(ax[1])
-            ax[1].set_xlim(0, k*max)
-            ax[2].set_xlim(0, k*max)
+            xlim = ax[1,0].get_xlim()
+            ax[1,0].set_xlim([k*min, k*max])
+            tools.autoscale_y(ax[1,0])
+            ax[1,0].set_xlim(0, k*max)
+            ax[1,1].set_xlim(0, k*max)
             
-        ax[1].legend()
+        ax[1,0].legend()
                 
         fig.tight_layout()
          

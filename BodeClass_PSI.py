@@ -23,7 +23,7 @@ importlib.reload(bode_tools)
 
 class BodeClass_PSI(Experiment):
     def __init__(self, name, bode_records = None, frequency_list = None, normalization = "F_stat", Fm_calib = 1, index_start = 0, time_start = None, median_filtering_window_size = 1, 
-                 windowing = None, padding = False, padding_value = None, phase_threshold = 5, pic_search_window = 2, number_of_harmonics = 3):
+                 windowing = None, padding = False, padding_value = None, phase_threshold = 5, pic_search_window = 2, number_of_harmonics = 3, detrend = False):
         super().__init__(name, "PSI", DataType = ".csv", sep = ';')
         
         self.date = re.findall(r'\d+', name)
@@ -40,6 +40,7 @@ class BodeClass_PSI(Experiment):
         else:
             self.frequency_list = frequency_list
         self.median_filtering_window_size = median_filtering_window_size
+        self.detrend = detrend
         self.windowing = windowing
         self.padding = padding
         self.padding_value = padding_value
@@ -70,6 +71,6 @@ class BodeClass_PSI(Experiment):
                 
         self.filtered_data = bode_tools.band_pass_filter(self)
         
-        self.signal, self.fft_freq, self.fft_amp, self.fft_phase, self.harmonics = bode_tools.get_bode_diagram(self)
+        self.signal, self.detrend_fit, self.fft_freq, self.fft_amp, self.fft_phase, self.harmonics = bode_tools.get_bode_diagram(self)
             
         

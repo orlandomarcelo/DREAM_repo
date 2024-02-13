@@ -9,18 +9,18 @@ const int ledPin = 2;
 const int  flashPin = 5;
 
 // setting PWM properties
-const int freq = 1000 ; //refresh rate
+const int freq = 10000 ; //refresh rate
 const int ledChannel = 0;
-const int resolution = 16;
+const int resolution = 12;
 int max_amp = pow(2, resolution) - 1;
 
 // setting the actinic light properties
-//float period = 32; // s
-float frequency = 0.5; // Hz
+//float period = 64; // s
+float frequency = 64; // Hz
 //float frequency = 1/period;
-float offset_fact = 0.177; // Offset as a fraction of max intensity
-float amp_fact =  0.01475; // Amplitude of modulation a fraction of max intensity
-float max_time = 200; // Experiment time in seconds
+float offset_fact = 0.2; // Offset as a fraction of max intensity
+float amp_fact =  0.1; // Amplitude of modulation a fraction of max intensity
+float max_time = 650; // Experiment time in seconds
 
 //IMPORTANT: 
 // (amp_fact + offset_fact <= 1) and (amp_fact <= offset_fact=)
@@ -45,15 +45,17 @@ void setup() {
 void loop() {
   ledcWrite(ledChannel, round(offset_fact * max_amp));
   trigger = digitalRead(flashPin);
+  trigger = 1;
   if (trigger == 1){
     startMillis = millis();
     t = 0;
     while (t < max_time ){
-      Serial.println(trigger);
+      //Serial.println(trigger);
       t = (millis() - startMillis);
       PWM_value = round((amp_fact * max_amp * sin(2 * PI *(frequency/1000)* t) + offset_fact * max_amp));
       ledcWrite(ledChannel, PWM_value);
-      delay(1/freq);
+      Serial.println(PWM_value);
+      delay(1);
       
     }
     ledcWrite(ledChannel, round(offset_fact * max_amp));

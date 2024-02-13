@@ -7,6 +7,7 @@ import os
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
 from scipy.optimize import approx_fprime
+from tqdm import tqdm
 import math_functions as mf
 
 def clean_spaces(vector):
@@ -26,13 +27,23 @@ def exp_decay_fit(xdata, ydata, start, stop, num, p0 = None):
     yfit = exp_decay(xfit, popt[0], popt[1], popt[2])
     return popt, xfit, yfit
     
-def lin_fit(xdata, ydata, start, stop, num):
-    def lin(x, A, B):
-        return A * x + B
-    popt, pcov = curve_fit(lin, xdata, ydata)
-    xfit = np.linspace(start, stop, num)
-    yfit = lin(xfit, popt[0], popt[1])
-    y_pred = lin(np.array(xdata), popt[0], popt[1])
+def lin_fit(xdata, ydata, start, stop, num, Force_zero = False):
+    if Force_zero:
+        def lin(x, A):
+            return A * x
+        popt, pcov = curve_fit(lin, xdata, ydata)
+        xfit = np.linspace(start, stop, num)
+        yfit = lin(xfit, popt[0])
+        y_pred = lin(np.array(xdata), popt[0])
+        popt = np.append(popt, 0)
+    else:        
+        def lin(x, A, B):
+            return A * x + B
+        popt, pcov = curve_fit(lin, xdata, ydata)
+        xfit = np.linspace(start, stop, num)
+        yfit = lin(xfit, popt[0], popt[1])
+        y_pred = lin(np.array(xdata), popt[0], popt[1])
+        
     residuals = ydata - y_pred
     ss_res = np.sum(residuals**2)
     ss_tot = np.sum((ydata - np.mean(ydata))**2)
@@ -442,3 +453,23 @@ def subplot_grid(num_subplots):
         fig.delaxes(axes[i])
 
     return fig, axes
+
+def integrate_acquisition(signal, acq_rate = None, timestamps = None, integration_time = 0.01):
+    if acq_rate is None and timestamps is None:
+        raise ValueError("Either acq_rate or timestamps must be provided")
+    if acq_rate is None:
+        acq_rate = 1/(timestamps[1] - timestamps[0])
+    integration_lenght = int(integration_time * acq_rate)
+    timestamps = []
+    integrated_signal = []
+    accumulated_signal = 0
+    aux = 0
+    for i in range(len(signal)):
+        accumulated_signal += signal[i]
+        aux += 1
+        if aux == integration_lenght:
+            integrated_signal.append(accumulated_signal/integration_lenght)
+            timestamps.append(i/acq_rate)
+            accumulated_signal = 0
+            aux = 0
+    return timestamps, integrated_signal

@@ -49,7 +49,7 @@ def get_bode_diagram(bode_object):
 
     for i, k in enumerate(bode_object.bode_records):
         if bode_object.detrend:
-            ydata, fit = spline_detrending(bode_object.bode_data[i])
+            ydata, fit = spline_detrending(bode_object.bode_data[i], dspline=60)
             signal.append(ydata)
             detrend.append(fit)
             

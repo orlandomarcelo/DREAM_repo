@@ -25,7 +25,7 @@ importlib.reload(bode_tools)
 
 class BodeClass:
     def __init__(self, name, rec_string, frequency_list, flash_calib, index_start = 0, median_filtering_windos_size = 1, 
-                 windowing = None, padding = False, padding_value = None, phase_threshold = 5, pic_search_window = 2, number_of_harmonics = 3, detrend = False):
+                 windowing = None, padding = False, padding_value = None, phase_threshold = 5, pic_search_window = 2, number_of_harmonics = 3, detrend = True):
         self.name = name
         
         self.date = re.findall(r'\d+', name)

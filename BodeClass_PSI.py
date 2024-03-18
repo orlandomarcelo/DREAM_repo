@@ -50,24 +50,29 @@ class BodeClass_PSI(Experiment):
         self.normalization = normalization
         
         if time_start is None:
-            self.index_start = index_start
+            self.index_start = index_start*np.ones(len(self.bode_records)) 
         else:
-            self.index_start = np.where(self.Time > time_start)[0][0]
+            self.index_start = []
+  
         
         self.bode_times = []
         self.bode_data = []
         self.F_stat = []
+        self.sample_rate = []
 
-        for i in self.bode_records:
-            index = self.records.index(i)
-            self.bode_times.append(self.clean_times[index][self.index_start:])
-            self.F_stat.append(np.mean(self.clean_data[index][int(self.index_start/2):self.index_start]))
+        for i, rec in enumerate(self.bode_records):
+            index = self.records.index(rec)
+            if time_start is not None:
+                self.index_start.append(np.where(self.clean_times[index] > time_start)[0][0])
+            self.bode_times.append(self.clean_times[index][self.index_start[i]:])
+            self.sample_rate.append(1/np.mean(np.diff(self.bode_times[-1])))
+            self.F_stat.append(np.mean(self.clean_data[index][int(self.index_start[i]/2):self.index_start[i]]))
             if self.normalization == "F_stat":
-                self.bode_data.append(tools.median_filter(self.clean_data[index][self.index_start:],self.median_filtering_window_size)/self.F_stat[-1])
+                self.bode_data.append(tools.median_filter(self.clean_data[index][self.index_start[i]:],self.median_filtering_window_size)/self.F_stat[-1])
             elif self.normalization == "F_max":
-                self.bode_data.append(tools.median_filter(self.clean_data[index][self.index_start:],self.median_filtering_window_size)/self.Fm_calib)
+                self.bode_data.append(tools.median_filter(self.clean_data[index][self.index_start[i]:],self.median_filtering_window_size)/self.Fm_calib)
             else:
-                self.bode_data.append(tools.median_filter(self.clean_data[index][self.index_start:],self.median_filtering_window_size))
+                self.bode_data.append(tools.median_filter(self.clean_data[index][self.index_start[i]:],self.median_filtering_window_size))
                 
         self.filtered_data = bode_tools.band_pass_filter(self)
         

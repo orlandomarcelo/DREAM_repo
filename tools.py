@@ -276,8 +276,11 @@ def bode_plot_axes_phase(ax):
         
     return ax
 
-def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legendfontsize = 10, legend = True):
+def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, ticklabelsize = None,  labelsize = 15, legendfontsize = 10, legend = True):
 
+    if ticklabelsize is None:
+        ticklabelsize = labelsize
+    
     if legend:
         ax.legend(fontsize = legendfontsize)
     ax.set_xlabel(xlabel, fontsize = labelsize)
@@ -285,7 +288,7 @@ def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legen
     ax.set_title(title, fontsize = titlesize)
 
     for label in ax.xaxis.get_ticklabels():
-        label.set_fontsize(labelsize)
+        label.set_fontsize(ticklabelsize)
         
     for label in ax.yaxis.get_ticklabels():
         label.set_fontsize(labelsize)

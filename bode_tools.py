@@ -123,19 +123,32 @@ def plot_record_TF(bode_object, record, color = None, leg = None, fig = None, ax
     
     return ax
 
-def plot_record_steps(bode_object, record, color = None, leg = None, fig = None, ax = None, fmt = '0-', line = 0.5, marker = 1, log = False):
+def plot_record_steps(bode_object, record, color = None, leg = None, fig = None, ax = None, fmt = '0-', line = 0.5, marker = 1, log = False, periods_to_show = 'all', nb_periods = 5):
     if ax is None:
         fig, ax = plt.subplots(2,2, figsize = (10,10))
     if leg is None:
         leg = record
     if color is None:
         color = "C0"
+
         
     i = bode_object.bode_records.index(record)
-
-    ax[0, 0].plot(bode_object.bode_times[i], bode_object.bode_data[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
-    ax[0, 0].plot(bode_object.bode_times[i], bode_object.detrend_fit[i], "-", color = "k", linewidth= 0.75)
-    ax[0, 1].plot(bode_object.bode_times[i], bode_object.signal[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+    
+    if periods_to_show == 'all':
+        ax[0, 0].plot(bode_object.bode_times[i], bode_object.bode_data[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+        ax[0, 0].plot(bode_object.bode_times[i], bode_object.detrend_fit[i], "-", color = "k", linewidth= 0.75)
+        ax[0, 1].plot(bode_object.bode_times[i], bode_object.signal[i], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+    elif periods_to_show == 'last':
+        start = len(bode_object.bode_times[i]) - nb_periods*int(1/bode_object.frequency_list[i]*bode_object.sample_rate[i])
+        ax[0, 0].plot(bode_object.bode_times[i][start:], bode_object.bode_data[i][start:], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+        ax[0, 0].plot(bode_object.bode_times[i][start:], bode_object.detrend_fit[i][start:], "-", color = "k", linewidth= 0.75)
+        ax[0, 1].plot(bode_object.bode_times[i][start:], bode_object.signal[i][start:], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+    elif periods_to_show == 'first':
+        end = nb_periods*int(1/bode_object.frequency_list[i]*bode_object.sample_rate[i])
+        ax[0, 0].plot(bode_object.bode_times[i][:end], bode_object.bode_data[i][:end], "o-", color = color, markersize=marker, linewidth=line, label = leg)
+        ax[0, 0].plot(bode_object.bode_times[i][:end], bode_object.detrend_fit[i][:end], "-", color = "k", linewidth= 0.75)
+        ax[0, 1].plot(bode_object.bode_times[i][:end], bode_object.signal[i][:end], "o-", color = color, markersize=marker, linewidth=line, label = leg)      
+        
     ax[1, 0].plot(bode_object.fft_freq[i], bode_object.fft_amp[i], "o-",color = color, markersize=marker, linewidth=line, label = leg)
     ax[1, 1].plot(bode_object.fft_freq[i], np.deg2rad(bode_object.fft_phase[i]), "o",color = color, markersize=marker, linewidth=line, label = leg)
     ax[1, 1].set_ylim(-1.1*np.pi, 1.1*np.pi)
@@ -162,7 +175,7 @@ def plot_record_steps(bode_object, record, color = None, leg = None, fig = None,
     
     return ax
 
-def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (8,6), log = False):
+def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, max = 1.5, autoscale = True, leg = None, figsize = (8,6), log = False, periods_to_show = 'all', nb_periods = 5):
     
     if frequency_to_plot is None:
         frequency_to_plot = frequency_list
@@ -182,7 +195,7 @@ def compare_bode(frequency_list, manips, frequency_to_plot = None, min = 0.5, ma
         fig.suptitle(fig_title, fontsize = 16)
         
         for j, manip in enumerate(manips):
-            ax = plot_record_steps(manip, manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}", log = log)
+            ax = plot_record_steps(manip, manip.bode_records[frequency_list.index(k)], fig = fig, ax = ax, leg = leg[j], color = f"C{j}", log = log, periods_to_show = periods_to_show, nb_periods = nb_periods)
 
                                               
 

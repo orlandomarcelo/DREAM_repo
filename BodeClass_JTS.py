@@ -64,11 +64,14 @@ class BodeClass:
         self.bode_records = tools.create_record_list(self.rec_string)
         self.bode_times = []
         self.bode_data = []
+        self.sample_rate = []
 
         for i in self.bode_records:
             index = np.where(np.array(self.recordings) == i)[0][0]
             self.bode_times.append(self.clean_times[index]/1000)
             self.bode_data.append(tools.median_filter(self.clean_data[index]-self.clean_data[index][0],self.median_filtering_windos_size)/self.flash_calib)
+            self.sample_rate.append(1/np.mean(np.diff(self.bode_times[-1])))
+            
         
         self.filtered_data = bode_tools.band_pass_filter(self)
         

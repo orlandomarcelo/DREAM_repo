@@ -9,6 +9,7 @@ from scipy.signal import find_peaks
 from scipy.optimize import approx_fprime
 from tqdm import tqdm
 import math_functions as mf
+from scipy.stats import t
 
 def clean_spaces(vector):
     clean_vector = []
@@ -27,7 +28,7 @@ def exp_decay_fit(xdata, ydata, start, stop, num, p0 = None):
     yfit = exp_decay(xfit, popt[0], popt[1], popt[2])
     return popt, xfit, yfit
     
-def lin_fit(xdata, ydata, start, stop, num, Force_zero = False):
+def lin_fit(xdata, ydata, start, stop, num, Force_zero = False, stats = False):
     if Force_zero:
         def lin(x, A):
             return A * x
@@ -48,7 +49,21 @@ def lin_fit(xdata, ydata, start, stop, num, Force_zero = False):
     ss_res = np.sum(residuals**2)
     ss_tot = np.sum((ydata - np.mean(ydata))**2)
     r_squared = 1 - (ss_res / ss_tot)
-    return popt, xfit, yfit, r_squared
+    
+    if stats:
+        n = len(xdata)
+        mse = np.sum(residuals**2) / (n - 2)
+        standard_error_slope = np.sqrt(mse / np.sum((xdata - np.mean(xdata))**2))
+        standard_error_intercept = np.sqrt(mse * (1/n + np.mean(xdata)**2 / np.sum((xdata - np.mean(xdata))**2)))
+        degrees_of_freedom = n - 2
+        confidence_level = 0.95
+        t_value = t.ppf(1 - (1 - confidence_level)/2, degrees_of_freedom)
+        error_slope = t_value * standard_error_slope
+        error_intercept = t_value * standard_error_intercept
+        
+        return popt, xfit, yfit, r_squared, error_slope, error_intercept
+    else:
+        return popt, xfit, yfit, r_squared
 
 def Ek_fit(xdata, ydata, start, stop, num, p0 = None):
     def Ek(x, A, B):
@@ -261,8 +276,11 @@ def bode_plot_axes_phase(ax):
         
     return ax
 
-def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legendfontsize = 10, legend = True):
+def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, ticklabelsize = None,  labelsize = 15, legendfontsize = 10, legend = True):
 
+    if ticklabelsize is None:
+        ticklabelsize = labelsize
+    
     if legend:
         ax.legend(fontsize = legendfontsize)
     ax.set_xlabel(xlabel, fontsize = labelsize)
@@ -270,7 +288,7 @@ def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, labelsize = 15, legen
     ax.set_title(title, fontsize = titlesize)
 
     for label in ax.xaxis.get_ticklabels():
-        label.set_fontsize(labelsize)
+        label.set_fontsize(ticklabelsize)
         
     for label in ax.yaxis.get_ticklabels():
         label.set_fontsize(labelsize)

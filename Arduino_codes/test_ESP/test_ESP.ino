@@ -16,11 +16,11 @@ int max_amp = pow(2, resolution) - 1;
 
 // setting the actinic light properties
 //float period = 64; // s
-float frequency = 64; // Hz
+float frequency = 1; // Hz
 //float frequency = 1/period;
-float offset_fact = 0.2; // Offset as a fraction of max intensity
-float amp_fact =  0.1; // Amplitude of modulation a fraction of max intensity
-float max_time = 650; // Experiment time in seconds
+float offset_fact = 1; // Offset as a fraction of max intensity
+float amp_fact =  0; // Amplitude of modulation a fraction of max intensity
+float max_time = 20; // Experiment time in seconds
 
 //IMPORTANT: 
 // (amp_fact + offset_fact <= 1) and (amp_fact <= offset_fact=)
@@ -28,7 +28,7 @@ float max_time = 650; // Experiment time in seconds
 unsigned long t = 0;
 int PWM_value = 0;
 unsigned long startMillis = 0;
-int trigger = 1;
+int trigger = 0;
 
 
 void setup() {
@@ -45,7 +45,7 @@ void setup() {
 void loop() {
   ledcWrite(ledChannel, round(offset_fact * max_amp));
   trigger = digitalRead(flashPin);
-  trigger = 1;
+  //trigger = 1;
   if (trigger == 1){
     startMillis = millis();
     t = 0;

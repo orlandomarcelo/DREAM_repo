@@ -1,4 +1,4 @@
-name: PhD_environment
+name: PhD_environment_Marcelo
 channels:
   - anaconda
   - conda-forge

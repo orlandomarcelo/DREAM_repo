@@ -38,6 +38,50 @@ def spline_detrending(ydata, order = 2, dspline = 30):
     data -= fit
     return data, fit
 
+def polynomial_detrending(ydata, order=3):
+    data = ydata.copy()
+    # Convert data if it's not a floating point type.
+    if not np.issubdtype(data.dtype, np.floating):
+        data = np.require(data, dtype=np.float64)
+
+    x = np.arange(len(data))
+
+    # Fit polynomial of specified order
+    poly_coefficients = np.polyfit(x, data, order)
+
+    # Evaluate the polynomial fit
+    poly_fit = np.polyval(poly_coefficients, x)
+
+    # Detrend data by subtracting polynomial fit
+    detrended_data = data - poly_fit
+
+    return detrended_data, poly_fit
+
+def exponential_detrending(ydata):
+    data = ydata.copy()
+    # Convert data if it's not a floating point type.
+    if not np.issubdtype(data.dtype, np.floating):
+        data = np.require(data, dtype=np.float64)
+
+    x = np.arange(len(data))
+
+    # Fit exponential function: y = a * exp(b * x)
+    # Using logarithmic transformation to fit a linear model: log(y) = log(a) + b * x
+    log_data = np.log(data)
+    exp_coefficients = np.polyfit(x, log_data, 1)
+
+    # Recovering the parameters of the exponential function
+    a = np.exp(exp_coefficients[1])
+    b = exp_coefficients[0]
+
+    # Calculate exponential fit
+    exp_fit = a * np.exp(b * x)
+
+    # Detrend data by dividing by the exponential fit
+    detrended_data = data / exp_fit
+
+    return detrended_data, exp_fit
+
 def get_bode_diagram(bode_object):
         
     signal = []
@@ -55,6 +99,7 @@ def get_bode_diagram(bode_object):
             
         else:
             signal.append(bode_object.bode_data[i])
+            detrend.append(False)
             
         if bode_object.windowing == "flat-top":
             signal[i] = signal[i] * wd.flattop(len(signal[i]))
@@ -66,11 +111,12 @@ def get_bode_diagram(bode_object):
         if bode_object.windowing == "flat-top":
             fft_amp[i] = fft_amp[i] * 4.18
         fft_phase.append(P)
+        fft_phase[i] = [phase if amplitude >= max(fft_amp[i])/ bode_object.phase_threshold else 0.0 for amplitude, phase in zip(fft_amp[i], fft_phase[i])]
             
         harmonics = pd.concat([harmonics, get_harmonics(bode_object, bode_object.frequency_list[i], fft_freq[i], fft_amp[i], fft_phase[i])])
         bode_object.phase_threshold
         #fft_amp[i] = [amplitude if frequency >= bode_object.frequency_list[i]/2 else 0.0 for frequency, amplitude in zip(fft_freq[i], fft_amp[i])]
-        fft_phase[i] = [phase if amplitude >= max(fft_amp[i])/ bode_object.phase_threshold else 0.0 for amplitude, phase in zip(fft_amp[i], fft_phase[i])]
+        
     
     return signal, detrend, fft_freq, fft_amp, fft_phase, harmonics
         

@@ -17,7 +17,7 @@ class PhotochemicalRate(Experiment):
         self.Flash_Time = self.clean_times[self.records.index(self.Flash_records[0])]
         self.Flash_Data = self.clean_data[self.records.index(self.Flash_records[0])]
         
-        self.calib = self.Flash_Data[20]-self.Flash_Data[19]
+        self.calib = self.Flash_Data[4]-self.Flash_Data[3]
         
         self.xfit_lin = []
         self.yfit_lin = []
@@ -30,7 +30,7 @@ class PhotochemicalRate(Experiment):
 
         for i, k in enumerate(self.Ek_records):
             ydata = self.clean_data[self.records.index(k)][21:index_stop_fit]
-            popt, x, y =  tools.lin_fit(self.Ek_time, ydata, start, stop, num)
+            popt, x, y, r2 =  tools.lin_fit(self.Ek_time, ydata, start, stop, num)
             self.xfit_lin.append(x)
             self.yfit_lin.append(y)
             self.param.append(popt)

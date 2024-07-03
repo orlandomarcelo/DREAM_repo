@@ -158,6 +158,7 @@ def FFT(Time, Signal, pad = False, length = None):
     F = np.fft.rfftfreq(len(Time), (Time[1] - Time[0]))
     ft = np.fft.rfft(Signal)
     A = 2*np.abs(ft)/len(Time)
+    A[0] = A[0]/2
     P = np.angle(ft, deg=True)
     
     return F, A, P
@@ -357,7 +358,7 @@ def autoscale_y(ax,margin=0.1):
 
     ax.set_ylim(bot,top)
     
-def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2, Return_params = False):
+def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, color = None, label = True, alpha = 0.2, Return_params = False, plot_start = 0.007, plot_stop = 130):
     orange = [250/255, 116/255, 79/255]
     green = [7/255, 171/255, 152/255]
     blue = [24/255, 47/255, 74/255]
@@ -396,7 +397,7 @@ def plot_model(ax,  model, freq, amp, sigma = None, p0 =  None, line = 2.5, colo
     else: label = None
     
     ax.plot(ffit, afit, linewidth=line, color = color, label = label)
-    ax.fill_between(np.linspace(0.007, 130, 1000), afit - 1.94*err, afit + 1.94*err, alpha=alpha, color = color)
+    ax.fill_between(np.linspace(plot_start, plot_stop, 1000), afit - 1.94*err, afit + 1.94*err, alpha=alpha, color = color)
     
     if Return_params:
         return ax, popt

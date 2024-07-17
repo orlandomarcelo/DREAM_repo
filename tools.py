@@ -236,9 +236,6 @@ def bode_plot_axes(ax):
     ax.set_ylabel("Magnitude (a.u.)", fontsize = labelsize)
     ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
 
-    #ax.legend(fontsize = legendfontsize)
-
-    ax = plt.gca()
     ax.tick_params(axis='both', which='both', width=2)
 
     for label in ax.xaxis.get_ticklabels():
@@ -258,7 +255,7 @@ def bode_plot_axes_phase(ax):
     ax.set_xscale('log')
 
     ax.set_xlabel("Frequency (Hz)", fontsize = labelsize)
-    ax.set_ylabel("Phase (π rad)", fontsize = labelsize)
+    ax.set_ylabel("Phase (degrees)", fontsize = labelsize)
     ax.grid(which = "both", alpha = 0.4, linewidth = 0.5)
 
     ax.legend(fontsize = legendfontsize)

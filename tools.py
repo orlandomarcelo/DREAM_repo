@@ -98,7 +98,7 @@ def sinus_fit(xdata, ydata, start, stop, num, p0 = None, freq = None):
     else:
         bounds = ([0, freq*0.99, -np.pi, -np.inf], [np.inf, freq*1.01, np.pi, np.inf])
 
-    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds, maxfev=10000000)
+    popt, pcov = curve_fit(sinus, xdata, ydata, p0=p0, bounds=bounds, maxfev=10000000000)
     xfit = np.linspace(start, stop, num)
     yfit = sinus(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit

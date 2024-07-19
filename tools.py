@@ -151,7 +151,7 @@ def my_err(x_vect, popt, pcov, funct):
     return np.asarray(error_vec)
 
 
-def FFT(Time, Signal, pad = False, length = None):
+def FFT(Time, Signal, pad = False, length = None, return_complex = False):
     if pad == True:
         Time = zero_padding(Time, length)
         Signal = zero_padding(Signal, length)
@@ -161,7 +161,10 @@ def FFT(Time, Signal, pad = False, length = None):
     A[0] = A[0]/2
     P = np.angle(ft, deg=True)
     
-    return F, A, P
+    if return_complex:
+        return F, A, P, ft
+    else:
+        return F, A, P
 
 def median_filter(data, window_size):
     filtered_data = np.zeros_like(data)

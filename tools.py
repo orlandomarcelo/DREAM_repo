@@ -28,23 +28,72 @@ def exp_decay_fit(xdata, ydata, start, stop, num, p0 = None):
     yfit = exp_decay(xfit, popt[0], popt[1], popt[2])
     return popt, xfit, yfit
     
-def lin_fit(xdata, ydata, start, stop, num, Force_zero = False, stats = False):
+# def lin_fit(xdata, ydata, start, stop, num, Force_zero = False, stats = False):
+#     if Force_zero:
+#         def lin(x, A):
+#             return A * x
+#         popt, pcov = curve_fit(lin, xdata, ydata)
+#         xfit = np.linspace(start, stop, num)
+#         yfit = lin(xfit, popt[0])
+#         y_pred = lin(np.array(xdata), popt[0])
+#         popt = np.append(popt, 0)
+#     else:        
+#         def lin(x, A, B):
+#             return A * x + B
+#         popt, pcov = curve_fit(lin, xdata, ydata)
+#         xfit = np.linspace(start, stop, num)
+#         yfit = lin(xfit, popt[0], popt[1])
+#         y_pred = lin(np.array(xdata), popt[0], popt[1])
+        
+#     residuals = ydata - y_pred
+#     ss_res = np.sum(residuals**2)
+#     ss_tot = np.sum((ydata - np.mean(ydata))**2)
+#     r_squared = 1 - (ss_res / ss_tot)
+    
+#     if stats:
+#         n = len(xdata)
+#         mse = np.sum(residuals**2) / (n - 2)
+#         standard_error_slope = np.sqrt(mse / np.sum((xdata - np.mean(xdata))**2))
+#         standard_error_intercept = np.sqrt(mse * (1/n + np.mean(xdata)**2 / np.sum((xdata - np.mean(xdata))**2)))
+#         degrees_of_freedom = n - 2
+#         confidence_level = 0.95
+#         t_value = t.ppf(1 - (1 - confidence_level)/2, degrees_of_freedom)
+#         error_slope = t_value * standard_error_slope
+#         error_intercept = t_value * standard_error_intercept
+        
+#         return popt, xfit, yfit, r_squared, error_slope, error_intercept
+#     else:
+#         return popt, xfit, yfit, r_squared
+    
+
+def lin_fit(xdata, ydata, start, stop, num, Force_zero=False, stats=False, fixed_slope=None):
     if Force_zero:
+        # Fit the slope while forcing the line through zero
         def lin(x, A):
             return A * x
         popt, pcov = curve_fit(lin, xdata, ydata)
-        xfit = np.linspace(start, stop, num)
-        yfit = lin(xfit, popt[0])
-        y_pred = lin(np.array(xdata), popt[0])
-        popt = np.append(popt, 0)
-    else:        
+        popt = np.append(popt, 0)  # Add the intercept as zero
+        y_pred = lin(np.array(xdata))
+    
+    elif fixed_slope is not None:
+        # Fix the slope and fit only the intercept
+        def lin(x, B):
+            return fixed_slope * x + B
+        popt, pcov = curve_fit(lin, xdata, ydata)
+        popt = np.insert(popt, 0, fixed_slope)  # Add the fixed slope to popt
+        def lin(x, A, B):
+            return A * x + B
+        
+    else:
+        # Fit both slope and intercept
         def lin(x, A, B):
             return A * x + B
         popt, pcov = curve_fit(lin, xdata, ydata)
-        xfit = np.linspace(start, stop, num)
-        yfit = lin(xfit, popt[0], popt[1])
-        y_pred = lin(np.array(xdata), popt[0], popt[1])
-        
+    y_pred = lin(np.array(xdata), *popt)
+
+    xfit = np.linspace(start, stop, num)
+    yfit = lin(xfit, *popt)
+    
     residuals = ydata - y_pred
     ss_res = np.sum(residuals**2)
     ss_tot = np.sum((ydata - np.mean(ydata))**2)
@@ -52,18 +101,19 @@ def lin_fit(xdata, ydata, start, stop, num, Force_zero = False, stats = False):
     
     if stats:
         n = len(xdata)
-        mse = np.sum(residuals**2) / (n - 2)
-        standard_error_slope = np.sqrt(mse / np.sum((xdata - np.mean(xdata))**2))
+        mse = np.sum(residuals**2) / (n - (2 if fixed_slope is None else 1))
+        standard_error_slope = None
+        error_slope = None
+        if fixed_slope is None:
+            standard_error_slope = np.sqrt(mse / np.sum((xdata - np.mean(xdata))**2))
+            error_slope = t.ppf(0.975, n - 2) * standard_error_slope
         standard_error_intercept = np.sqrt(mse * (1/n + np.mean(xdata)**2 / np.sum((xdata - np.mean(xdata))**2)))
-        degrees_of_freedom = n - 2
-        confidence_level = 0.95
-        t_value = t.ppf(1 - (1 - confidence_level)/2, degrees_of_freedom)
-        error_slope = t_value * standard_error_slope
-        error_intercept = t_value * standard_error_intercept
+        error_intercept = t.ppf(0.975, n - (2 if fixed_slope is None else 1)) * standard_error_intercept
         
         return popt, xfit, yfit, r_squared, error_slope, error_intercept
     else:
         return popt, xfit, yfit, r_squared
+
 
 def Ek_fit(xdata, ydata, start, stop, num, p0 = None):
     def Ek(x, A, B):
@@ -290,9 +340,9 @@ def poster_axes(ax, title, xlabel, ylabel, titlesize = 15, ticklabelsize = None,
 
     for label in ax.xaxis.get_ticklabels():
         label.set_fontsize(ticklabelsize)
-        
+    
     for label in ax.yaxis.get_ticklabels():
-        label.set_fontsize(labelsize)
+        label.set_fontsize(ticklabelsize)
 
     for spine in ax.spines.values():
         spine.set_linewidth(1.5)

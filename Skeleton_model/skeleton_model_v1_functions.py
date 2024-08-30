@@ -51,6 +51,45 @@ def model(y, t, I, parameters):
     return [dX_PQ_red_dt, dX_PC_red_dt]
 
 
+########## Function to define the model ##########
+
+def model_uncoupled(y, t, I, parameters):
+    # Unpack state variables (degree of reduction)
+    X_PQ_red = y[0]
+    X_PC_red = y[1]
+    
+    # Unpack parameters
+    sigma_PSII = parameters["sigma_PSII"]
+    sigma_PSI = parameters["sigma_PSI"]
+    k_p = parameters["k_p"]
+    k_fh = parameters["k_fh"]
+    k_b6f = parameters["k_b6f"]
+    k_PSI = parameters["k_PSI"]
+    PQ_tot = parameters["PQ_tot"]
+    PC_tot = parameters["PC_tot"]
+    X_PQ_red_uncoupled = parameters.get("X_PQ_red_uncoupled", 0.5)
+    X_PC_red_uncoupled = parameters.get("X_PC_red_uncoupled", 0.5)
+    
+    # Calculate concentrations from degrees of reduction
+    C_PQ = PQ_tot * (1 - X_PQ_red)
+    C_PQH2 = PQ_tot * X_PQ_red
+    C_PC_plus = PC_tot * (1 - X_PC_red)
+    C_PC = PC_tot * X_PC_red
+    
+    C_PQH2_uncoupled = PQ_tot * X_PQ_red_uncoupled
+    C_PC_plus_uncoupled = PC_tot * (1 - X_PC_red_uncoupled)
+    
+    # Calculate fluxes using concentrations
+    J_PSII = (I * sigma_PSII * k_p * C_PQ) / (k_p * C_PQ + k_fh)
+    J_b6f = k_b6f * C_PC_plus * C_PQH2
+    J_PSI = k_PSI * I * sigma_PSI * C_PC
+    
+    # Calculate derivatives of the degree of reduction
+    dX_PQ_red_dt = (J_PSII - k_b6f * C_PC_plus_uncoupled * C_PQH2) / PQ_tot
+    dX_PC_red_dt = (2 * k_b6f * C_PC_plus * C_PQH2_uncoupled - J_PSI) / PC_tot
+    
+    return [dX_PQ_red_dt, dX_PC_red_dt]
+
 ########## Function to obtain the steady state light curve ##########
 
 def light_curve(min_light, max_light, light_steps, parameters):

@@ -38,6 +38,34 @@ def spline_detrending(ydata, order = 2, dspline = 30):
     data -= fit
     return data, fit
 
+import numpy as np
+
+import numpy as np
+
+def moving_average_detrending(ydata, window_size=30, padding_type='reflect'):
+    data = ydata.copy()
+
+    # Convert data if it's not a floating point type.
+    if not np.issubdtype(data.dtype, np.floating):
+        data = np.require(data, dtype=np.float64)
+
+    # Padding to reduce edge effects
+    pad_size = window_size // 2
+    padded_data = np.pad(data, pad_size, mode=padding_type)
+    
+    # Calculate the moving average with 'same' mode to match the original data size
+    moving_avg = np.convolve(padded_data, np.ones(window_size)/window_size, mode='same')
+    
+    # Truncate moving_avg to match the original data length
+    moving_avg = moving_avg[pad_size: -pad_size or None]  # Trimming padding artifacts
+    
+    # Detrend the data by subtracting the moving average
+    detrended_data = data - moving_avg
+
+    return detrended_data, moving_avg
+
+
+
 def polynomial_detrending(ydata, order=3):
     data = ydata.copy()
     # Convert data if it's not a floating point type.

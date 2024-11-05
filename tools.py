@@ -131,14 +131,14 @@ def sat_overshoot_fit(xdata, ydata, start, stop, num, p0 = None):
     yfit = sat_overshoot(xfit, popt[0], popt[1], popt[2], popt[3])
     return popt, xfit, yfit
 
-def sigmoid_fit(xdata, ydata, start, stop, num):
+def sigmoid_fit(xdata, ydata, start, stop, num, p0 = None):
     def sigmoid(x, A, B, C, D):
         return A / (1 + np.exp(-B * (x - C))) + D
 
-    popt, pcov = curve_fit(sigmoid, xdata, ydata)
+    popt, pcov = curve_fit(sigmoid, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = sigmoid(xfit, popt[0], popt[1], popt[2], popt[3])
-    return popt, xfit, yfit
+    return popt, pcov, xfit, yfit
 
 def sinus_fit(xdata, ydata, start, stop, num, p0 = None, freq = None):
     def sinus(x, A, B, C, D):
@@ -542,3 +542,22 @@ def integrate_acquisition(signal, acq_rate = None, timestamps = None, integratio
             accumulated_signal = 0
             aux = 0
     return timestamps, integrated_signal
+
+def get_PAR(AL):
+    popt_quad = [  0.1628436 ,   2.75648771, -17.10740481]
+    popt_lin = [  7.09300446, -50.12770528]
+    if AL > 15:
+        return popt_lin[0]*AL + popt_lin[1]
+    elif AL <= 4.5:
+        return 0
+    else:
+        return popt_quad[0]*AL**2 + popt_quad[1]*AL + popt_quad[2]
+    
+    
+def get_AL(PAR):
+    popt_quad = [-2.04276436e-03,  2.42454555e-01,  4.78772436e+00]
+    popt_lin = [0.1412651 , 6.93679966]
+    if PAR > 27:
+        return popt_lin[0]*PAR + popt_lin[1]
+    else:
+        return popt_quad[0]*PAR**2 + popt_quad[1]*PAR + popt_quad[2]

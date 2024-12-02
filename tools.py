@@ -27,6 +27,22 @@ def exp_decay_fit(xdata, ydata, start, stop, num, p0 = None):
     xfit = np.linspace(start, stop, num)
     yfit = exp_decay(xfit, popt[0], popt[1], popt[2])
     return popt, xfit, yfit
+
+def mono_exponential_fit(xdata, ydata, start, stop, num, p0 = None):
+    def mono_exp(x, A, B, C):
+        return A * np.exp(-x*B) + C
+    popt, pcov = curve_fit(mono_exp, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = mono_exp(xfit, popt[0], popt[1], popt[2])
+    return popt, xfit, yfit
+
+def NPQ_relaxation_fit(xdata, ydata, start, stop, num, p0 = None):
+    def NPQ_relaxation(x, A, B, C):
+        return A * np.exp(-x*B) + C*x
+    popt, pcov = curve_fit(NPQ_relaxation, xdata, ydata, p0 = p0)
+    xfit = np.linspace(start, stop, num)
+    yfit = NPQ_relaxation(xfit, popt[0], popt[1], popt[2])
+    return popt, xfit, yfit
     
 # def lin_fit(xdata, ydata, start, stop, num, Force_zero = False, stats = False):
 #     if Force_zero:
@@ -115,12 +131,28 @@ def lin_fit(xdata, ydata, start, stop, num, Force_zero=False, stats=False, fixed
         return popt, xfit, yfit, r_squared
 
 
-def Ek_fit(xdata, ydata, start, stop, num, p0 = None):
+def Ek_fit_old(xdata, ydata, start, stop, num, p0 = None):
     def Ek(x, A, B):
         return A * (1 - np.exp(-(x/B)))
     popt, pcov = curve_fit(Ek, xdata, ydata, p0 = p0)
     xfit = np.linspace(start, stop, num)
     yfit = Ek(xfit, popt[0], popt[1])
+    return popt, pcov, xfit, yfit
+
+def Ek_fit(xdata, ydata, start, stop, num, p0=None, errors=None):
+    def Ek(x, A, B):
+        return A * (1 - np.exp(-(x / B)))
+    
+    # Use the 'sigma' parameter for weighting based on errors
+    if errors is None:
+        errors = np.ones_like(ydata)  # Default: equal weighting if no errors provided
+    
+    popt, pcov = curve_fit(Ek, xdata, ydata, p0=p0, sigma=errors, absolute_sigma=True)
+    
+    # Generate fitted data
+    xfit = np.linspace(start, stop, num)
+    yfit = Ek(xfit, *popt)
+    
     return popt, pcov, xfit, yfit
 
 def sat_overshoot_fit(xdata, ydata, start, stop, num, p0 = None):

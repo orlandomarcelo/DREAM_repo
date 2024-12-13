@@ -20,7 +20,7 @@ def sigmoid(x, A, B, C, D):
     return A / (1 + np.exp(-B * (x - C))) + D
 
 def sinusoid(x, A, B, C, D):
-    return A * np.sin(2* np.pi*(B * x + C)) + D
+    return A * np.sin(2* np.pi*(B * x) + C) + D
 
 def RC_transfer(freq, R, C):
     return R / np.sqrt(1 + np.square(freq * R * C))
